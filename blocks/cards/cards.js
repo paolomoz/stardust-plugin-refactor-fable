@@ -40,8 +40,15 @@ export default function decorate(block) {
     const h3 = cell.querySelector('h3');
     if (h3) body.append(h3);
     cell.querySelectorAll('p').forEach((p) => { if (!p.querySelector('a')) body.append(p); });
-    if (link) { const ch = document.createElement('span'); ch.className = 'chev'; ch.textContent = link.textContent || 'Read more'; body.append(ch); }
-    card.append(body);
+    // Visible chevron only for a distinct CTA (not when the link merely repeats the title, e.g. product cards).
+    if (link) {
+      const linkText = (link.textContent || '').trim();
+      const titleText = h3 ? h3.textContent.trim() : '';
+      if (linkText && linkText !== titleText) {
+        const ch = document.createElement('span'); ch.className = 'chev'; ch.textContent = linkText; body.append(ch);
+      }
+    }
+    if (body.childNodes.length) card.append(body);
     grid.append(card);
   });
 
