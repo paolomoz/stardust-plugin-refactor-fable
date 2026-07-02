@@ -1,0 +1,138 @@
+<body>
+  <header></header>
+  <main>
+    <div>
+      <div class="metadata">
+        <div><div>Title</div><div>Get started with Stardust &mdash; install &amp; first redesign</div></div>
+        <div><div>Description</div><div>Install Stardust and run your first redesign &mdash; from any URL to a complete, deployable static site in under 30 minutes. No build step, no lock-in.</div></div>
+        <div><div>Template</div><div>docs</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="docs-nav">
+        <div><div>Stardust &middot; Docs</div></div>
+        <div><div><a href="/stardust-style/docs">Get started</a> <code>01</code></div></div>
+        <div><div><a href="https://stardust.style/docs/commands/">Commands</a> <code>02</code></div></div>
+        <div><div><a href="#install">Install.</a></div></div>
+        <div><div><a href="#shortcut">One URL, three variants.</a></div></div>
+        <div><div><a href="#main-flow">Four sub-commands. One pipeline.</a></div></div>
+        <div><div><a href="#step-1">Capture the current state.</a></div></div>
+        <div><div><a href="#step-2">Direct the redesign.</a></div></div>
+        <div><div><a href="#step-3">Prototype the home page.</a></div></div>
+        <div><div><a href="#step-4">Approve and migrate.</a></div></div>
+        <div><div>brief + seed = star &middot; 2026</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="doc-hero">
+        <div><div>Set up</div></div>
+        <div><div><h1>Your first redesign, <em>end to end.</em></h1></div></div>
+        <div><div>Install Stardust and run your first redesign. From any URL to a complete redesigned static site &mdash; every page, not just the home.</div></div>
+      </div>
+    </div>
+    <div>
+      <h2>Install.</h2>
+      <div class="guide install">
+        <div><div>From inside Claude Code, add the two marketplaces and install both plugins:</div></div>
+        <div>
+          <div>
+            <p><code>$ claude plugin marketplace add adobe/skills</code></p>
+            <p><code>$ claude plugin install stardust@adobe-skills</code></p>
+            <p><code>&#160;</code></p>
+            <p><code>$ claude plugin marketplace add pbakaus/impeccable</code></p>
+            <p><code>$ claude plugin install impeccable@impeccable</code></p>
+          </div>
+        </div>
+        <div><div><em>that's it &mdash; run /stardust:uplift on any URL.</em></div></div>
+        <div>
+          <div>
+            <ul>
+              <li>Requires Claude Code</li>
+              <li>Free</li>
+              <li>Apache 2.0</li>
+            </ul>
+          </div>
+        </div>
+        <div><div>Stardust is free and open source under the Apache 2.0 license &mdash; there is no paid tier.</div></div>
+        <div><div>Built on <a href="https://impeccable.style/">impeccable</a>.</div></div>
+        <div><div>Both plugins need to be installed for Stardust to run. Once installed, the /stardust:* slash commands are available in any Claude Code session. The <a href="https://stardust.style/docs/commands/">commands reference</a> lists every sub-command and flag.</div></div>
+      </div>
+    </div>
+    <div>
+      <p><strong>Shortcut</strong></p>
+      <h2>One URL, three variants.</h2>
+      <div class="guide shortcut">
+        <div><div>The fastest way to get started. Skip the four-step pipeline and run a single command:</div></div>
+        <div><div><p><code>&#8250; /stardust:uplift https://example.com</code></p></div></div>
+        <div><div>uplift collapses extract &rarr; direct &rarr; prototype &times; 3 into a single opinionated command. It picks every variability axis from the captured brand surface &mdash; palette and typography are pinned, the cinematic register is read from the brand personality, and the "what if&hellip;" candidates for variants B and C are walked from a closed catalog so nothing improvises. Output: variant A ("tomorrow's version of the site you have today"), B ("what if we amplified &lt;captured trait&gt;?"), and C ("what if motion was part of the identity?").</div></div>
+        <div><div>Or follow the long form below when you want a full multi-page migration with explicit direction.</div></div>
+      </div>
+    </div>
+    <div>
+      <p><strong>Main flow</strong></p>
+      <h2>Four sub-commands. One pipeline.</h2>
+      <div class="guide flow">
+        <div><div>Stardust is opinionated about which redesign to make and runs it as a chain of commands. Each command writes its own artifacts; the next reads them. Reading the artifacts back, you'll see the whole reasoning trace &mdash; palette picks, divergence inputs, the seed for today.</div></div>
+        <div>
+          <div>
+            <p><code># the four commands you'll meet today</code></p>
+            <p><code>&#8250; /stardust:extract &mdash; capture the current site</code></p>
+            <p><code>&#8250; /stardust:direct &mdash; resolve a redesign direction</code></p>
+            <p><code>&#8250; /stardust:prototype &mdash; generate three variants per page</code></p>
+            <p><code>&#8250; /stardust:migrate &mdash; ship deployable static HTML</code></p>
+          </div>
+        </div>
+        <div><div>Math, not mysticism. Every choice has a provenance. The walkthrough below focuses on the home page; running each command without a slug fans out to the rest. You can stop after any step and pick up later &mdash; Stardust does not lock you into a pipeline.</div></div>
+        <div><div><strong>New site, not a redesign?</strong> Stardust also designs new sites from a brief. Redesigning an existing source is the main use case today; new-site design works but is less battle-tested.</div></div>
+      </div>
+    </div>
+    <div>
+      <p><strong>Step 1</strong></p>
+      <h2>Capture the current state.</h2>
+      <div class="guide step">
+        <div><div>Point Stardust at a URL:</div></div>
+        <div><div><p><code>&#8250; /stardust:extract https://example.com</code></p></div></div>
+        <div><div>If the project hasn't been set up yet, extract starts with a short interview that writes PRODUCT.md at the project root. You answer in your own words; the file captures what you're building and who it's for. Then the crawl begins.</div></div>
+        <div><div>It crawls five pages by default &mdash; the home plus four pillar pages &mdash; captures the brand surface (palette, typography, voice, motifs), and writes everything under stardust/current/. The crawl runs in a real browser, so JavaScript-rendered sites work the same as server-rendered ones.</div></div>
+        <div><div>When it finishes, open the eyeball-check artifact:</div></div>
+        <div><div><p><code>&#8250; open stardust/current/brand-review.html</code></p></div></div>
+        <div><div>You'll see a self-contained visual review of what was captured &mdash; colors, type, logo, motifs, voice samples, and any tensions the detector surfaced. Spend a minute here. If something looks wrong, re-run extract with --refresh &lt;slug&gt; on the misread page before moving on. Misreads are cheap to fix here and expensive later.</div></div>
+      </div>
+    </div>
+    <div>
+      <p><strong>Step 2</strong></p>
+      <h2>Direct the redesign.</h2>
+      <div class="guide step">
+        <div><div>This is the only step where you say what you want. A short phrase is enough.</div></div>
+        <div><div><p><code>&#8250; /stardust:direct "more editorial. lean into typography. keep the existing palette."</code></p></div></div>
+        <div><div>Stardust restates your phrase in dimensional vocabulary, asks at most two clarifying questions if anything is underspecified, and resolves a target direction. It writes the target PRODUCT.md, DESIGN.md, and DESIGN.json at the project root, plus a full reasoning trace at stardust/direction.md.</div></div>
+        <div><div>The trace is worth reading. It tells you which axes the phrase moved, what the seed picked from md5(brand &middot; date), which font deck and palette were chosen, and why. If you disagree, rerun with --re-direct.</div></div>
+        <div><div><strong>Pin what matters to you.</strong> You can lock the type stack and palette by saying so in the phrase: "keep typography and palette." Stardust enters brand-faithful mode and only rolls the dimensions you didn't lock.</div></div>
+      </div>
+    </div>
+    <div>
+      <p><strong>Step 3</strong></p>
+      <h2>Prototype the home page.</h2>
+      <div class="guide step">
+        <div><div><p><code>&#8250; /stardust:prototype home</code></p></div></div>
+        <div><div>Two things happen. First, Stardust writes a per-page composition brief at stardust/prototypes/home-shape.md &mdash; the section list, layout strategy, content sources, anything the brief reviewer would want to challenge before the render. You'll be asked to confirm.</div></div>
+        <div><div>Once you confirm, the proposed redesign renders into stardust/prototypes/home-proposed.html, and a viewer opens automatically &mdash; your current home on the left, the proposed redesign on the right. Review it. If something needs adjusting, edit home-shape.md and re-run prototype to refresh.</div></div>
+        <div><div><strong>For the rest of the site, drop the slug.</strong> Run /stardust:prototype without a slug and Stardust prototypes every directed page in turn &mdash; same direction, same brand surface, page-aware composition for each.</div></div>
+      </div>
+    </div>
+    <div>
+      <p><strong>Step 4</strong></p>
+      <h2>Approve and migrate.</h2>
+      <div class="guide step">
+        <div><div>When the home prototype reads the way you want, signal approval &mdash; click the Approve button in the viewer, or just say "approve home" in the chat.</div></div>
+        <div><div>Then ship the home page:</div></div>
+        <div><div><p><code>&#8250; /stardust:migrate home</code></p></div></div>
+        <div><div>The output is a deployable static HTML file. Drop it on GitHub Pages, your CDN, or any host that serves files. No build step. No framework lock-in.</div></div>
+        <div><div>For the whole site, drop the slug:</div></div>
+        <div><div><p><code>&#8250; /stardust:migrate</code></p></div></div>
+        <div><div>Migrate runs over every approved page in stardust/state.json and emits a complete static site, ready to publish.</div></div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>

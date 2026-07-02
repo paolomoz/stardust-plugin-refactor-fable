@@ -1,0 +1,246 @@
+/*
+ * guide — docs prose/code sections on the cream ground (migrated docs page,
+ * lifted verbatim). Variants: guide install | shortcut | flow | step — same
+ * content pattern, one block; the skin is shared, variant classes carry the
+ * semantic id fallback only.
+ * Runtime contract: blockWrapperClass "none" — scope `.guide ...`,
+ * never `.guide.block`.
+ */
+
+.guide {
+  padding-block: var(--section-pad);
+  border-top: 1px solid var(--ink-hairline, rgb(26 31 56 / 14%));
+  scroll-margin-top: calc(var(--nav-height) + 16px);
+  color: var(--deep-ink);
+}
+
+.guide .prose-col {
+  max-width: 760px;
+  padding-inline: clamp(24px, 5vw, 72px);
+}
+
+/* ── Type roles on cream ── */
+.guide .eyebrow {
+  display: block;
+  margin-bottom: var(--spacing-md);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+}
+
+.guide h2 {
+  margin: 0 0 var(--spacing-lg);
+  font-size: clamp(29px, 3.4vw, 39px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  color: var(--deep-ink);
+  text-wrap: balance;
+}
+
+.guide p {
+  margin-block: var(--spacing-md);
+  max-width: 68ch;
+  text-wrap: pretty;
+}
+
+.guide p a {
+  color: var(--amber-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.guide p a:hover {
+  color: var(--deep-ink);
+}
+
+.guide .fine {
+  font-size: 14px;
+  color: var(--ink-muted, rgb(26 31 56 / 78%));
+}
+
+/* ── Code blocks (deep-ink panels on cream, captured) ── */
+.guide .code-block {
+  position: relative;
+  background: var(--ink-deep);
+  border-radius: var(--radius);
+  margin-block: var(--spacing-lg);
+}
+
+.guide .code-block pre {
+  margin: 0;
+  padding: 20px 96px 20px 22px;
+  font-family: var(--mono);
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--dust);
+}
+
+/* Single-line commands: no-wrap, may overflow with fade cue + visible
+   scrollbar (F-010) */
+.guide .code-block-scroll pre {
+  white-space: pre;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dust-30) transparent;
+}
+
+.guide .code-block-scroll pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.guide .code-block-scroll pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.guide .code-block-scroll pre::-webkit-scrollbar-thumb {
+  background: var(--dust-30);
+  border-radius: var(--radius-pill);
+}
+
+.guide .code-block-scroll::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 10px;
+  width: 40px;
+  background: linear-gradient(90deg, rgb(6 10 20 / 0%), var(--ink-deep));
+  border-radius: 0 var(--radius) var(--radius) 0;
+  pointer-events: none;
+}
+
+/* Prose-length examples: pre-wrap, can never truncate (F-003) */
+.guide .code-block-wrap pre {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+/* Copy button — mono chip, text-only confirmation (F-005) */
+.guide .copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dust-72);
+  background: var(--ink-soft);
+  border: 1px solid var(--dust-15);
+  border-radius: var(--radius);
+  padding: 6px 12px;
+  cursor: pointer;
+  transition:
+    color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.guide .copy-btn:hover {
+  color: var(--dust);
+  border-color: var(--dust-30);
+}
+
+.guide .copy-btn.is-copied {
+  color: var(--amber);
+  border-color: rgb(232 185 94 / 40%);
+}
+
+/* ── Install extras: fact chips + confirmation beat ── */
+.guide .chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-block: var(--spacing-lg);
+}
+
+.guide .chip {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+  border: 1px solid rgb(133 79 23 / 40%);
+  border-radius: var(--radius);
+  padding: 7px 12px;
+}
+
+.guide .confirm-beat {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--amber-deep);
+  margin-top: var(--spacing-md);
+}
+
+/* ── Callout (captured amber-tinted note card) ── */
+.guide .callout {
+  background: rgb(232 185 94 / 16%);
+  border: 1px solid rgb(133 79 23 / 25%);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  margin-block: var(--spacing-lg);
+  max-width: 68ch;
+}
+
+.guide .callout p {
+  margin: 0;
+}
+
+.guide .callout strong {
+  color: var(--deep-ink);
+}
+
+/* Focus: amber-deep ring on cream; pairing rule holds on ink code panels —
+   amber ring there (amber-deep on ink-deep is 2.81:1, fails 1.4.11) */
+.guide :focus-visible {
+  outline: 2px solid var(--amber-deep);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.guide .code-block :focus-visible {
+  outline-color: var(--amber);
+}
+
+@media (width <= 640px) {
+  .guide .code-block pre {
+    padding: 16px 16px 14px;
+    font-size: 13.5px;
+  }
+
+  .guide .copy-btn {
+    position: static;
+    display: inline-flex;
+    margin: 12px 16px 0;
+  }
+
+  .guide .code-block {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 12px;
+  }
+
+  .guide .code-block-scroll::after {
+    bottom: 46px;
+  }
+}
+
+/* ── Touch adaptation: input method, not screen size ── */
+@media (pointer: coarse) {
+  .guide .copy-btn {
+    padding: 13px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guide .copy-btn {
+    transition-duration: 0.01ms;
+  }
+}

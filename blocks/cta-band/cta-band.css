@@ -1,0 +1,104 @@
+/* cta-band — centered conversion band over a radial ink glow. Lifted from
+   stardust/migrated/index.html section[data-section="cta-band"]; scoped
+   .cta-band. The block paints its own full-bleed surface. */
+
+.cta-band {
+  padding-block: var(--spacing-2xl);
+  background: radial-gradient(80% 90% at 50% 110%, #1a2450 0%, #0a1024 70%);
+  text-align: center;
+}
+
+/* #13/#74 styled max-width wrap */
+.cta-band .wrap {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.cta-band .cta-inner {
+  display: grid;
+  justify-items: center;
+  gap: var(--spacing-lg);
+}
+
+.cta-band .cta-inner h2 {
+  max-width: 16ch;
+  font-size: clamp(39px, 5.3vw, 76px);
+  font-weight: 600;
+  letter-spacing: -0.032em;
+  line-height: var(--line-height-heading);
+  text-wrap: balance;
+}
+
+.cta-band .cta-inner h2 .ai,
+.cta-band .cta-inner h2 em {
+  color: var(--amber);
+  font-style: italic;
+}
+
+.cta-band .cta-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.cta-band .cta-beat {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--dust-72);
+}
+
+.cta-band .cmd-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  max-width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--dust-15);
+  border-radius: var(--radius);
+  background: var(--ink-deep);
+}
+
+.cta-band .cmd-chip code {
+  font-family: var(--mono);
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-weight: 600;
+  color: var(--amber-light);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.cta-band .copy-btn {
+  padding: 6px 12px;
+  border: 1px solid var(--dust-15);
+  border-radius: var(--radius);
+  background: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dust-72);
+  transition:
+    color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-band .copy-btn:hover {
+  border-color: var(--dust-30);
+  color: var(--dust);
+}
+
+.cta-band .copy-btn.is-copied {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-band .copy-btn {
+    transition-duration: 0.01ms;
+  }
+}

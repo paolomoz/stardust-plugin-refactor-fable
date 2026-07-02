@@ -1,0 +1,107 @@
+/* pipeline — numbered four-step ledger. Lifted from
+   stardust/migrated/index.html section[data-section="how-it-works-pipeline"];
+   scoped .pipeline (the block root; the list itself is .pipeline .steps).
+   Body ink ground — no own wash. */
+
+.pipeline {
+  padding-block: var(--section-pad);
+}
+
+/* #13/#74 styled max-width wrap */
+.pipeline .wrap {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.pipeline .section-head {
+  display: grid;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.pipeline .section-head h2 {
+  font-size: clamp(39px, 5.3vw, 76px);
+  font-weight: 600;
+  letter-spacing: -0.032em;
+  line-height: var(--line-height-heading);
+  text-wrap: balance;
+}
+
+.pipeline .deck {
+  max-width: 34em;
+  font-family: var(--display);
+  font-size: clamp(18px, 2vw, 25px);
+  font-weight: 500;
+  letter-spacing: -0.022em;
+  line-height: 1.3;
+  color: var(--dust-72);
+}
+
+.pipeline .deck em {
+  color: var(--amber);
+  font-style: italic;
+}
+
+.pipeline .muted {
+  max-width: 62ch;
+  color: var(--dust-72);
+}
+
+.pipeline .steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pipeline .steps li {
+  display: grid;
+  grid-template-columns: 72px 200px minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--spacing-lg);
+  border-top: 1px solid var(--dust-08);
+  padding-block: var(--spacing-lg);
+}
+
+.pipeline .steps li:last-child {
+  border-bottom: 1px solid var(--dust-08);
+}
+
+.pipeline .num {
+  font-family: var(--mono);
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--dust-55);
+}
+
+.pipeline .steps h3 {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: var(--dust);
+}
+
+.pipeline .steps p {
+  max-width: 62ch;
+  color: var(--dust-72);
+}
+
+@media (width <= 1023px) {
+  .pipeline .steps li {
+    grid-template-columns: 56px 150px minmax(0, 1fr);
+  }
+}
+
+@media (width <= 767px) {
+  .pipeline .steps li {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .pipeline .steps p {
+    grid-column: 2;
+  }
+}

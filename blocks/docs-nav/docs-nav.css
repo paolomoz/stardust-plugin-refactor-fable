@@ -1,0 +1,249 @@
+/*
+ * docs-nav — captured docs sidebar (migrated docs page, lifted verbatim).
+ * >= 1024px: fixed ink rail under the sticky header (the content offset —
+ * body.docs-template main { padding-left } — lives in templates/docs/docs.css,
+ * because a fixed block cannot reliably restyle sibling sections).
+ * < 1024px: static ink top bar + CSS-only details/summary jump menu (F-010).
+ * Runtime contract: blockWrapperClass "none" — scope `.docs-nav ...`,
+ * never `.docs-nav.block`.
+ */
+
+.docs-nav {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-w, 240px);
+  background: var(--ink);
+  border-right: 1px solid var(--dust-08);
+  overflow-y: auto;
+  color: var(--dust);
+}
+
+.docs-nav .side-nav {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 28px 16px 20px;
+}
+
+.docs-nav .side-mark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-inline: 8px;
+  margin-bottom: 28px;
+}
+
+.docs-nav .side-mark svg {
+  width: 12px;
+  height: 12px;
+  flex: none;
+}
+
+.docs-nav .side-mark span {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dust-55);
+}
+
+.docs-nav .side-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.docs-nav .side-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-family: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dust-72);
+  transition:
+    color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.docs-nav .side-item .side-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--dust-55);
+}
+
+.docs-nav .side-item:hover {
+  color: var(--dust);
+  background: var(--dust-08);
+}
+
+.docs-nav .side-item[aria-current="page"] {
+  background: rgb(232 185 94 / 12%);
+  color: var(--amber-light);
+}
+
+.docs-nav .side-item[aria-current="page"] .side-num {
+  color: var(--amber);
+}
+
+.docs-nav .side-sigil {
+  margin-top: auto;
+  padding: 20px 8px 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--dust-55);
+}
+
+.docs-nav .side-jump {
+  display: none;
+}
+
+/* amber focus ring on the ink rail (pairing rule: amber on ink) */
+.docs-nav :focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── < 1024px: sidebar becomes a static top bar + jump menu (F-010) ── */
+@media (width <= 1023px) {
+  .docs-nav {
+    position: static;
+    width: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--dust-08);
+    overflow: visible;
+  }
+
+  .docs-nav .side-nav {
+    min-height: 0;
+    padding: 14px var(--pad);
+    gap: 12px;
+  }
+
+  .docs-nav .side-mark {
+    margin-bottom: 0;
+    padding-inline: 0;
+  }
+
+  .docs-nav .side-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .docs-nav .side-items {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .docs-nav .side-item {
+    padding: 8px 12px;
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .docs-nav .side-sigil {
+    display: none;
+  }
+
+  /* CSS-only jump-to-section menu */
+  .docs-nav .side-jump {
+    display: block;
+  }
+
+  .docs-nav .side-jump summary {
+    list-style: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dust-72);
+    border: 1px solid var(--dust-15);
+    border-radius: var(--radius);
+    padding: 8px 12px;
+  }
+
+  .docs-nav .side-jump summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .docs-nav .side-jump summary::after {
+    content: "+";
+    font-family: var(--mono);
+    color: var(--dust-55);
+  }
+
+  .docs-nav .side-jump[open] summary::after {
+    content: "–";
+  }
+
+  .docs-nav .side-jump summary:hover {
+    color: var(--dust);
+    border-color: var(--dust-30);
+  }
+
+  .docs-nav .jump-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 2px 2px;
+  }
+
+  .docs-nav .jump-list a {
+    font-size: 14px;
+    color: var(--dust-72);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: var(--radius);
+  }
+
+  .docs-nav .jump-list a:hover {
+    color: var(--dust);
+    background: var(--dust-08);
+  }
+}
+
+@media (width >= 1024px) {
+  .docs-nav .side-top {
+    display: contents;
+  }
+}
+
+/* ── Touch adaptation: input method, not screen size ── */
+@media (pointer: coarse) {
+  .docs-nav .side-item {
+    padding: 13px 14px;
+  }
+
+  .docs-nav .side-jump summary {
+    padding: 12px 14px;
+  }
+
+  .docs-nav .jump-list a {
+    padding: 12px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .docs-nav .side-item {
+    transition-duration: 0.01ms;
+  }
+}

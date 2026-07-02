@@ -1,0 +1,53 @@
+/*
+ * templates/docs/docs.css — docs template (page metadata row `Template: docs`).
+ *
+ * Mechanism: the delivery pipeline turns the metadata row into
+ * <meta name="template" content="docs">; scripts/ak.js loadTemplate() loads
+ * this file and adds `docs-template` to <body>. Page-level rules only:
+ * the cream ground inversion (captured docs template), the content offset
+ * for the fixed ink sidebar (blocks/docs-nav), and the F-021 outlined-active
+ * Docs pill state on the shared header fragment. Per-section paint lives in
+ * blocks/docs-nav, blocks/doc-hero, and blocks/guide.
+ */
+
+body.docs-template {
+  --sidebar-w: 240px;
+
+  /* muted prose + hairline steps on cream (migrated docs :root) */
+  --ink-muted: rgb(26 31 56 / 78%);
+  --ink-hairline: rgb(26 31 56 / 14%);
+
+  background: var(--dust);
+  color: var(--deep-ink);
+}
+
+body.docs-template main {
+  background: var(--dust);
+}
+
+/* Content sits right of the fixed ink rail (blocks/docs-nav) at >= 1024px.
+   The rail is position: fixed, so padding the shared container is the only
+   reliable cross-block offset (docs-nav CSS cannot restyle sibling sections). */
+@media (width >= 1024px) {
+  body.docs-template main {
+    padding-left: var(--sidebar-w);
+  }
+
+  /* migrated page-shell: the footer also sits right of the rail */
+  body.docs-template footer {
+    margin-left: var(--sidebar-w);
+  }
+}
+
+/* F-021 — distinct active state for the Docs pill on docs pages
+   (outlined-active). Scoped page CSS over the shared header fragment;
+   the fragment file itself is untouched. */
+body.docs-template header .nav-pill {
+  background: transparent;
+  color: var(--amber);
+  box-shadow: inset 0 0 0 1.5px var(--amber);
+}
+
+body.docs-template header .nav-pill:hover {
+  background: rgb(232 185 94 / 12%);
+}

@@ -1,0 +1,85 @@
+/* ai-facing — the page's ONE card band. Lifted from
+   stardust/migrated/index.html section[data-section="ai-facing"];
+   scoped .ai-facing. Body ink ground — no own wash. */
+
+.ai-facing {
+  padding-block: var(--section-pad);
+}
+
+/* #13/#74 styled max-width wrap */
+.ai-facing .wrap {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.ai-facing .section-head {
+  display: grid;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.ai-facing .section-head h2 {
+  font-size: clamp(39px, 5.3vw, 76px);
+  font-weight: 600;
+  letter-spacing: -0.032em;
+  line-height: var(--line-height-heading);
+  text-wrap: balance;
+}
+
+.ai-facing .deck {
+  max-width: 34em;
+  font-family: var(--display);
+  font-size: clamp(18px, 2vw, 25px);
+  font-weight: 500;
+  letter-spacing: -0.022em;
+  line-height: 1.3;
+  color: var(--dust-72);
+}
+
+.ai-facing .deck em {
+  color: var(--amber);
+  font-style: italic;
+}
+
+.ai-facing .ai-facing-lede {
+  max-width: 62ch;
+  margin-bottom: var(--spacing-xl);
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.55;
+  color: var(--dust-72);
+}
+
+.ai-facing .card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.ai-facing .card {
+  display: grid;
+  align-content: start;
+  gap: var(--spacing-md);
+  border: 1px solid var(--dust-08);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  background: var(--ink-soft);
+}
+
+.ai-facing .card h3 {
+  font-size: clamp(20px, 2.4vw, 31px);
+  font-weight: 600;
+  letter-spacing: -0.024em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.ai-facing .card p {
+  color: var(--dust-72);
+}
+
+@media (width <= 767px) {
+  .ai-facing .card-grid {
+    grid-template-columns: 1fr;
+  }
+}

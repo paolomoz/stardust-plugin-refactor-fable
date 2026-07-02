@@ -47,3 +47,13 @@ migrated the static file (correct per artifact-map "static prototype is the load
 artifact for migration consumption") and copied lenis assets without wiring them. Fix direction:
 either spec the cinematic merge in migrate (motion data-* + runtime + assets carried when the
 cinematic sibling exists) or soften the prototype SKILL.md sentence.
+
+## L6 — token hygiene must be a phase-0 gate, not a deploy-time discovery [process] [pending]
+The deploy skill's "Token hygiene (#16)" says to check .gitignore covers .env "before the first
+commit" — but in the happy-path pipeline the first commits happen at the END of the audit phase
+(hands-off default commits per phase), long before deploy's SKILL.md is ever read. This run
+committed .env (DA_TOKEN + an AWS key) into 6 local commits; GitHub push protection (GH013)
+rejected the push at deploy time and the bootstrap agent had to filter-branch the unpushed
+history. Nothing leaked (push protection + unpushed-only rewrite), but all local SHAs changed
+mid-run. Fix direction: the master skill's hands-off "commit at the end of each phase" rule
+should carry the .env/.gitignore check itself (phase-0), not leave it to the deploy skill.

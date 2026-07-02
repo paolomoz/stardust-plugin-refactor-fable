@@ -1,0 +1,58 @@
+/*
+ * doc-hero — docs lead section on the cream prose ground (migrated docs
+ * page, lifted verbatim). Runtime contract: blockWrapperClass "none" —
+ * scope `.doc-hero ...`, never `.doc-hero.block`.
+ */
+
+.doc-hero {
+  padding-block: var(--section-pad);
+  scroll-margin-top: calc(var(--nav-height) + 16px);
+  color: var(--deep-ink);
+}
+
+.doc-hero .prose-col {
+  max-width: 760px;
+  padding-inline: clamp(24px, 5vw, 72px);
+}
+
+.doc-hero .eyebrow {
+  display: block;
+  margin-bottom: var(--spacing-md);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+}
+
+.doc-hero h1 {
+  font-size: clamp(39px, 5.6vw, 61px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.032em;
+  color: var(--deep-ink);
+  text-wrap: balance;
+}
+
+/* the amber-italic accent (.ai) — authored as <em>, DA-preserved */
+.doc-hero h1 em {
+  color: var(--amber-deep);
+  font-style: italic;
+}
+
+.doc-hero .lede {
+  margin-top: var(--spacing-lg);
+  margin-bottom: 0;
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--ink-muted, rgb(26 31 56 / 78%));
+  max-width: 32em;
+  text-wrap: pretty;
+}
+
+@media (width <= 640px) {
+  .doc-hero .lede {
+    font-size: 18px;
+  }
+}

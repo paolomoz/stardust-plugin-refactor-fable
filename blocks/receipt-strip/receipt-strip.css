@@ -1,0 +1,125 @@
+/* receipt-strip — variant receipt strip on an ink-deep full-bleed band.
+   Lifted from stardust/migrated/index.html
+   section[data-section="variant-receipt-strip"]; scoped .receipt-strip.
+   The block paints its own section surface; content constrained by .wrap. */
+
+.receipt-strip {
+  padding-block: var(--section-pad);
+  background: var(--ink-deep);
+}
+
+/* #13/#74 styled max-width wrap */
+.receipt-strip .wrap {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.receipt-strip .section-head {
+  display: grid;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.receipt-strip .section-head h2 {
+  font-size: clamp(39px, 5.3vw, 76px);
+  font-weight: 600;
+  letter-spacing: -0.032em;
+  line-height: var(--line-height-heading);
+  text-wrap: balance;
+}
+
+.receipt-strip .eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.receipt-strip .receipt {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) 220px;
+  border-block: 1px dotted var(--dust-15);
+}
+
+.receipt-strip .receipt-stub {
+  display: grid;
+  align-content: start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+}
+
+.receipt-strip .receipt-stub + .receipt-stub {
+  border-left: 1px dotted var(--dust-15);
+}
+
+.receipt-strip .stub-letter {
+  font-family: var(--mono);
+  font-size: clamp(39px, 4vw, 49px);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--amber);
+}
+
+.receipt-strip .stub-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--dust-55);
+}
+
+.receipt-strip .stub-thesis {
+  font-family: var(--display);
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.022em;
+  line-height: 1.3;
+  color: var(--dust);
+}
+
+.receipt-strip .stub-thesis .ai,
+.receipt-strip .stub-thesis em {
+  color: var(--amber);
+  font-style: italic;
+}
+
+.receipt-strip .receipt-seed {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+}
+
+.receipt-strip .receipt-seed code {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--amber);
+  white-space: nowrap;
+}
+
+@media (width <= 1023px) {
+  .receipt-strip .receipt {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .receipt-strip .receipt-seed {
+    grid-column: 1 / -1;
+    border-top: 1px dotted var(--dust-15);
+  }
+}
+
+@media (width <= 767px) {
+  .receipt-strip .receipt {
+    grid-template-columns: 1fr;
+  }
+
+  .receipt-strip .receipt-stub + .receipt-stub {
+    border-top: 1px dotted var(--dust-15);
+    border-left: 0;
+  }
+}
