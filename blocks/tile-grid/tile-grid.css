@@ -1,11 +1,11 @@
-.tile-grid.block{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border)}
-.tile-grid.block .tile{position:relative;background:var(--bg);aspect-ratio:3/4;overflow:hidden;cursor:pointer}
-.tile-grid.block .tile-media{position:absolute;inset:0}
-.tile-grid.block .tile-media img,.tile-grid.block .tile-media picture{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1);filter:saturate(.92)}
-.tile-grid.block .tile:hover .tile-media img{transform:scale(1.05)}
-.tile-grid.block .tile-label{position:absolute;inset:auto 0 0 0;padding:20px;background:linear-gradient(to top,rgba(0,0,0,.72),transparent);color:#fff;font-weight:700;font-size:1.25rem;z-index:2;display:flex;justify-content:space-between;align-items:center}
-.tile-grid.block .tile-label a{color:#fff}
-.tile-grid.block .tile-label::after{content:"→";color:var(--red);opacity:0;transform:translateX(-4px);transition:.25s}
-.tile-grid.block .tile:hover .tile-label::after{opacity:1;transform:none}
-@media(max-width:900px){.tile-grid.block{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:540px){.tile-grid.block{grid-template-columns:1fr}}
+.tile-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border)}
+.tile-grid .tile{position:relative;background:var(--bg);aspect-ratio:3/4;overflow:hidden;cursor:pointer}
+.tile-grid .tile-media{position:absolute;inset:0}
+.tile-grid .tile-media img,.tile-grid .tile-media picture{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1);filter:saturate(.92)}
+.tile-grid .tile:hover .tile-media img{transform:scale(1.05)}
+.tile-grid .tile-label{position:absolute;inset:auto 0 0 0;padding:20px;background:linear-gradient(to top,rgba(0,0,0,.72),transparent);color:#fff;font-weight:700;font-size:1.25rem;z-index:2;display:flex;justify-content:space-between;align-items:center}
+.tile-grid .tile-label a{color:#fff}
+.tile-grid .tile-label::after{content:"→";color:var(--red);opacity:0;transform:translateX(-4px);transition:.25s}
+.tile-grid .tile:hover .tile-label::after{opacity:1;transform:none}
+@media(max-width:900px){.tile-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.tile-grid{grid-template-columns:1fr}}

@@ -1,4 +1,4 @@
-.statement.block .st-row{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:end}
-.statement.block .st-lead h2{font-size:clamp(2rem,3.4vw,3rem);max-width:16ch;margin:0}
-.statement.block .st-side p{color:var(--text-2);font-size:1.15rem;margin:0 0 24px}
-@media(max-width:900px){.statement.block .st-row{grid-template-columns:1fr;gap:24px}}
+.statement .st-row{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:end}
+.statement .st-lead h2{font-size:clamp(2rem,3.4vw,3rem);max-width:16ch;margin:0}
+.statement .st-side p{color:var(--text-2);font-size:1.15rem;margin:0 0 24px}
+@media(max-width:900px){.statement .st-row{grid-template-columns:1fr;gap:24px}}
