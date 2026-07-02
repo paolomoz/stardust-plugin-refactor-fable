@@ -19,12 +19,19 @@ function reabsorbHead(block) {
   return null;
 }
 
-function cardFromParts(parts) {
-  const link = parts.map((p) => (p.matches('a') ? p : p.querySelector('a'))).find(Boolean);
-  const media = parts.map((p) => (p.matches('picture, img') ? p : p.querySelector('picture, img'))).find(Boolean);
-  const heading = parts.map((p) => (p.matches('h2, h3, h4') ? p : p.querySelector('h2, h3, h4'))).find(Boolean);
-  const copy = parts.find((p) => p.matches('p') && !p.querySelector('a, picture, img')
-    && (!heading || !heading.contains(p)) && p.textContent.trim());
+function cardFromRow(row) {
+  const cells = [...row.querySelectorAll(':scope > div')];
+  const link = row.querySelector('a');
+  const media = row.querySelector('picture, img');
+  const heading = row.querySelector('h2, h3, h4');
+  // copy: the cell with neither media nor heading — read via textContent, the
+  // pipeline unwraps <p> in single-text cells (#79)
+  const copyCell = cells.find((c) => !c.querySelector('picture, img, h2, h3, h4') && c.textContent.trim());
+  let copy = null;
+  if (copyCell) {
+    copy = document.createElement('p');
+    copy.textContent = copyCell.textContent.trim();
+  }
 
   const card = document.createElement('a');
   card.className = 'ed-card';
@@ -73,7 +80,7 @@ export default async function decorate(block) {
 
   const grid = document.createElement('div');
   grid.className = 'editorial-grid';
-  cardRows.forEach((row) => grid.append(cardFromParts([...row.querySelectorAll(':scope > div > *'), ...row.children])));
+  cardRows.forEach((row) => grid.append(cardFromRow(row)));
   wrap.append(grid);
 
   block.replaceChildren(wrap);
