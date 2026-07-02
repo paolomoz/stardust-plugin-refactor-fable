@@ -1,3 +1,4 @@
 {"ts":"2026-07-02T14:00:00Z","skill":"audit","phase":"setup","event":"start","note":"hands-off mode active; capability probes: refero=available, marketing-skills=available, modern-web-guidance=available, psi=unavailable(429), rollout=absent, impeccable=available"}
 {"ts":"2026-07-02T12:12:06Z","skill":"extract","phase":"complete","event":"end","note":"4/4 pages live-rendered, brand surface + review written"}
 {"ts":"2026-07-02T13:05:29Z","skill":"audit","phase":"complete","event":"end","note":"overall 68/100; 22 findings (5 P1, 8 P2, 9 P3); report.html craft-rendered + validated; benchmarks via refero (Langbase, Eraser, Metaview)"}
+{"ts":"2026-07-02T13:12:01Z","skill":"direct","phase":"complete","event":"end","note":"Mode A brand-faithful, single canonical direction; seed 2025-now × folded-paper-ephemera × pharmacy-insert × dark(inherited); refero anchors Langbase/Eraser/Metaview; improvements lists for index+docs; motion register live-systems"}

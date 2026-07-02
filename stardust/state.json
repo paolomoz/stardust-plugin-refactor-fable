@@ -14,7 +14,13 @@
     "totalDiscovered": 4,
     "crawled": 4
   },
-  "direction": null,
+  "direction": {
+    "resolvedAt": "2026-07-02T13:12:01.965Z",
+    "phrase": "make it dramatically better from a design and SEO/LLM-readability standpoint while unmistakably stardust.style",
+    "directionFile": "stardust/direction.md",
+    "mode": "A (brand-faithful)",
+    "variantMode": "single"
+  },
   "handsOff": true,
   "pages": [
     {
@@ -22,9 +28,12 @@
       "url": "https://stardust.style/",
       "title": "Stardust — AI website redesign tool, math not mysticism",
       "type": null,
-      "status": "extracted",
+      "status": "directed",
       "history": [
-        { "status": "extracted", "at": "2026-07-02T12:03:19.840Z" }
+        {
+          "status": "extracted",
+          "at": "2026-07-02T12:03:19.840Z"
+        }
       ],
       "stale": false,
       "staleReason": null,
@@ -37,9 +46,12 @@
       "url": "https://stardust.style/aem",
       "title": "Stardust on AEM Edge Delivery — production-ready",
       "type": null,
-      "status": "extracted",
+      "status": "directed",
       "history": [
-        { "status": "extracted", "at": "2026-07-02T12:03:19.838Z" }
+        {
+          "status": "extracted",
+          "at": "2026-07-02T12:03:19.838Z"
+        }
       ],
       "stale": false,
       "staleReason": null,
@@ -52,9 +64,12 @@
       "url": "https://stardust.style/docs/",
       "title": "Get started with Stardust — install & first redesign",
       "type": null,
-      "status": "extracted",
+      "status": "directed",
       "history": [
-        { "status": "extracted", "at": "2026-07-02T12:03:19.836Z" }
+        {
+          "status": "extracted",
+          "at": "2026-07-02T12:03:19.836Z"
+        }
       ],
       "stale": false,
       "staleReason": null,
@@ -67,9 +82,12 @@
       "url": "https://stardust.style/docs/commands/",
       "title": "Stardust commands reference — every sub-command & flag",
       "type": null,
-      "status": "extracted",
+      "status": "directed",
       "history": [
-        { "status": "extracted", "at": "2026-07-02T12:03:19.838Z" }
+        {
+          "status": "extracted",
+          "at": "2026-07-02T12:03:19.838Z"
+        }
       ],
       "stale": false,
       "staleReason": null,

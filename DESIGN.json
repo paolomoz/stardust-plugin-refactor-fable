@@ -1,0 +1,296 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:direct",
+    "writtenAt": "2026-07-02T14:58:00Z",
+    "againstInput": "make it dramatically better from a design and SEO/LLM-readability standpoint while unmistakably stardust.style (Mode A, hands-off)",
+    "readArtifacts": [
+      "stardust/current/DESIGN.json",
+      "stardust/current/_brand-extraction.json",
+      "stardust/audit/stardust-style/audit.json"
+    ],
+    "synthesizedInputs": [],
+    "stardustVersion": "0.14.2"
+  },
+  "schemaVersion": 2,
+  "name": "Stardust (target)",
+  "extensions": {
+    "colorMeta": {
+      "pairings": {
+        "amber": "ink-grounds-only (10.37:1)",
+        "amber-deep": "dust-grounds-only (5.91:1)",
+        "amber-light": "ink-grounds-only",
+        "dust": "ink-grounds; alpha ramp restricted to 72 (muted text), 55 (fine print), 08/15 (hairlines only)"
+      },
+      "accentSpendRule": "each page spends amber on exactly one committed proof moment beyond chrome (home: variant strip; docs: fact-panel chips; aem: pipeline band)"
+    },
+    "typographyMeta": {
+      "scale": {
+        "name": "major-third",
+        "base": 16,
+        "ratio": 1.25,
+        "steps": [
+          12.8,
+          16,
+          20,
+          25,
+          31,
+          39,
+          49,
+          61,
+          76,
+          95,
+          119
+        ],
+        "note": "snapped to captured landmarks 77.6→76, 96→95, 112→119"
+      },
+      "webfonts": "forbidden — system stacks are a captured brand decision"
+    },
+    "shadows": {
+      "frame": "rgba(0,0,0,0.45) 0px 24px 60px 0px",
+      "stickyNav": "rgba(6,10,20,0.25) 0px 6px 20px 0px",
+      "rule": "hairline-not-shadow everywhere else; receipt strip may use 1px dotted dust-15"
+    },
+    "motion": {
+      "register": "live-systems",
+      "registerRationale": "PRODUCT.md Brand Personality: operationally-transparent + data-led ('Every choice has a source… has a hash') → live-systems per motion-registers.md selection heuristic",
+      "easings": {
+        "entrance": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "transition": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "expo": "cubic-bezier(0.16, 1, 0.3, 1)"
+      },
+      "durations": {
+        "enter": 700,
+        "stagger": 80
+      },
+      "parallax": {
+        "translate": 6,
+        "fade": 0.35,
+        "rangeStart": 10,
+        "range": 60
+      },
+      "constraints": [
+        "space-safe letter splits only (F-004)",
+        "prefers-reduced-motion: full static fallback (captured site already complies — preserve)",
+        "no scroll-jack"
+      ]
+    },
+    "breakpoints": {
+      "desktop": 1440,
+      "tablet": 768,
+      "mobile": 390
+    },
+    "divergence": {
+      "toolkit_version": "v1.0 (stardust v2)",
+      "mode": "A (brand-faithful) — signal-strong, no rebrand trigger",
+      "seed": {
+        "input": "Stardust|2026-07-02",
+        "decade": "2025-now",
+        "craft": "Folded-paper ephemera",
+        "register": "Pharmacy insert",
+        "ground_family": "dark",
+        "picked_by": "mixed — decade: reasoned (all researched anchors are current dark devtool editorial); craft+register: deterministic roll (md5 bytes 139/46); ground: rolled pale-gray OVERRIDDEN",
+        "overrides": [
+          {
+            "dimension": "ground_family",
+            "rolled": "pale-gray",
+            "resolved": "dark",
+            "reason": "brand-faithful"
+          }
+        ]
+      },
+      "font_deck": {
+        "name": "brand-inherited",
+        "picked_by": "user-constraint"
+      },
+      "palette": {
+        "source": "inherited from _brand-extraction.json",
+        "picked_by": "user-constraint"
+      },
+      "anti_toolbox_count": 2,
+      "anti_toolbox_hits": [
+        {
+          "move": "Sticky top navigation",
+          "justification": "captured brand chrome — the 60px deep-ink sticky header is the site's own persistent surface, preserved under Mode A"
+        },
+        {
+          "move": "Mono uppercase eyebrow labels",
+          "justification": "captured signature (0.22–0.24em tracked SF Mono eyebrows) — retained but disciplined to ≤1 per section per improvements #2; the sprawl, not the move, was the defect"
+        }
+      ],
+      "off_toolbox_moves": [
+        "receipt strip (folded-paper ephemera: dotted perforation hairlines, ledger numerals, seed-hash stub)",
+        "fact panel (pharmacy-insert register: dosage-table key facts in crawlable text)"
+      ],
+      "audit_adjustments": [],
+      "references_used": [
+        {
+          "anchor": "Langbase",
+          "url": "https://langbase.com",
+          "implied": "decade 2025-now; two-level text-color discipline informing the dust alpha-ramp restriction",
+          "via": "refero MCP style 6faf7a27"
+        },
+        {
+          "anchor": "Eraser",
+          "url": "https://www.tryeraser.com",
+          "implied": "decade 2025-now; role-based type scale + strict radius vocabulary informing the major-third scale and 3-radius rule",
+          "via": "refero MCP style 66b9ff99"
+        },
+        {
+          "anchor": "Metaview",
+          "url": "https://metaview.ai",
+          "implied": "decade 2025-now; single-accent discipline informing the pairing + accent-spend rules",
+          "via": "refero MCP style 13ff020d"
+        }
+      ],
+      "palette_source": {
+        "library_version": null,
+        "candidates": [],
+        "recommended_index": null,
+        "picked_index": null,
+        "note": "inherited — Mode A pin"
+      },
+      "brand_faithful_inversions": [
+        "Color tokens retained in hex format (matches captured brand surface and DESIGN.md Stitch frontmatter convention). OKLCH applies to new authoring; this is inheritance.",
+        "Saturated #e8b95e retained as the primary brand accent (existing brand uses it as the canonical voice; HSL saturation ~75%). The agent-default reflex toward tinted-neutral primaries is inverted per brand-faithful direction.",
+        "System-font stacks retained (SF Pro Display/Text + SF Mono, zero webfont bytes) — the captured brand runs deliberately on platform faces; the 'own a display face' reflex the benchmark set exhibits (National 2 Condensed, Geist, Euclid) is declined per brand-faithful direction.",
+        "Type-only hero with radial glow + starfield retained (no hero photography exists on the captured surface); the 'hero needs imagery' reflex is inverted per brand-faithful direction."
+      ],
+      "brand_adjacent_refinements": []
+    },
+    "componentStyle": {
+      "buttons": {
+        "primary": "amber fill / ink text / 4px / 14x24 / 600",
+        "ghost": "transparent / dust text / dust-30 hairline",
+        "navPill": "amber / mono 700 uppercase / 999px",
+        "copyButton": "mono 12px chip, ink-soft on ink, text-only confirmation state (new — F-005)"
+      },
+      "cards": {
+        "ink": "soft-ink fill, 14px, 1px dust-08 hairline, no shadow",
+        "cream": "1px rgba(26,31,56,0.18) hairline"
+      },
+      "codeBlocks": {
+        "ground": "ink-deep",
+        "radius": "4px",
+        "wrap": "pre-wrap on prose-length examples (F-003); fade cue + styled scrollbar when scroll is unavoidable (F-010)"
+      },
+      "factPanel": {
+        "ground": "dust",
+        "rows": "mono label left / fact right",
+        "radius": "4px",
+        "accents": "amber-deep"
+      },
+      "receiptStrip": {
+        "layout": "full-width ledger row",
+        "hairline": "1px dotted dust-15",
+        "numerals": "mono",
+        "stub": "seed hash"
+      },
+      "dualCTAPattern": "primary (amber) + ghost, hero AND closing band (F-005)"
+    },
+    "systemComponentRoles": {
+      "header": {
+        "purpose": "global nav",
+        "positionClass": "sticky-top",
+        "constraint": "60px deep-ink; DOCS pill gains active state on docs pages (F-021)"
+      },
+      "footer": {
+        "purpose": "global contentinfo",
+        "positionClass": "page-end",
+        "constraint": "fact line (Open source · Apache 2.0 · built by the AEM team at Adobe) on EVERY page (F-018); sigil ≥ dust-55 (F-014)"
+      },
+      "cta-band": {
+        "purpose": "closing conversion restatement",
+        "positionClass": "after-last-content-section",
+        "constraint": "one primary install CTA + one ghost GitHub CTA; required on marketing pages (F-005)"
+      },
+      "fact-sheet": {
+        "purpose": "crawlable key-facts panel (price/license/maker/requirement)",
+        "positionClass": "near-conversion-moment",
+        "constraint": "plain text, no images; pharmacy-insert register"
+      },
+      "provenance-marks": {
+        "purpose": "decorative hex-seed corner marks",
+        "positionClass": "section-corners",
+        "constraint": "hidden below 480px (F-010); never overlap text"
+      }
+    },
+    "voice": {
+      "dos": [
+        "Short declarative sentences with full stops",
+        "One amber-italic emphasis phrase per display heading",
+        "Mono eyebrows ≤1 per section, uppercase, tracked",
+        "State the fact, then the attitude: topic h2, slogan deck",
+        "Name the price, the license, the maker, the requirement in plain text"
+      ],
+      "donts": [
+        "Slogan as the only heading text",
+        "Undefined insider vocabulary at the fold (seed/canon/register unexplained — F-012)",
+        "Performance superlatives without a source (F-019)",
+        "Labels that promise actions the page does not perform (F-009)"
+      ]
+    },
+    "iaPriorities": [
+      {
+        "signal": "commercial-conversion",
+        "evidence": "pages/index.json#ctas — hero 'Install in two minutes' → /docs/ install block; the site's single funnel",
+        "preserveAs": "first-viewport CTA on home + closing cta-band + frictionless copyable install block on docs",
+        "scope": "site-wide",
+        "mutability": "movable"
+      },
+      {
+        "signal": "ai-answer-engine-audience",
+        "evidence": "pages/index.json#body — 'the AI-facing web' positioning; audit F-002/F-006/F-013",
+        "preserveAs": "static JSON-LD, crawlable key facts, topic-bearing h2s on every page",
+        "scope": "site-wide",
+        "mutability": "movable"
+      }
+    ],
+    "metadata": {
+      "siteName": "Stardust",
+      "defaultOgImage": "https://stardust.style/media_1d66a8cd9c28ee9bbc879c890d38c7add9b163cfc.jpg?width=1200&format=pjpg&optimize=medium",
+      "themeColor": "#0a1024",
+      "organization": {
+        "@type": "Organization",
+        "name": "Adobe",
+        "url": "https://www.adobe.com",
+        "note": "author org for SoftwareApplication; site entity is Stardust by the AEM team at Adobe"
+      },
+      "locale": "en",
+      "ogType": "website (every page — F-016)",
+      "jsonLdDelivery": "static in served head (F-002): home @graph Organization+WebSite+SoftwareApplication{applicationCategory: DeveloperApplication, license: Apache-2.0, offers: {price: 0}, softwareRequirements: Claude Code}; docs pages add TechArticle{dateModified}"
+    }
+  },
+  "narrative": {
+    "northStar": "Math, not mysticism — executed to its own standard.",
+    "overview": "Brand-faithful redesign of stardust.style: every recognizable move pinned (ink/cream/amber, type-only heroes, mono counter-voice, hairlines), execution disciplined (modular scale, 3 radii, pairing rules), the accent spent on proof (variant strip, receipt strip, fact panel), and the machine audience served in the source (static schema, topic headings, crawlable facts).",
+    "keyCharacteristics": [
+      "two grounds one accent (pinned)",
+      "major-third scale snapped to captured landmarks",
+      "receipts and fact tables as design material",
+      "headings answer, decks perform",
+      "zero webfont bytes"
+    ],
+    "rules": [
+      "The One Accent Rule (pinned)",
+      "The Pairing Rule (amber→ink; amber-deep→cream)",
+      "The Accent-Spend Rule (one proof moment per page)",
+      "Headings answer; decks perform",
+      "Hairline-not-shadow",
+      "Space-safe splits",
+      "No unsourced superlatives"
+    ],
+    "dos": [
+      "spend amber on the variant-proof strip",
+      "set the fact panel in pharmacy-insert register on cream",
+      "wrap long command examples",
+      "copy buttons on every pre"
+    ],
+    "donts": [
+      "eyebrow-card trios repeated per page",
+      "slogan-only h2s",
+      "client-side-only schema",
+      "glyph-eating animations",
+      "a fourth radius"
+    ]
+  }
+}
