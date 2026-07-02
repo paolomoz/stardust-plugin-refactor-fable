@@ -88,7 +88,7 @@ export default async function decorate(block) {
       const meta = document.createElement('p');
       meta.className = 'news-meta';
       meta.textContent = i.meta;
-      a.append(meta);
+      a.append(meta, ' ');
     }
     if (i.heading) {
       const h3 = document.createElement('h3');

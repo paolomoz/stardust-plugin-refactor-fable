@@ -56,7 +56,7 @@ export default async function decorate(block) {
       date.innerHTML = `<span class="d"></span><span class="m"></span>`;
       date.querySelector('.d').textContent = day;
       date.querySelector('.m').textContent = monthParts.join(' ');
-      a.append(date);
+      a.append(date, ' ');
     }
 
     const titleWrap = document.createElement('span');
@@ -64,7 +64,7 @@ export default async function decorate(block) {
     title.className = 'event-title';
     title.textContent = (heading || link).textContent.trim();
     titleWrap.append(title);
-    a.append(titleWrap);
+    a.append(titleWrap, ' ');
 
     if (placeCell) {
       const place = document.createElement('span');
