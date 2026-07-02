@@ -1,3 +1,5 @@
 export default function decorate(block) {
-  /* The Road Home newsletter — styled globally in styles/styles.css (stardust:deploy). Content authored in the block cell. */
+  const cell = block.querySelector(':scope > div > div');
+  if (!cell) return;
+  const eb = cell.querySelector(':scope > p'); if (eb) eb.className = 'eyebrow eyebrow--onlight';
 }
