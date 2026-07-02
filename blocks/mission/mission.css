@@ -1,0 +1,89 @@
+.mission {
+  background: var(--color-surface);
+  padding-block: var(--section-padding);
+}
+
+.mission .wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-inline: var(--spacing-lg);
+}
+
+.mission .lede {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 68ch;
+  margin-bottom: var(--spacing-xl);
+}
+
+.mission .tasks-primary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.mission .task {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: #fff;
+  padding: var(--spacing-lg);
+  text-decoration: none;
+  color: var(--color-fg);
+  font-weight: 700;
+  font-size: 1.1875rem;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.18s ease-out, transform 0.18s ease-out;
+}
+
+.mission .task:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.mission .chip-icon {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-circle);
+  background: var(--color-accent);
+  display: grid;
+  place-items: center;
+}
+
+.mission .chip-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 1.8;
+}
+
+.mission .tasks-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.mission .tasks-secondary a {
+  font-size: var(--body-sm);
+  font-weight: 600;
+  color: var(--color-fg);
+  text-decoration: none;
+  background: #fff;
+  border-radius: var(--radius-chip);
+  padding: 9px 18px;
+  box-shadow: var(--shadow-chip);
+  transition: background-color 0.15s ease-out;
+}
+
+.mission .tasks-secondary a:hover { background: var(--color-tint); }
+
+@media (max-width: 1024px) {
+  .mission .tasks-primary { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mission .task { transition: none; }
+}

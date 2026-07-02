@@ -1,0 +1,31 @@
+.blog-band {
+  background: var(--color-accent-deep);
+  padding-block: var(--section-padding);
+}
+
+.blog-band .wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-inline: var(--spacing-lg);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.blog-band h2 {
+  color: #fff;
+  font-size: var(--heading-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.blog-band p {
+  color: #fff;
+  max-width: 62ch;
+}
+
+.blog-band .actions { margin: 0; }
+
+@media (max-width: 640px) {
+  .blog-band .wrap { grid-template-columns: 1fr; }
+}

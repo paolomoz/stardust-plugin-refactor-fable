@@ -11,3 +11,13 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+
+# stardust e2e — never commit
+.env
+.env.*
+qa/
+samples/
+stardust/
+DESIGN.md
+DESIGN.json
+PRODUCT.md
