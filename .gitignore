@@ -11,3 +11,20 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+
+# stardust e2e test — never commit token, artifacts, or scratch scripts
+.env
+.env.*
+stardust/
+qa/
+samples/
+crawl.mjs
+crawl-extended.mjs
+download-media.mjs
+patch-vision.mjs
+probe-tmp.mjs
+_*.mjs
+_*.py
+DESIGN.json
+DESIGN.md
+PRODUCT.md

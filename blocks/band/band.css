@@ -1,0 +1,2 @@
+/* Band paint lives in styles/styles.css (variant-driven). This file exists so EDS loads the block. */
+.band { display: block; }
