@@ -33,6 +33,92 @@
     (sidebar/header/code/footer), amber-deep only on cream. Heading tokens
     snap to the docs steps of the major-third scale (61/39/31/25).
   unsourcedContent: []
+  visionCheck: { verdict: pass, observations: ['brand-fit: the captured docs template signature preserved — ink numbered sidebar, cream prose, deep-ink code panels, amber-deep accents', 'F-003 fixed visually: Step-2 example wraps fully (keep the existing palette. visible)', 'Get started renders with the space; fact chips + confirmation beat present'], comparedAgainst: stardust/current/assets/screenshots/docs.png }
+-->
+<!-- stardust:provenance-gates
+{
+  "_provenance": {
+    "critique": [
+      {
+        "phase": "2.5",
+        "at": "2026-07-02T14:10:00Z",
+        "method": "dual-agent (A: design review, rerun-corroborated; B: detector + headless browser overlay)",
+        "designHealthScore": "31/40 (Good)",
+        "snapshot": ".impeccable/critique/2026-07-02T13-59-15Z__stardust-prototypes-docs-proposed-html.md",
+        "findings": [
+          { "id": "C1", "priority": "P1", "category": "interaction", "desc": "copy buttons copied pre.textContent verbatim incl. $/> prompt glyphs and annotations; pipeline block button copied prose against its aria-label", "status": "fixed (data-copy payloads; pipeline diagram button removed)" },
+          { "id": "C2", "priority": "P1", "category": "accessibility", "desc": "focus ring amber-deep on ink-deep code panels, 2.81:1, violates pairing rule + WCAG 1.4.11", "status": "fixed (.code-block :focus-visible outline amber, 10.37:1)" },
+          { "id": "C3", "priority": "P2", "category": "accessibility", "desc": "copied confirmation visual-only; aria-label pinned the accessible name; no live region", "status": "fixed (polite #copy-status region + aria-label swap/revert)" },
+          { "id": "C4", "priority": "P2", "category": "accessibility", "desc": "chip-row aria-label on plain div not exposed to AT", "status": "fixed (role=group)" },
+          { "id": "C5", "priority": "P2", "category": "accessibility", "desc": "horizontally scrollable pre not keyboard-focusable in Safari", "status": "fixed (tabindex=0 on scroll pres)" },
+          { "id": "C6", "priority": "P2", "category": "navigation", "desc": "no desktop on-this-page TOC while jump list exists <1024px only; right rail under-composed at 1440", "status": "open (design-level; outside hands-off P0/P1 scope)" },
+          { "id": "C7", "priority": "P2", "category": "content-order", "desc": "Requires-Claude-Code chip placed after the install commands; no acquisition link on page", "status": "open" },
+          { "id": "C8", "priority": "P3", "category": "visual", "desc": "unconditional right-fade cue on scroll blocks dims fitting glyphs on mobile", "status": "open" },
+          { "id": "C9", "priority": "P3", "category": "polish", "desc": "sidebar sigil wraps in 240px rail; dead scale tokens; off-scale sizes 13/13.5/14/14.5/17; /aem trailing slash; install section eyebrow-less", "status": "open" }
+        ],
+        "dismissedAsBrandFaithful": [
+          "cream-palette (body #f5f0e6): captured docs-template ground inversion, DESIGN.json extensions.divergence.brand_faithful_inversions + provenance tokenNotes",
+          "hero-eyebrow-chip (span.eyebrow): the named mono kicker system, disciplined to <=1 per section per DESIGN.md",
+          "wide-tracking x3 (side-sigil, footer-facts, footer-sigil): captured 0.08em mono label spec, brand signature",
+          "em-dash-overuse (detector warning): captured-verbatim copy exemption per Discipline 9; adjudicated by render agent, not re-litigated"
+        ],
+        "falsePositives": [
+          "gradient-text and theater-slop-phrase: detect.js inline-injection artifacts (detector scanned its own source); absent from page source; vanish under src-based injection"
+        ],
+        "verdict": "PASS (0 P0; both P1 fixed and re-verified in browser: 8/8 copy payloads clean, focus ring amber on ink, status region announces)"
+      }
+    ],
+    "audit": [
+      {
+        "phase": "2.6",
+        "at": "2026-07-02T14:10:00Z",
+        "method": "rendered-DOM playwright computed-styles contrast pass + static checks + detector",
+        "scores": { "accessibility": 4, "performance": 4, "responsive": 4, "theming": 3, "antiPatterns": 4, "total": "19/20 (Excellent)" },
+        "wcagContrast": {
+          "recomputedFromRenderedDOM": true,
+          "pairs": { "1440x900": 29, "360x800": 30 },
+          "failures": 0,
+          "worstPair": "5.57:1 (dust-55 labels on ink) vs 4.5 required",
+          "largeTextExemptions": "verified at rendered size (61px h1 em.ai amber-deep on dust 5.91:1 vs 3.0; 39px h2 14.26:1)"
+        },
+        "lcp": "pass: page is text-only (zero img elements, zero lazy attributes, zero webfonts); LCP is the static h1",
+        "jsDependentHiddenState": "clean: only CSS responsive toggles (.side-jump desktop hide, .side-sigil mobile hide, webkit marker) and the copy-button is-copied class; no content gated on JS; only JS is copy buttons",
+        "findings": [
+          { "id": "A1", "priority": "P1", "category": "accessibility", "desc": "focus indicator below 3:1 on code panels (= C2)", "status": "fixed" },
+          { "id": "A2", "priority": "P2", "category": "accessibility", "desc": "copy confirmation silent for AT (= C3)", "status": "fixed" },
+          { "id": "A3", "priority": "P2", "category": "accessibility", "desc": "scrollable region keyboard access (= C5)", "status": "fixed" },
+          { "id": "A4", "priority": "P3", "category": "theming", "desc": "declared heading-xl/lg/md + body-sm tokens unused; off-scale sizes re-accreted", "status": "open" },
+          { "id": "A5", "priority": "P3", "category": "responsive", "desc": "fade cue not gated on real overflow (= C8)", "status": "open" }
+        ],
+        "verdict": "PASS (0 contrast failures at both viewports; P1 fixed; detector residual is the dismissed captured-verbatim em-dash warning)"
+      }
+    ],
+    "adapt": [
+      {
+        "phase": "2.7",
+        "at": "2026-07-02T14:20:00Z",
+        "breakpointsChecked": [1920, 1440, 1280, 800, 768, 414, 390, 375, 360, 320],
+        "results": "zero horizontal overflow at all 10 widths; header sticky everywhere; sidebar fixed >=1024 / static top bar + jump menu <1024; h1 scales 61 to 44.8 to 39 via clamp; body 16px throughout",
+        "change": "added one @media (pointer: coarse) block only: touch targets raised to 38-47px (copy-btn 41px, side-item 47px, summary 45px, nav-pill 40px, nav-gh 43px, footer links 38px); fine-pointer chrome unchanged",
+        "regressionGuard": ":root block untouched; data-section/data-intent/data-layout attributes untouched; body innerText sha1 identical pre/post (bfa2c30ad12f1155b0373b0d7f97fd49927116b2)",
+        "mobileAdaptAudit360x800": {
+          "viewportMeta": true,
+          "mediaQueryLte640px": true,
+          "horizontalOverflowPx": 0,
+          "headerNavFontMinPx": 11,
+          "navGapsPx": { "navRow": 12, "navLinks": 20 },
+          "coarsePointerMatched": true
+        },
+        "verdict": "PASS"
+      }
+    ],
+    "choreographyPhase": {
+      "phase": "2.8",
+      "status": "skipped",
+      "reason": "static file: grep confirms no @keyframes, no animation:, no scroll/view-timeline, no IntersectionObserver, no lenis/gsap; only hover/focus transitions with a prefers-reduced-motion guard"
+    }
+  }
+}
 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -162,6 +248,14 @@ h1, h2 { font-family: var(--heading-font-family); margin: 0; text-wrap: balance;
 p { margin: 0; text-wrap: pretty; }
 :focus-visible { outline: 2px solid var(--amber-deep); outline-offset: 3px; border-radius: 2px; }
 .on-ink :focus-visible { outline-color: var(--amber); }
+/* Pairing rule holds for focus too: amber ring on ink code panels (amber-deep on ink is 2.81:1, fails) */
+.code-block :focus-visible { outline-color: var(--amber); }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip: rect(0 0 0 0); clip-path: inset(50%);
+  overflow: hidden; white-space: nowrap;
+}
 
 /* Skip link — first focusable */
 .skip-link {
@@ -463,6 +557,20 @@ footer[data-section="footer"] {
   .lede { font-size: 18px; }
   .nav-row { gap: 12px; }
 }
+
+/* ── Touch adaptation: input method, not screen size ──────────────────
+   Coarse pointers get taller primary targets (copy buttons, nav items,
+   jump links); fine-pointer chrome is unchanged. Colors, type, and
+   layout tokens untouched. */
+@media (pointer: coarse) {
+  .copy-btn { padding: 13px 18px; }
+  .side-item { padding: 13px 14px; }
+  .side-jump summary { padding: 12px 14px; }
+  .jump-list a { padding: 12px 10px; }
+  .nav-pill { padding: 11px 16px; }
+  .nav-gh { padding: 12px 0; }
+  .footer-nav a { display: inline-block; padding: 8px 2px; }
+}
 </style>
 </head>
 <body>
@@ -527,16 +635,20 @@ footer[data-section="footer"] {
     <div class="prose-col">
       <h2>Install.</h2>
       <p>From inside Claude Code, add the two marketplaces and install both plugins:</p>
-      <div class="code-block code-block--scroll">
+      <div class="code-block code-block--scroll" data-copy="claude plugin marketplace add adobe/skills
+claude plugin install stardust@adobe-skills
+
+claude plugin marketplace add pbakaus/impeccable
+claude plugin install impeccable@impeccable">
         <button class="copy-btn" type="button" aria-label="Copy install commands">copy</button>
-        <pre><code>$ claude plugin marketplace add adobe/skills
+        <pre tabindex="0"><code>$ claude plugin marketplace add adobe/skills
 $ claude plugin install stardust@adobe-skills
 
 $ claude plugin marketplace add pbakaus/impeccable
 $ claude plugin install impeccable@impeccable</code></pre>
       </div>
       <p class="confirm-beat">that's it — run /stardust:uplift on any URL.</p>
-      <div class="chip-row" aria-label="Key facts">
+      <div class="chip-row" role="group" aria-label="Key facts">
         <span class="chip">Requires Claude Code</span>
         <span class="chip">Free</span>
         <span class="chip">Apache 2.0</span>
@@ -552,9 +664,9 @@ $ claude plugin install impeccable@impeccable</code></pre>
       <span class="eyebrow">Shortcut</span>
       <h2>One URL, three variants.</h2>
       <p>The fastest way to get started. Skip the four-step pipeline and run a single command:</p>
-      <div class="code-block code-block--scroll">
+      <div class="code-block code-block--scroll" data-copy="/stardust:uplift https://example.com">
         <button class="copy-btn" type="button" aria-label="Copy uplift command">copy</button>
-        <pre><code>› /stardust:uplift https://example.com</code></pre>
+        <pre tabindex="0"><code>› /stardust:uplift https://example.com</code></pre>
       </div>
       <p>uplift collapses extract → direct → prototype × 3 into a single opinionated command. It picks every variability axis from the captured brand surface — palette and typography are pinned, the cinematic register is read from the brand personality, and the "what if…" candidates for variants B and C are walked from a closed catalog so nothing improvises. Output: variant A ("tomorrow's version of the site you have today"), B ("what if we amplified &lt;captured trait&gt;?"), and C ("what if motion was part of the identity?").</p>
       <p>Or follow the long form below when you want a full multi-page migration with explicit direction.</p>
@@ -567,8 +679,7 @@ $ claude plugin install impeccable@impeccable</code></pre>
       <h2>Four sub-commands. One pipeline.</h2>
       <p>Stardust is opinionated about which redesign to make and runs it as a chain of commands. Each command writes its own artifacts; the next reads them. Reading the artifacts back, you'll see the whole reasoning trace — palette picks, divergence inputs, the seed for today.</p>
       <div class="code-block code-block--scroll">
-        <button class="copy-btn" type="button" aria-label="Copy the four pipeline commands">copy</button>
-        <pre><code># the four commands you'll meet today
+        <pre tabindex="0"><code># the four commands you'll meet today
 › /stardust:extract — capture the current site
 › /stardust:direct — resolve a redesign direction
 › /stardust:prototype — generate three variants per page
@@ -586,16 +697,16 @@ $ claude plugin install impeccable@impeccable</code></pre>
       <span class="eyebrow">Step 1</span>
       <h2>Capture the current state.</h2>
       <p>Point Stardust at a URL:</p>
-      <div class="code-block code-block--scroll">
+      <div class="code-block code-block--scroll" data-copy="/stardust:extract https://example.com">
         <button class="copy-btn" type="button" aria-label="Copy extract command">copy</button>
-        <pre><code>› /stardust:extract https://example.com</code></pre>
+        <pre tabindex="0"><code>› /stardust:extract https://example.com</code></pre>
       </div>
       <p>If the project hasn't been set up yet, extract starts with a short interview that writes PRODUCT.md at the project root. You answer in your own words; the file captures what you're building and who it's for. Then the crawl begins.</p>
       <p>It crawls five pages by default — the home plus four pillar pages — captures the brand surface (palette, typography, voice, motifs), and writes everything under stardust/current/. The crawl runs in a real browser, so JavaScript-rendered sites work the same as server-rendered ones.</p>
       <p>When it finishes, open the eyeball-check artifact:</p>
-      <div class="code-block code-block--scroll">
+      <div class="code-block code-block--scroll" data-copy="open stardust/current/brand-review.html">
         <button class="copy-btn" type="button" aria-label="Copy brand-review command">copy</button>
-        <pre><code>› open stardust/current/brand-review.html</code></pre>
+        <pre tabindex="0"><code>› open stardust/current/brand-review.html</code></pre>
       </div>
       <p>You'll see a self-contained visual review of what was captured — colors, type, logo, motifs, voice samples, and any tensions the detector surfaced. Spend a minute here. If something looks wrong, re-run extract with --refresh &lt;slug&gt; on the misread page before moving on. Misreads are cheap to fix here and expensive later.</p>
     </div>
@@ -606,7 +717,7 @@ $ claude plugin install impeccable@impeccable</code></pre>
       <span class="eyebrow">Step 2</span>
       <h2>Direct the redesign.</h2>
       <p>This is the only step where you say what you want. A short phrase is enough.</p>
-      <div class="code-block code-block--wrap">
+      <div class="code-block code-block--wrap" data-copy='/stardust:direct "more editorial. lean into typography. keep the existing palette."'>
         <button class="copy-btn" type="button" aria-label="Copy direct example">copy</button>
         <pre><code>› /stardust:direct "more editorial. lean into typography. keep the existing palette."</code></pre>
       </div>
@@ -622,9 +733,9 @@ $ claude plugin install impeccable@impeccable</code></pre>
     <div class="prose-col">
       <span class="eyebrow">Step 3</span>
       <h2>Prototype the home page.</h2>
-      <div class="code-block code-block--scroll">
+      <div class="code-block code-block--scroll" data-copy="/stardust:prototype home">
         <button class="copy-btn" type="button" aria-label="Copy prototype command">copy</button>
-        <pre><code>› /stardust:prototype home</code></pre>
+        <pre tabindex="0"><code>› /stardust:prototype home</code></pre>
       </div>
       <p>Two things happen. First, Stardust writes a per-page composition brief at stardust/prototypes/home-shape.md — the section list, layout strategy, content sources, anything the brief reviewer would want to challenge before the render. You'll be asked to confirm.</p>
       <p>Once you confirm, the proposed redesign renders into stardust/prototypes/home-proposed.html, and a viewer opens automatically — your current home on the left, the proposed redesign on the right. Review it. If something needs adjusting, edit home-shape.md and re-run prototype to refresh.</p>
@@ -640,15 +751,15 @@ $ claude plugin install impeccable@impeccable</code></pre>
       <h2>Approve and migrate.</h2>
       <p>When the home prototype reads the way you want, signal approval — click the Approve button in the viewer, or just say "approve home" in the chat.</p>
       <p>Then ship the home page:</p>
-      <div class="code-block code-block--scroll">
+      <div class="code-block code-block--scroll" data-copy="/stardust:migrate home">
         <button class="copy-btn" type="button" aria-label="Copy migrate home command">copy</button>
-        <pre><code>› /stardust:migrate home</code></pre>
+        <pre tabindex="0"><code>› /stardust:migrate home</code></pre>
       </div>
       <p>The output is a deployable static HTML file. Drop it on GitHub Pages, your CDN, or any host that serves files. No build step. No framework lock-in.</p>
       <p>For the whole site, drop the slug:</p>
-      <div class="code-block code-block--scroll">
+      <div class="code-block code-block--scroll" data-copy="/stardust:migrate">
         <button class="copy-btn" type="button" aria-label="Copy migrate command">copy</button>
-        <pre><code>› /stardust:migrate</code></pre>
+        <pre tabindex="0"><code>› /stardust:migrate</code></pre>
       </div>
       <p>Migrate runs over every approved page in stardust/state.json and emits a complete static site, ready to publish.</p>
     </div>
@@ -677,15 +788,22 @@ $ claude plugin install impeccable@impeccable</code></pre>
 </footer>
 </div>
 
+<div id="copy-status" class="visually-hidden" role="status" aria-live="polite"></div>
+
 <script>
 /* Copy buttons — the file's only JS (per docs-shape.md § Interaction model).
    clipboard.writeText with execCommand fallback; text-only confirmation,
-   1.5s revert (F-005). Copies the verbatim textContent of the sibling pre. */
+   1.5s revert (F-005). Copies the block's data-copy payload (the runnable
+   command, prompt glyphs stripped — critique C1 fix); falls back to the
+   pre's textContent. Confirmation announced via the polite status region
+   and the button's accessible name (critique C3 fix). */
 (function () {
+  var status = document.getElementById('copy-status');
   document.querySelectorAll('.code-block .copy-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var pre = btn.closest('.code-block').querySelector('pre');
-      var text = pre ? pre.textContent : '';
+      var block = btn.closest('.code-block');
+      var pre = block.querySelector('pre');
+      var text = block.getAttribute('data-copy') || (pre ? pre.textContent : '');
       function fallbackCopy() {
         var ta = document.createElement('textarea');
         ta.value = text;
@@ -699,11 +817,19 @@ $ claude plugin install impeccable@impeccable</code></pre>
       }
       function confirmState() {
         var original = btn.textContent;
+        var originalLabel = btn.getAttribute('aria-label');
         btn.textContent = 'copied';
+        btn.setAttribute('aria-label', 'Copied to clipboard');
         btn.classList.add('is-copied');
+        if (status) {
+          status.textContent = '';
+          setTimeout(function () { status.textContent = 'Copied to clipboard'; }, 30);
+        }
         setTimeout(function () {
           btn.textContent = original;
+          if (originalLabel) { btn.setAttribute('aria-label', originalLabel); }
           btn.classList.remove('is-copied');
+          if (status) { status.textContent = ''; }
         }, 1500);
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {

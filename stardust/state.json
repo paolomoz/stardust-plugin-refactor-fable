@@ -76,17 +76,28 @@
       "url": "https://stardust.style/docs/",
       "title": "Get started with Stardust — install & first redesign",
       "type": null,
-      "status": "directed",
+      "status": "approved",
       "history": [
         {
           "status": "extracted",
           "at": "2026-07-02T12:03:19.836Z"
+        },
+        {
+          "status": "prototyped",
+          "at": "2026-07-02T14:05:37.882Z",
+          "gates": "critique 31/40 PASS (2 P1 fixed), audit 19/20 PASS (0 contrast failures), adapt PASS (10 widths clean), motion skipped (static), vision PASS"
+        },
+        {
+          "status": "approved",
+          "at": "2026-07-02T14:05:37.882Z",
+          "approvedBy": "hands-off",
+          "note": "open items P2/P3 only, recorded in provenance"
         }
       ],
       "stale": false,
       "staleReason": null,
       "currentStatePath": "stardust/current/pages/docs.json",
-      "prototypePath": null,
+      "prototypePath": "stardust/prototypes/docs-proposed.html",
       "migratedPath": null
     },
     {

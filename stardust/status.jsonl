@@ -3,3 +3,4 @@
 {"ts":"2026-07-02T13:05:29Z","skill":"audit","phase":"complete","event":"end","note":"overall 68/100; 22 findings (5 P1, 8 P2, 9 P3); report.html craft-rendered + validated; benchmarks via refero (Langbase, Eraser, Metaview)"}
 {"ts":"2026-07-02T13:12:01Z","skill":"direct","phase":"complete","event":"end","note":"Mode A brand-faithful, single canonical direction; seed 2025-now × folded-paper-ephemera × pharmacy-insert × dark(inherited); refero anchors Langbase/Eraser/Metaview; improvements lists for index+docs; motion register live-systems"}
 {"ts":"2026-07-02T13:46:08Z","skill":"prototype","phase":"index","event":"approved","note":"all gates pass (critique/audit/adapt/motion/vision); approvedBy hands-off"}
+{"ts":"2026-07-02T14:05:37Z","skill":"prototype","phase":"docs","event":"approved","note":"all gates pass; approvedBy hands-off"}
