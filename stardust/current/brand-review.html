@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- stardust:provenance
+  writtenBy:        stardust:extract
+  writtenAt:        2026-07-02T12:12:06Z
+  readArtifacts:
+    - stardust/current/_brand-extraction.json
+    - stardust/current/PRODUCT.md
+    - stardust/current/DESIGN.md
+    - stardust/current/DESIGN.json
+    - stardust/current/pages/index.json
+    - stardust/current/pages/aem.json
+    - stardust/current/pages/docs.json
+    - stardust/current/pages/docs-commands.json
+    - stardust/current/_crawl-log.json
+    - stardust/current/assets/screenshots/*.png
+    - stardust/current/assets/logo.svg
+  synthesizedInputs: []
+  stardustVersion:  0.14.2
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stardust — brand review (current state)</title>
+<style>
+  :root {
+    /* All values captured from https://stardust.style — see _brand-extraction.json */
+    --primary: #e8b95e;        /* amber — most-frequent saturated visual anchor */
+    --primary-dark: #854f17;   /* amber-deep — same hue family (Δhue ≈ 9°), lower luminance */
+    --accent: #ffd98a;         /* amber-light — monochromatic-amber brand; no palette entry sits >60° from primary except ink grounds (see footer note) */
+    --secondary: #141b3a;      /* ink-soft, the card surface */
+    --text: #f5f0e6;           /* dust */
+    --text-muted: rgba(245, 240, 230, 0.72);
+    --surface: #0a1024;        /* ink */
+    --surface-alt: #141b3a;    /* ink-soft */
+    --surface-deep: #060a14;   /* ink-deep */
+    --cream: #f5f0e6;
+    --cream-text: #1a1f38;
+    --border: rgba(245, 240, 230, 0.15);
+    --hairline: rgba(245, 240, 230, 0.08);
+    --display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --body: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --mono: "SF Mono", "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; letter-spacing: -0.02em; margin: 0; }
+  a { color: var(--primary); }
+  section { padding: 64px clamp(20px, 4vw, 64px); border-top: 1px solid var(--hairline); }
+  .wrap { max-width: 1320px; margin: 0 auto; }
+  /* ---- sticky top nav (spec: horizontal, --primary-dark ground) ---- */
+  nav.review-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--primary-dark);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px;
+    padding: 10px clamp(20px, 4vw, 64px);
+    font-family: var(--display); text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px;
+  }
+  nav.review-nav .site-label { color: #fff; font-weight: 700; margin-right: 14px; white-space: nowrap; }
+  nav.review-nav a {
+    color: rgba(255,255,255,0.92); text-decoration: none; padding: 5px 12px; border-radius: 150px;
+  }
+  nav.review-nav a:hover { background: rgba(255,255,255,0.18); }
+  /* ---- badges ---- */
+  .badge {
+    display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 999px; vertical-align: middle;
+    background: rgba(232, 185, 94, 0.14); color: var(--accent); border: 1px solid rgba(232,185,94,0.3);
+    margin-left: 10px;
+  }
+  .badge.inferred { background: rgba(245,240,230,0.06); color: var(--text-muted); border-color: var(--border); }
+  .sec-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .sec-head h2 { font-size: 34px; }
+  .sec-sub { color: var(--text-muted); font-size: 14px; margin: 0 0 28px; max-width: 72ch; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--primary); display: block; margin-bottom: 10px;
+  }
+  .src { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+  /* ---- masthead ---- */
+  header.masthead {
+    padding: 96px clamp(20px, 4vw, 64px) 72px;
+    background: radial-gradient(90% 70% at 80% 35%, rgb(26, 36, 80) 0%, rgb(7, 12, 30) 55%, rgb(6, 10, 20) 100%);
+  }
+  .masthead .mark-row { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .masthead .mark-row img { width: 28px; height: 28px; }
+  .masthead .mark-row .name { font-family: var(--display); font-weight: 600; font-size: 20px; }
+  .masthead h1 { font-size: clamp(44px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.03em; max-width: 20ch; }
+  .masthead p.hero-line { font-family: var(--display); font-style: italic; color: var(--accent); font-size: clamp(22px, 3vw, 30px); margin: 14px 0 10px; }
+  .masthead .tagline { color: var(--text-muted); max-width: 66ch; margin: 0 0 12px; }
+  .masthead .origin { font-family: var(--mono); font-size: 13px; color: var(--primary); }
+  /* ---- coverage ---- */
+  .stat-row { display: flex; flex-wrap: wrap; gap: 16px; }
+  .stat-box {
+    flex: 1; min-width: 220px; background: var(--surface-alt); border: 1px solid var(--hairline);
+    border-radius: 14px; padding: 22px;
+  }
+  .stat-box .big { font-family: var(--display); font-weight: 600; font-size: 34px; display: block; }
+  .stat-box .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); }
+  .stat-box p { margin: 8px 0 0; font-size: 13.5px; color: var(--text-muted); }
+  .coverage-note { margin-top: 18px; font-size: 13.5px; color: var(--text-muted); max-width: 90ch; }
+  /* ---- pages ---- */
+  .page-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+  @media (min-width: 1024px) { .page-grid { grid-template-columns: repeat(4, 1fr); } }
+  .page-card { background: var(--surface-alt); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; }
+  .page-card .shot { aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface-deep); }
+  .page-card img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .page-card .meta { padding: 12px 14px; }
+  .page-card .meta .t { font-family: var(--display); font-weight: 600; font-size: 14px; line-height: 1.35; }
+  .page-card .meta .s { font-family: var(--mono); font-size: 11px; color: var(--primary); }
+  /* ---- palette ---- */
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; }
+  .swatch { background: var(--surface-alt); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; min-height: 200px; }
+  .swatch .chip { height: 96px; }
+  .swatch .body { padding: 14px; }
+  .swatch .role { font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+  .swatch .hex { font-family: var(--mono); font-size: 13px; color: var(--text-muted); display: block; margin: 3px 0 8px; }
+  .swatch .use { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px; margin: 0 4px 4px 0; color: var(--text-muted); }
+  .swatch .srcs { font-family: var(--mono); font-size: 10.5px; color: var(--text-muted); margin-top: 6px; }
+  /* ---- typography ---- */
+  .spec-row { border-top: 1px solid var(--hairline); padding: 26px 0; }
+  .spec-row .spec-label { font-family: var(--mono); font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 10px; }
+  .spec { font-family: var(--display); font-weight: 600; overflow-wrap: break-word; }
+  .spec.mono-spec { font-family: var(--mono); }
+  .spec-body { font-family: var(--body); font-weight: 400; max-width: 72ch; color: var(--text-muted); }
+  /* ---- voice ---- */
+  .voice-card { background: var(--surface-alt); border: 1px solid var(--hairline); border-radius: 14px; padding: 24px; margin-bottom: 16px; }
+  .voice-card .q { font-family: var(--display); font-size: 24px; font-weight: 600; line-height: 1.25; }
+  .voice-card .q em { color: var(--primary); }
+  .voice-card .w { font-family: var(--mono); font-size: 11px; color: var(--text-muted); display: block; margin-top: 10px; }
+  table.cta { border-collapse: collapse; width: 100%; max-width: 760px; margin-top: 8px; }
+  table.cta th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); text-align: left; padding: 8px 14px 8px 0; border-bottom: 1px solid var(--border); }
+  table.cta td { padding: 9px 14px 9px 0; border-bottom: 1px solid var(--hairline); font-size: 14px; }
+  .pill-label { display: inline-block; background: rgba(232,185,94,0.14); color: var(--accent); border: 1px solid rgba(232,185,94,0.3); border-radius: 999px; padding: 3px 12px; font-family: var(--mono); font-size: 12px; }
+  .tone-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); border: 1px dashed var(--border); border-radius: 999px; padding: 3px 12px; }
+  /* ---- tensions ---- */
+  .tension-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  @media (min-width: 720px) { .tension-grid { grid-template-columns: 1fr 1fr; } }
+  .tension {
+    background: var(--surface-alt); border: 1px solid var(--hairline); border-left: 4px solid var(--accent);
+    border-radius: 0 14px 14px 0; padding: 20px 22px;
+  }
+  .tension .tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+  .tension h4 { font-size: 18px; margin: 8px 0 6px; }
+  .tension p { margin: 0 0 10px; font-size: 14px; color: var(--text-muted); }
+  .tension ul { margin: 0 0 10px; padding-left: 18px; font-size: 13.5px; color: var(--text-muted); }
+  /* ---- motifs ---- */
+  .motif-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+  .motif-card { background: var(--surface-alt); border: 1px solid var(--hairline); border-radius: 14px; padding: 18px; text-align: center; }
+  .motif-demo { width: 72px; height: 72px; background: var(--primary); margin: 0 auto 12px; }
+  .motif-card .v { font-family: var(--mono); font-size: 13px; }
+  .motif-card .c { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+  .shadow-demo-ground { background: var(--cream); border-radius: 14px; padding: 34px; display: flex; gap: 28px; flex-wrap: wrap; margin-top: 18px; }
+  .shadow-demo { background: #fff; color: var(--cream-text); border-radius: 8px; padding: 18px 22px; font-family: var(--mono); font-size: 12px; }
+  .grad-list { margin: 18px 0 0; padding: 0; list-style: none; }
+  .grad-list li { display: flex; align-items: center; gap: 14px; padding: 8px 0; border-top: 1px solid var(--hairline); font-size: 13.5px; color: var(--text-muted); }
+  .grad-chip { flex: 0 0 120px; height: 44px; border-radius: 8px; border: 1px solid var(--border); }
+  /* ---- components ---- */
+  .comp-list { list-style: none; margin: 0; padding: 0; }
+  .comp-list li { border-left: 3px solid var(--primary); padding: 10px 0 10px 18px; margin-bottom: 10px; }
+  .comp-list .n { font-family: var(--display); font-weight: 600; }
+  .comp-list .d { color: var(--text-muted); font-size: 14px; }
+  /* ---- system components ---- */
+  .sys { background: var(--surface-alt); border: 1px solid var(--hairline); border-radius: 14px; padding: 20px 22px; margin-bottom: 14px; }
+  .sys .kind { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; background: rgba(232,185,94,0.14); color: var(--accent); border-radius: 999px; padding: 3px 10px; margin-left: 8px; }
+  .sys h4 { display: inline; font-size: 18px; }
+  .sys p { margin: 8px 0 0; font-size: 14px; color: var(--text-muted); }
+  /* ---- logo ---- */
+  .logo-row { display: flex; flex-wrap: wrap; gap: 34px; align-items: flex-start; }
+  .logo-frame { background: var(--surface-deep); border: 1px solid var(--hairline); border-radius: 14px; padding: 40px; max-width: 280px; }
+  .logo-frame img { width: 120px; height: 120px; display: block; }
+  dl.meta { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 8px 22px; font-size: 14px; }
+  dl.meta dt { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); padding-top: 3px; }
+  dl.meta dd { margin: 0; max-width: 62ch; }
+  /* ---- spacing ---- */
+  .space-tokens { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 26px; }
+  .radii-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .radii-pills .p { font-family: var(--mono); font-size: 12px; border: 1px solid var(--primary); color: var(--primary); padding: 6px 14px; }
+  /* ---- footer ---- */
+  footer.review-footer { border-top: 1px solid var(--hairline); background: var(--surface-deep); padding: 48px clamp(20px, 4vw, 64px); font-size: 13.5px; color: var(--text-muted); }
+  footer.review-footer .mono { font-family: var(--mono); font-size: 12px; }
+  @media print {
+    nav.review-nav { position: static; }
+    section { break-inside: avoid-page; padding: 24px; }
+    body { background: #fff; color: #1a1f38; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="review-nav" aria-label="Review sections">
+  <span class="site-label">Stardust · Current state</span>
+  <a href="#coverage">Coverage</a>
+  <a href="#pages">Pages</a>
+  <a href="#palette">Palette</a>
+  <a href="#typography">Typography</a>
+  <a href="#voice">Voice</a>
+  <a href="#tensions">Tensions</a>
+  <a href="#motifs">Motifs</a>
+  <a href="#components">Components</a>
+  <a href="#system">System</a>
+  <a href="#logo">Logo</a>
+  <a href="#spacing">Spacing</a>
+</nav>
+
+<!-- 1 · Masthead -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="mark-row">
+      <img src="assets/logo.svg" alt="Stardust logo — amber star mark">
+      <span class="name">Stardust</span>
+    </div>
+    <h1>Brand review — the current state, captured.</h1>
+    <p class="hero-line">“Redesign the Web.”</p>
+    <p class="tagline">Stardust is an open-source, AI-driven website redesign tool — turn any URL into brand-faithful, deployable static HTML. Built by the AEM team at Adobe. <span class="src">(og:description, pages/index.json)</span></p>
+    <span class="origin">https://stardust.style · extracted 2026-07-02</span>
+  </div>
+</header>
+
+<!-- 2 · Coverage -->
+<section id="coverage">
+  <div class="wrap">
+    <div class="sec-head"><h2>Coverage</h2><span class="badge">cross-page</span></div>
+    <p class="sec-sub">What the crawl captured, and how. Source: _crawl-log.json + pages/*.json _provenance.</p>
+    <div class="stat-row">
+      <div class="stat-box"><span class="big">4 / 4</span><span class="lbl">pages extracted</span><p>index · aem · docs · docs-commands. 0 failures. Discovery: headless, concurrency 4.</p></div>
+      <div class="stat-box"><span class="big">medium</span><span class="lbl">wait strategy · 2500 ms avg</span><p>Live playwright renders, all HTTP 200. index + aem recaptured once after a vision check caught the animated hero H1 dropping.</p></div>
+      <div class="stat-box"><span class="big">8 colors</span><span class="lbl">brand surface</span><p>3 type families (all system stacks), 9 radius values, 2 shadows, 4 gradient motifs, 10 patterns, 3 system components.</p></div>
+    </div>
+    <p class="coverage-note"><strong>Omitted sections (no source data):</strong> Cross-promo reproduction (crossPromo.detected = false — no heading cluster repeats across ≥3 pages), Embed-dominated pages (no iframes on any page), repeated-heading list in Voice (no heading text recurs on ≥3 pages), Inputs in Components (no forms observed), webfont files in Typography (no @font-face rules — system stacks only), spacing scale bars (no detectable base grid in the captured padding samples).</p>
+  </div>
+</section>
+
+<!-- 3 · Pages -->
+<section id="pages">
+  <div class="wrap">
+    <div class="sec-head"><h2>Pages</h2><span class="badge">observed</span></div>
+    <p class="sec-sub">Full-page captures at 1440px, cropped to the first viewport here. Source: assets/screenshots/.</p>
+    <div class="page-grid">
+      <div class="page-card"><div class="shot"><img src="assets/screenshots/index.png" alt="Home page screenshot"></div><div class="meta"><div class="t">Stardust — AI website redesign tool, math not mysticism</div><span class="s">/</span></div></div>
+      <div class="page-card"><div class="shot"><img src="assets/screenshots/aem.png" alt="AEM page screenshot"></div><div class="meta"><div class="t">Stardust on AEM Edge Delivery — production-ready</div><span class="s">/aem</span></div></div>
+      <div class="page-card"><div class="shot"><img src="assets/screenshots/docs.png" alt="Docs page screenshot"></div><div class="meta"><div class="t">Get started with Stardust — install &amp; first redesign</div><span class="s">/docs/</span></div></div>
+      <div class="page-card"><div class="shot"><img src="assets/screenshots/docs-commands.png" alt="Commands reference screenshot"></div><div class="meta"><div class="t">Stardust commands reference — every sub-command &amp; flag</div><span class="s">/docs/commands/</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Palette -->
+<section id="palette">
+  <div class="wrap">
+    <div class="sec-head"><h2>Color palette</h2><span class="badge">cross-page</span></div>
+    <p class="sec-sub">Element-count-weighted computed colors across all 4 pages; the site's own custom-property names in parentheses. Occurrence counts are element counts, not pixel area — grounds score low, dense label pages score high. Source: _brand-extraction.json § palette.</p>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="chip" style="background:#854f17"></div><div class="body"><span class="role">primary-deep</span><span class="hex">#854f17 (--amber-deep) · 250×</span><span class="use">text</span><div class="srcs">docs-commands · docs · index</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#e8b95e"></div><div class="body"><span class="role">primary</span><span class="hex">#e8b95e (--amber) · 159×</span><span class="use">text</span><span class="use">background</span><span class="use">border</span><span class="use">fill</span><div class="srcs">index · aem · docs</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#f5f0e6"></div><div class="body"><span class="role">surface</span><span class="hex">#f5f0e6 (--dust) · 120×</span><span class="use">text</span><span class="use">background</span><span class="use">border</span><div class="srcs">index · aem · docs</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#1a1f38"></div><div class="body"><span class="role">text-primary</span><span class="hex">#1a1f38 (--deep-ink) · 95×</span><span class="use">text</span><span class="use">border</span><div class="srcs">docs · docs-commands · index</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#141b3a"></div><div class="body"><span class="role">surface-raised</span><span class="hex">#141b3a (--ink-soft) · 38×</span><span class="use">background</span><div class="srcs">index · aem · docs</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ffd98a"></div><div class="body"><span class="role">accent-light</span><span class="hex">#ffd98a (--amber-light) · 37×</span><span class="use">text</span><div class="srcs">docs · docs-commands · index</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#060a14"></div><div class="body"><span class="role">background-deep</span><span class="hex">#060a14 (--ink-deep) · 14×</span><span class="use">background</span><div class="srcs">index · aem · docs</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#0a1024"></div><div class="body"><span class="role">background</span><span class="hex">#0a1024 (--ink) · 11×</span><span class="use">background</span><span class="use">text</span><div class="srcs">index · aem · docs</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Typography -->
+<section id="typography">
+  <div class="wrap">
+    <div class="sec-head"><h2>Typography</h2><span class="badge">cross-page</span><span class="badge">No modular scale</span></div>
+    <p class="sec-sub">Live computed values at 1440px. All three families are system stacks — no webfont files ship. Scale audit: ad-hoc (112 → 96 → 77.6 → 64 → 56 → 48 → 40 → 32 → 22 → 18 px; no single ratio). Source: _brand-extraction.json § type.</p>
+    <div class="spec-row"><span class="spec-label">H1 · SF Pro Display 600 / 112px / 0.96 / −0.04em (home)</span><div class="spec" style="font-size:clamp(48px,7.5vw,112px);line-height:.96;letter-spacing:-0.04em;">Redesign the Web.</div></div>
+    <div class="spec-row"><span class="spec-label">H2 · SF Pro Display 600 / 77.6px / 0.98 / −0.032em</span><div class="spec" style="font-size:clamp(38px,5.4vw,77.6px);line-height:.98;letter-spacing:-0.032em;">Every design tool promises uniqueness.</div></div>
+    <div class="spec-row"><span class="spec-label">H3 · SF Pro Display 600 / 22px / 1.2 / −0.022em</span><div class="spec" style="font-size:22px;line-height:1.2;letter-spacing:-0.022em;">The divergence toolkit.</div></div>
+    <div class="spec-row"><span class="spec-label">Command display · SF Mono 600 / 40px (docs-commands only)</span><div class="spec mono-spec" style="font-size:clamp(24px,2.8vw,40px);line-height:1.1;">/stardust:uplift</div></div>
+    <div class="spec-row"><span class="spec-label">Label · SF Mono 500 / 12px / +0.24em / uppercase</span><div class="spec mono-spec" style="font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:var(--primary);font-weight:500;">Structured signal · names the defaults · show the seed</div></div>
+    <div class="spec-row"><span class="spec-label">Body · SF Pro Text 400 / 16px / 1.6 (real captured first paragraph)</span><p class="spec-body">Stardust is an open-source, AI-driven website redesign tool. It generates a brand expression for today only — one that this brand and this date alone can produce. Deterministic, reproducible, structured. The canonical AI-facing version of your brand, rendered as deployable HTML.</p></div>
+  </div>
+</section>
+
+<!-- 6 · Voice -->
+<section id="voice">
+  <div class="wrap">
+    <div class="sec-head"><h2>Voice</h2><span class="badge">home-only</span><span class="badge">cross-page</span><span class="tone-tag">tone guess: technical-precise</span></div>
+    <p class="sec-sub">Samples from the home page; frequencies aggregated across all 4 pages. Source: _brand-extraction.json § voice, § voiceTable.</p>
+    <div class="voice-card"><span class="eyebrow">Hero headline</span><div class="q">Redesign the Web.</div><span class="w">pages/index.json#headings[0]</span></div>
+    <div class="voice-card"><span class="eyebrow">Tagline</span><div class="q">Math, not <em>mysticism</em>.</div><span class="w">pages/index.json#body[0] · repeated in every page footer</span></div>
+    <div class="voice-card"><span class="eyebrow">First paragraph</span><div class="q" style="font-size:19px;font-weight:400;font-family:var(--body);color:var(--text-muted);">Stardust is an open-source, AI-driven website redesign tool. It generates a brand expression for today only — one that this brand and this date alone can produce. Deterministic, reproducible, structured. The canonical AI-facing version of your brand, rendered as deployable HTML.</div><span class="w">pages/index.json#body[1]</span></div>
+
+    <h3 style="margin:34px 0 4px;font-size:20px;">CTA frequency <span class="badge">cross-page</span></h3>
+    <table class="cta">
+      <tr><th>Label</th><th>Total</th><th>Pages</th></tr>
+      <tr><td><span class="pill-label">Docs</span></td><td>9</td><td>4</td></tr>
+      <tr><td><span class="pill-label">#</span></td><td>8</td><td>1 (docs-commands heading anchors)</td></tr>
+      <tr><td><span class="pill-label">Stardust</span></td><td>4</td><td>4</td></tr>
+      <tr><td><span class="pill-label">GitHub ›</span></td><td>4</td><td>4</td></tr>
+      <tr><td><span class="pill-label">GitHub</span></td><td>4</td><td>4</td></tr>
+      <tr><td><span class="pill-label">Apache 2.0 License</span></td><td>4</td><td>4</td></tr>
+      <tr><td><span class="pill-label">stardust:deploy</span></td><td>3</td><td>2</td></tr>
+      <tr><td><span class="pill-label">impeccable</span></td><td>2</td><td>2</td></tr>
+    </table>
+    <p class="src" style="margin-top:8px;">No heading text recurs on ≥3 pages — the repeated-heading list is empty (see Coverage).</p>
+
+    <h3 style="margin:34px 0 12px;font-size:20px;">Tone metrics</h3>
+    <div class="stat-row">
+      <div class="stat-box"><span class="big">0%</span><span class="lbl">headings uppercase</span><p>0 of 75 headings equal their uppercase form — mixed case is the convention; uppercase lives only in mono labels via CSS.</p></div>
+      <div class="stat-box"><span class="big">49</span><span class="lbl">distinct headings</span><p>of 75 total (the repeats are docs-commands' per-command Syntax / Flags / Writes / Example scaffolding).</p></div>
+      <div class="stat-box"><span class="big">27</span><span class="lbl">distinct CTA labels</span><p>Small, consistent vocabulary; nav and footer labels are identical on all 4 pages.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · Tensions -->
+<section id="tensions">
+  <div class="wrap">
+    <div class="sec-head"><h2>Tensions</h2><span class="badge">synthesized</span></div>
+    <p class="sec-sub">Where the captured site internally contradicts itself. Descriptive, not prescriptive — this is the decision agenda for <span class="src">/stardust:direct</span>. Detector catalog run mechanically; rules not listed did not fire (T-radius-vocab: only 2 sub-16px radii clear the ≥10-occurrence bar; T-cta-vocab, T-link-content-free, T-no-tokens, T-tokens-unused, T-img-alt-generic, T-img-alt-empty, T-embed-dominance, T-nav-conflict, T-temporal-mark, T-contrast: triggers not met).</p>
+    <div class="tension-grid">
+      <div class="tension">
+        <span class="tag">T-scale · observed</span>
+        <h4>Type scale is ad-hoc</h4>
+        <p>112 → 96 → 77.6 → 64 → 56 → 48 → 40 → 32 → 22 → 18 px, no consistent ratio. Direct will need to decide whether the target adopts a modular scale.</p>
+        <span class="src">Source: _brand-extraction.json § type.scaleAudit</span>
+      </div>
+      <div class="tension">
+        <span class="tag">T-logo-variants · observed</span>
+        <h4>Only one logo variant captured</h4>
+        <p>Only one logo variant captured (inline-svg, amber-on-transparent). The redesign will need a monochrome / inverted / on-cream variant set; direct should plan that. (favicon.svg and apple-touch-icon.png exist but were not captured as variants.)</p>
+        <span class="src">Source: _brand-extraction.json § logo</span>
+      </div>
+      <div class="tension">
+        <span class="tag">T-color-imbalance · observed · consolidated (4 colors)</span>
+        <h4>Multiple palette colors used in only one context</h4>
+        <p>Four of eight palette entries appear in a single usage context only:</p>
+        <ul>
+          <li><strong>#854f17</strong> primary-deep — text only (250×), never background/border</li>
+          <li><strong>#ffd98a</strong> accent-light — text only (37×)</li>
+          <li><strong>#141b3a</strong> surface-raised — background only (38×)</li>
+          <li><strong>#060a14</strong> background-deep — background only (14×)</li>
+        </ul>
+        <p>Direct will need to decide per color: drop, expand, or keep as a single-purpose accent.</p>
+        <span class="src">Source: _brand-extraction.json § palette[].usedAs</span>
+      </div>
+      <div class="tension">
+        <span class="tag">agent-added · inferred</span>
+        <h4>Bare “#” heading-anchor links</h4>
+        <p>docs-commands ships 8 anchor links whose visible text is just “#” (one per command heading). Outside the mechanical T-link-content-free closed list, but the same accessibility shape: screen readers announce “link, number sign” eight times. Direct should decide the anchor-affordance treatment.</p>
+        <span class="src">Source: pages/docs-commands.json#ctas (labels “#” × 8)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · Motifs -->
+<section id="motifs">
+  <div class="wrap">
+    <div class="sec-head"><h2>Motifs</h2><span class="badge">cross-page</span></div>
+    <p class="sec-sub">Radius vocabulary sorted by element count; shadows and signature gradients as captured. Source: _brand-extraction.json § motifs.</p>
+    <div class="motif-grid">
+      <div class="motif-card"><div class="motif-demo" style="border-radius:4px"></div><div class="v">4px</div><div class="c">89× · chips, code, small UI</div></div>
+      <div class="motif-card"><div class="motif-demo" style="border-radius:14px"></div><div class="v">14px</div><div class="c">31× · cards, panels</div></div>
+      <div class="motif-card"><div class="motif-demo" style="border-radius:22px"></div><div class="v">22px</div><div class="c">10× · large panels</div></div>
+      <div class="motif-card"><div class="motif-demo" style="border-radius:999px;width:110px"></div><div class="v">999px</div><div class="c">7× · nav pill, badges</div></div>
+      <div class="motif-card"><div class="motif-demo" style="border-radius:0 8px 8px 0"></div><div class="v">0 8px 8px 0</div><div class="c">7× · sidebar active items</div></div>
+      <div class="motif-card"><div class="motif-demo" style="border-radius:12px"></div><div class="v">12px</div><div class="c">6×</div></div>
+      <div class="motif-card"><div class="motif-demo" style="border-radius:18px"></div><div class="v">18px</div><div class="c">6×</div></div>
+      <div class="motif-card"><div class="motif-demo" style="border-radius:8px"></div><div class="v">8px</div><div class="c">4× · buttons</div></div>
+    </div>
+    <div class="shadow-demo-ground">
+      <div class="shadow-demo" style="box-shadow: rgba(0,0,0,0.45) 0px 24px 60px 0px;">frame · rgba(0,0,0,.45) 0 24px 60px<br>before/after screenshot frames</div>
+      <div class="shadow-demo" style="box-shadow: rgba(6,10,20,0.25) 0px 6px 20px 0px;">sticky-nav · rgba(6,10,20,.25) 0 6px 20px<br>header on scroll</div>
+    </div>
+    <ul class="grad-list">
+      <li><span class="grad-chip" style="background:radial-gradient(90% 70% at 80% 35%, rgb(26,36,80) 0%, rgb(7,12,30) 55%, rgb(6,10,20) 100%)"></span>Hero background glow — radial-gradient(90% 70% at 80% 35%, #1a2450 → #070c1e → #060a14)</li>
+      <li><span class="grad-chip" style="background:#060a14 radial-gradient(2px 2px at 18% 30%, rgba(245,240,230,.5), transparent 60%), radial-gradient(1.5px 1.5px at 80% 20%, rgba(245,240,230,.4), transparent 60%), radial-gradient(2px 2px at 40% 75%, rgba(245,240,230,.34), transparent 60%)"></span>Starfield — stacked micro radial-gradients of dust alpha (hero, index + aem)</li>
+      <li><span class="grad-chip" style="background:linear-gradient(rgb(6,10,20) 0%, rgb(10,16,36) 100%)"></span>Section transition band — linear-gradient(#060a14 → #0a1024)</li>
+      <li><span class="grad-chip" style="background:#0a1024 linear-gradient(rgba(0,0,0,0) 60%, rgba(232,185,94,0.32) 60%)"></span>Amber highlighter underline — linear-gradient(transparent 60%, rgba(232,185,94,.32) 60%)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 9 · Components -->
+<section id="components">
+  <div class="wrap">
+    <div class="sec-head"><h2>Components</h2><span class="badge">cross-page</span></div>
+    <p class="sec-sub">Detected component types and recurring patterns. Source: _brand-extraction.json § componentStyle, § motifs.patterns.</p>
+    <ul class="comp-list">
+      <li><span class="n">Primary button</span> — <span class="d">amber #e8b95e on ink text, 8px radius, 14×24px padding, weight 600, no shadow (“Install in two minutes”). Dual-CTA pattern: primary-then-ghost.</span></li>
+      <li><span class="n">Nav pill</span> — <span class="d">amber, SF Mono 700 uppercase +1.54px, 999px radius (“Docs”) — on all 4 pages.</span></li>
+      <li><span class="n">Feature card (3-up grids)</span> — <span class="d">#141b3a fill, 1px rgba(245,240,230,.08) hairline, 14px radius; mono eyebrow + H3 + muted body. 4 card-grid sections across index + aem.</span></li>
+      <li><span class="n">Code block</span> — <span class="d">dark ink rounded block with mono shell commands — docs + docs-commands.</span></li>
+      <li><span class="n">Pipeline step row</span> — <span class="d">EXTRACT → DIRECT → PROTOTYPE → MIGRATE (index); GENERATE → CONVERT → PUBLISH (aem); numbered steps (docs).</span></li>
+      <li><span class="n">Before/after image pair</span> — <span class="d">same coffee-site proof pair on index and aem, framed with the site's one large shadow.</span></li>
+      <li><span class="n">Marquee sample ribbon</span> — <span class="d">“★ REAL · STARDUST · SAMPLE · CLICK ME” repeating CSS marquee link (index).</span></li>
+      <li><span class="n">Docs sticky sidebar</span> — <span class="d">ink panel, numbered items, amber-tint active state (docs, docs-commands).</span></li>
+      <li><span class="n">Inputs</span> — <span class="d">none observed; the site has no forms.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 10 · Cross-promo: omitted (crossPromo.detected = false) -->
+
+<!-- 11 · System components -->
+<section id="system">
+  <div class="wrap">
+    <div class="sec-head"><h2>System components</h2><span class="badge">cross-page</span></div>
+    <p class="sec-sub">Landmark fingerprints repeated across pages. Source: _brand-extraction.json § systemComponents.</p>
+    <div class="sys"><h4>site-header</h4><span class="kind">header</span><span class="kind" style="background:none;border:1px solid var(--border);color:var(--text-muted);">4 / 4 pages</span>
+      <p>Sticky 60px deep-ink bar. Inline-SVG amber star mark + “Stardust” wordmark · CTAs: <strong>Docs</strong> (amber mono pill) · <strong>GitHub ›</strong>. Example: index → <span class="src">header .nav-row</span></p></div>
+    <div class="sys"><h4>site-footer</h4><span class="kind">footer</span><span class="kind" style="background:none;border:1px solid var(--border);color:var(--text-muted);">4 / 4 pages</span>
+      <p>Centered mark + wordmark · “A design-phase toolkit by the AEM team at Adobe. Math, not mysticism.” · links <strong>Docs · GitHub · Apache 2.0 License</strong> · mono sign-off “brief + seed = star · 2026”. Example: index → <span class="src">footer</span></p></div>
+    <div class="sys"><h4>docs-sidebar</h4><span class="kind">nav-secondary</span><span class="kind" style="background:none;border:1px solid var(--border);color:var(--text-muted);">2 / 4 pages (≥50% threshold)</span>
+      <p>Fixed ink panel with numbered items <strong>Get started 01 · Commands 02</strong>; active item in rgba(232,185,94,.12) with #ffd98a text. Example: docs.</p></div>
+  </div>
+</section>
+
+<!-- 12 · Logo -->
+<section id="logo">
+  <div class="wrap">
+    <div class="sec-head"><h2>Logo &amp; favicons</h2><span class="badge">home-only</span></div>
+    <div class="logo-row">
+      <div class="logo-frame"><img src="assets/logo.svg" alt="Stardust star mark — five amber rectangles forming a plus with a square core"></div>
+      <dl class="meta">
+        <dt>Source</dt><dd>inline-svg — first hit on the locator chain. The server HTML ships an empty <span class="src">&lt;header&gt;</span> (EDS client-side header block); the rendered header contains the mark at <span class="src">header a.nav-mark svg</span>.</dd>
+        <dt>File</dt><dd>assets/logo.svg — SVG, 22×22 rendered (24×24 viewBox), amber #e8b95e on transparent.</dd>
+        <dt>Variants captured</dt><dd>1 — the amber-on-transparent header mark.</dd>
+        <dt>Variants not captured</dt><dd>/favicon.svg, /favicon.png (96×96), /apple-touch-icon.png — present on the origin but not fetched as variants (locator chain stops at first hit). No monochrome or on-cream variant observed. See tension T-logo-variants.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · Spacing & shape -->
+<section id="spacing">
+  <div class="wrap">
+    <div class="sec-head"><h2>Spacing &amp; shape</h2><span class="badge">cross-page</span></div>
+    <p class="sec-sub">Source: _brand-extraction.json § spacing (from the site's own --pad / --maxw / --nav-height custom properties) and § motifs.borderRadius.</p>
+    <div class="space-tokens">
+      <div class="stat-box"><span class="big" style="font-size:22px;font-family:var(--mono);">clamp(20px, 4vw, 64px)</span><span class="lbl">section padding (--pad)</span></div>
+      <div class="stat-box"><span class="big" style="font-size:22px;font-family:var(--mono);">1320px</span><span class="lbl">container max-width (--maxw)</span></div>
+      <div class="stat-box"><span class="big" style="font-size:22px;font-family:var(--mono);">60px</span><span class="lbl">nav height (--nav-height)</span></div>
+    </div>
+    <p class="sec-sub" style="margin-bottom:14px;">No base spacing unit was detectable from the captured padding samples (8, 14, 16, 24 px + the clamp) — the scale bar row is omitted; direct should decide whether the target adopts a grid.</p>
+    <h3 style="font-size:18px;margin:0 0 12px;">Radii revisited</h3>
+    <div class="radii-pills">
+      <span class="p" style="border-radius:4px">4px · 89×</span>
+      <span class="p" style="border-radius:14px">14px · 31×</span>
+      <span class="p" style="border-radius:22px">22px · 10×</span>
+      <span class="p" style="border-radius:999px">999px · 7×</span>
+      <span class="p" style="border-radius:0 8px 8px 0">0 8px 8px 0 · 7×</span>
+      <span class="p" style="border-radius:12px">12px · 6×</span>
+      <span class="p" style="border-radius:18px">18px · 6×</span>
+      <span class="p" style="border-radius:8px">8px · 4×</span>
+      <span class="p" style="border-radius:6px">6px · 1×</span>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · Embed-dominated pages: omitted (no page has embedDominance.dominated = true) -->
+
+<!-- 15 · Footer -->
+<footer class="review-footer">
+  <div class="wrap">
+    <p><strong>Provenance.</strong> Written by stardust:extract (0.14.2) on 2026-07-02 from: _brand-extraction.json, PRODUCT.md, DESIGN.md, DESIGN.json, pages/{index,aem,docs,docs-commands}.json, _crawl-log.json, assets/screenshots/*, assets/logo.svg. Every value above traces to a captured artifact; nothing is invented. Chrome color note: this review's --primary is amber #e8b95e (the most-frequent saturated visual anchor; #854f17 outranks it in raw element count only via docs-commands' dense mono labels and serves as --primary-dark, same hue family). No palette entry sits &gt;60° in hue from amber except the ink grounds, so --accent falls back to the brand's own amber-light #ffd98a — the chrome reads monochromatic-amber because the brand is.</p>
+    <p><strong>What's next.</strong> If this review matches the live site, run <span class="mono">/stardust:direct</span> to set the redesign direction. If something reads wrong, re-run <span class="mono">/stardust:extract --refresh &lt;slug&gt;</span> — misreads are cheap to fix now, expensive after direction.</p>
+    <p class="mono">Badge legend: <span class="badge" style="margin-left:0">observed</span> frequency-counted from CSS · <span class="badge" style="margin-left:0">cross-page</span> aggregated over all 4 pages · <span class="badge" style="margin-left:0">home-only</span> single-page source · <span class="badge inferred" style="margin-left:0">inferred</span> agent judgment — challenge it · <span class="badge" style="margin-left:0">synthesized</span> constructed claim from extracted inputs</p>
+  </div>
+</footer>
+
+</body>
+</html>

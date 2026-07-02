@@ -1,0 +1,182 @@
+{
+  "_provenance": {
+    "renderedBy": "playwright",
+    "fetchedAt": "2026-07-02T12:03:19.838Z",
+    "waitMode": "medium",
+    "waitMs": 2500,
+    "httpStatus": 200
+  },
+  "slug": "aem",
+  "url": "https://stardust.style/aem",
+  "renderedBy": "playwright",
+  "fetchedAt": "2026-07-02T12:03:19.838Z",
+  "finalUrl": "https://stardust.style/aem",
+  "title": "Stardust on AEM Edge Delivery — production-ready",
+  "description": "Stardust outputs deployable static HTML. AEM Edge Delivery serves it — top-decile Core Web Vitals, edge-cached globally, AI-friendly markup, no build step.",
+  "og": {
+    "title": "Stardust on AEM Edge Delivery — production-ready",
+    "description": "Stardust outputs deployable static HTML. AEM Edge Delivery serves it — top-decile Core Web Vitals, edge-cached globally, AI-friendly markup, no build step.",
+    "image": "https://stardust.style/media_1d66a8cd9c28ee9bbc879c890d38c7add9b163cfc.jpg?width=1200&format=pjpg&optimize=medium",
+    "type": null
+  },
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Manage at scale.From Stardust to AEM."
+    },
+    {
+      "tag": "h2",
+      "text": "Web publishing changed under us."
+    },
+    {
+      "tag": "h3",
+      "text": "Reuse everything. Build nothing new."
+    },
+    {
+      "tag": "h3",
+      "text": "The cost of uniqueness collapsed."
+    },
+    {
+      "tag": "h3",
+      "text": "The library was a workaround."
+    },
+    {
+      "tag": "h2",
+      "text": "More than a renderer. An experience system."
+    },
+    {
+      "tag": "h3",
+      "text": "Every market, every campaign, one surface."
+    },
+    {
+      "tag": "h3",
+      "text": "Optimized for the AI-facing web."
+    },
+    {
+      "tag": "h3",
+      "text": "Top-decile Core Web Vitals."
+    },
+    {
+      "tag": "h2",
+      "text": "Meet stardust:deploy.From static HTML to a live AEM experience."
+    },
+    {
+      "tag": "h2",
+      "text": "Two commands. No development in between."
+    }
+  ],
+  "body": [
+    "Stardust generates clean, deployable static HTML. stardust:deploy turns it into a full AEM Edge Delivery experience — authorable, edge-served globally, optimized for performance and AI brand visibility.",
+    "From assembling pages out of shared parts → to generating unique pages that share the same rules.",
+    "Implementation partners shipped a library — Hero, Card Grid, Accordion, Tabs — and marketers composed pages from the shelf. Sites got fast by getting boring. It worked.",
+    "AI tools now generate bespoke, production-quality HTML — scroll-driven motion, cinematic transitions, three-week designs in an hour — from a prompt and a brand surface. Designers know how to drive them.",
+    "Every page can be its own page again — provided the brand keeps the rules. The library's job moves up a level: from shape to guardrails.",
+    "AEM Edge Delivery serves static HTML at top-decile performance — but the deeper value is what comes with it: an experience platform for managing every market, every language, every campaign, while keeping the brand control non-negotiable. Stardust generates the artifact; AEM is where that artifact lives at scale.",
+    "Authors edit in-place with Universal Editor. Drafts, scheduling, translations, A/B variants, market overrides — all in one place. Roll the same Stardust artifact across regions, products, and seasons without rebuilds.",
+    "LLMs synthesize brands from what they can read. Edge Delivery's clean, semantic, structured markup — exactly what Stardust outputs — is what Google AI Mode, Claude, and ChatGPT extract correctly. Your brand survives the synth as you mean it.",
+    "100/100 Lighthouse scores aren't aspirational on Edge Delivery — they're the default. Static HTML, edge-cached globally, no client-side framework rehydration. SEO and search ranking follow.",
+    "stardust:deploy is the open-source converter that turns a Stardust page into an AEM Edge Delivery experience. Each prototype section becomes one independent EDS block: the section's CSS becomes that block's scoped stylesheet, and its text and images become authorable content. Header and footer drop into static repository fragments, and the page ships as a content fragment to AEM.",
+    "· Every section becomes an authorable block · The design is reproduced faithfully ·",
+    "From a live URL to a working AEM Edge Delivery experience. Stardust generates the redesign; stardust:deploy converts it into authorable EDS blocks and ships them to AEM.",
+    "Generate the redesign. /stardust:uplift <URL> — Stardust crawls the live site, captures the brand surface, and generates three differentiated variants in one run. Approve the one that fits.",
+    "Convert and ship to AEM. /stardust:deploy — stardust:deploy turns the chosen variant into EDS blocks and content pages and pushes them into your AEM Edge Delivery project. Run /stardust:diff to confirm the build matches the prototype, then publish."
+  ],
+  "ctas": [
+    {
+      "label": "Stardust",
+      "href": "/"
+    },
+    {
+      "label": "Docs",
+      "href": "/docs/"
+    },
+    {
+      "label": "GitHub ›",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust"
+    },
+    {
+      "label": "stardust:deploy",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust/skills/deploy"
+    },
+    {
+      "label": "stardust:deploy",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust/skills/deploy"
+    },
+    {
+      "label": "AEM Edge Delivery",
+      "href": "https://www.aem.live/"
+    },
+    {
+      "label": "Docs",
+      "href": "/docs/"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust"
+    },
+    {
+      "label": "Apache 2.0 License",
+      "href": "https://github.com/adobe/skills/blob/main/LICENSE"
+    }
+  ],
+  "links": [
+    "https://stardust.style/",
+    "https://stardust.style/docs/",
+    "https://github.com/adobe/skills/tree/main/plugins/stardust",
+    "https://github.com/adobe/skills/tree/main/plugins/stardust/skills/deploy",
+    "https://www.aem.live/",
+    "https://github.com/adobe/skills/blob/main/LICENSE"
+  ],
+  "media": {
+    "imgs": [
+      {
+        "src": "https://stardust.style/media_1d66a8cd9c28ee9bbc879c890d38c7add9b163cfc.jpg?width=2000&format=webply&optimize=medium",
+        "alt": "A site's existing landing page — warm but unmemorable.",
+        "w": 1600,
+        "h": 941
+      },
+      {
+        "src": "https://stardust.style/media_18bac0846ac4b672ac9c20cf356207ea1b353d856.jpg?width=2000&format=webply&optimize=medium",
+        "alt": "The same site, redesigned by Stardust, served by AEM Edge Delivery.",
+        "w": 1600,
+        "h": 939
+      }
+    ],
+    "allImgCount": 2,
+    "cssBackgrounds": [],
+    "modals": [],
+    "videos": [],
+    "iframes": []
+  },
+  "customProps": {
+    "--ink": "#0a1024",
+    "--ink-deep": "#060a14",
+    "--ink-soft": "#141b3a",
+    "--dust": "#f5f0e6",
+    "--deep-ink": "#1a1f38",
+    "--amber": "#e8b95e",
+    "--amber-light": "#ffd98a",
+    "--amber-deep": "#854f17",
+    "--dust-72": "rgb(245 240 230 / 72%)",
+    "--dust-50": "rgb(245 240 230 / 50%)",
+    "--dust-30": "rgb(245 240 230 / 30%)",
+    "--dust-15": "rgb(245 240 230 / 15%)",
+    "--dust-08": "rgb(245 240 230 / 8%)",
+    "--display": "\"SF Pro Display\", -apple-system, blinkmacsystemfont, system-ui, sans-serif",
+    "--text": "\"SF Pro Text\", -apple-system, blinkmacsystemfont, system-ui, sans-serif",
+    "--mono": "\"SF Mono\", \"JetBrains Mono\", ui-monospace, monospace",
+    "--pad": "clamp(20px, 4vw, 64px)",
+    "--maxw": "1320px",
+    "--nav-height": "60px"
+  },
+  "_signals": {
+    "filteredInterstitials": 0,
+    "distinctHeadings": 11,
+    "mainTextLen": 3896,
+    "realImageCount": 2,
+    "trackingOnlyMedia": false,
+    "spaShellSuspect": false,
+    "screenshotMode": "fullPage"
+  },
+  "screenshot": "assets/screenshots/aem.png"
+}

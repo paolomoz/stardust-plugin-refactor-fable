@@ -1,0 +1,240 @@
+{
+  "_provenance": {
+    "renderedBy": "playwright",
+    "fetchedAt": "2026-07-02T12:03:19.840Z",
+    "waitMode": "medium",
+    "waitMs": 2500,
+    "httpStatus": 200
+  },
+  "slug": "index",
+  "url": "https://stardust.style/",
+  "renderedBy": "playwright",
+  "fetchedAt": "2026-07-02T12:03:19.840Z",
+  "finalUrl": "https://stardust.style/",
+  "title": "Stardust — AI website redesign tool, math not mysticism",
+  "description": "Stardust is an open-source, AI-driven website redesign tool — turn any URL into brand-faithful, deployable static HTML. Built by the AEM team at Adobe.",
+  "og": {
+    "title": "Stardust — AI website redesign tool, math not mysticism",
+    "description": "Stardust is an open-source, AI-driven website redesign tool — turn any URL into brand-faithful, deployable static HTML. Built by the AEM team at Adobe.",
+    "image": "https://stardust.style/media_1d66a8cd9c28ee9bbc879c890d38c7add9b163cfc.jpg?width=1200&format=pjpg&optimize=medium",
+    "type": null
+  },
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Redesignthe Web."
+    },
+    {
+      "tag": "h2",
+      "text": "Every design toolpromises uniqueness."
+    },
+    {
+      "tag": "h3",
+      "text": "The divergence toolkit."
+    },
+    {
+      "tag": "h3",
+      "text": "Provenance is a feature."
+    },
+    {
+      "tag": "h2",
+      "text": "Take any website.Bring back the redesign."
+    },
+    {
+      "tag": "h3",
+      "text": "The current state, captured."
+    },
+    {
+      "tag": "h3",
+      "text": "The seed picks the lane."
+    },
+    {
+      "tag": "h3",
+      "text": "Static HTML, deployable."
+    },
+    {
+      "tag": "h2",
+      "text": "The canonical brand,for the AI-facing web."
+    },
+    {
+      "tag": "h3",
+      "text": "Richer signals for AI to read."
+    },
+    {
+      "tag": "h3",
+      "text": "Same seed, same brand."
+    },
+    {
+      "tag": "h3",
+      "text": "Marketing keeps the keys."
+    },
+    {
+      "tag": "h2",
+      "text": "Stardust ships static HTML.Take it anywhere."
+    },
+    {
+      "tag": "h3",
+      "text": "Anywhere static HTML runs."
+    },
+    {
+      "tag": "h3",
+      "text": "Open to all."
+    },
+    {
+      "tag": "h2",
+      "text": "Deploy anywhere. Scale with AEM."
+    }
+  ],
+  "body": [
+    "Math, not mysticism.",
+    "Stardust is an open-source, AI-driven website redesign tool. It generates a brand expression for today only — one that this brand and this date alone can produce. Deterministic, reproducible, structured. The canonical AI-facing version of your brand, rendered as deployable HTML.",
+    "Install in two minutes",
+    "View on GitHub",
+    "Most deliver the average.",
+    "Stardust delivers a seed.",
+    "Stardust doesn't introduce chaos. It introduces structured variation within a defined design space — three variant theses per page, each prototyped at desktop, tablet, and mobile, each accompanied by design rationale. The brand manager isn't ceding control. They're expanding the vocabulary of control.",
+    "Lists the moves an LLM reaches for first — gradient blob hero, glassmorphism, generic icon trios. Stardust subverts them deliberately.",
+    "Every choice has a source. The chosen decade × craft × register has a hash. Math, not mysticism.",
+    "Four sub-commands. Run them in order, or jump in at any point. Each step writes its own artifacts; the next step reads them.",
+    "Crawl any URL. Capture the brand surface — palette, type, voice, motifs. The current state is described, not authored.",
+    "Roll a seed. Resolve a direction. Generate three variants for every page. Iterate in the browser.",
+    "Output every page as deployable static HTML. No build step, no framework lock-in. Drop it on any host that serves files.",
+    "Stardust answers a question your team will be asked more often: what is the canonical, AI-facing expression of this brand today? It produces the default experience — the reference point from which all variations are measured — in a form your marketing team can update and curate without developer intervention at every touchpoint.",
+    "When AI synthesizes your brand — Google AI Mode, Claude, search synth — it draws on available signals. Stardust output provides richer, more intentional signals than a static page designed for a pre-AI web.",
+    "Today's expression is locked. Tomorrow's seed yields a related-but-distinct variation. The default is always reproducible — yours alone, today only.",
+    "Three variant theses per page, each rendered, each rationalized. The brand team picks. Updates land without developer intervention at every touchpoint.",
+    "GitHub Pages, Cloudflare, your CDN, your CMS — Stardust outputs files, not lock-in. Drop the migration into any host that serves HTML and the redesigned site is live.",
+    "Stardust is open source under Apache 2.0. Anyone can contribute — file an issue, send a PR, write a sample. The skill ships as a Claude Code plugin.",
+    "Built on impeccable. Which is, frankly, brilliant.",
+    "Stardust is a generic redesign tool — drop the output on GitHub Pages, your CDN, or any host that serves files. When you need to manage experiences at scale (multiple markets, in-place authoring, drafts, translations, scheduled releases), AEM Edge Delivery is a frictionless route to production. The bridge is stardust:deploy, which converts the Stardust output into authorable EDS blocks without losing the design.",
+    "See how Stardust ships to AEM Edge Delivery ›",
+    "Open source · Apache 2.0 · built by the AEM team at Adobe"
+  ],
+  "ctas": [
+    {
+      "label": "Stardust",
+      "href": "/"
+    },
+    {
+      "label": "Docs",
+      "href": "/docs/"
+    },
+    {
+      "label": "GitHub ›",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust"
+    },
+    {
+      "label": "Install in two minutes",
+      "href": "/docs/"
+    },
+    {
+      "label": "View on GitHub",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust"
+    },
+    {
+      "label": "Before",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust"
+    },
+    {
+      "label": "After · Stardust",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust"
+    },
+    {
+      "label": "★ REAL · STARDUST · SAMPLE · CLICK ME · ★ REAL · STARDUST · SAMPLE · CLICK ME · It's a real one →",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust"
+    },
+    {
+      "label": "Read the deployment notes ›",
+      "href": "/docs/"
+    },
+    {
+      "label": "impeccable",
+      "href": "https://impeccable.style/"
+    },
+    {
+      "label": "github.com/adobe/skills ›",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust"
+    },
+    {
+      "label": "stardust:deploy",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust/skills/deploy"
+    },
+    {
+      "label": "See how Stardust ships to AEM Edge Delivery ›",
+      "href": "/aem"
+    },
+    {
+      "label": "Docs",
+      "href": "/docs/"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust"
+    },
+    {
+      "label": "Apache 2.0 License",
+      "href": "https://github.com/adobe/skills/blob/main/LICENSE"
+    }
+  ],
+  "links": [
+    "https://stardust.style/",
+    "https://stardust.style/docs/",
+    "https://github.com/adobe/skills/tree/main/plugins/stardust",
+    "https://impeccable.style/",
+    "https://github.com/adobe/skills/tree/main/plugins/stardust/skills/deploy",
+    "https://stardust.style/aem",
+    "https://github.com/adobe/skills/blob/main/LICENSE"
+  ],
+  "media": {
+    "imgs": [
+      {
+        "src": "https://stardust.style/media_1d66a8cd9c28ee9bbc879c890d38c7add9b163cfc.jpg?width=2000&format=webply&optimize=medium",
+        "alt": "A coffee site's existing landing page — warm amber illustration, friendly but unmemorable.",
+        "w": 1600,
+        "h": 941
+      },
+      {
+        "src": "https://stardust.style/media_18bac0846ac4b672ac9c20cf356207ea1b353d856.jpg?width=2000&format=webply&optimize=medium",
+        "alt": "The same site, redesigned by Stardust — ink-deep ground, editorial photography, confident type.",
+        "w": 1600,
+        "h": 939
+      }
+    ],
+    "allImgCount": 2,
+    "cssBackgrounds": [],
+    "modals": [],
+    "videos": [],
+    "iframes": []
+  },
+  "customProps": {
+    "--ink": "#0a1024",
+    "--ink-deep": "#060a14",
+    "--ink-soft": "#141b3a",
+    "--dust": "#f5f0e6",
+    "--deep-ink": "#1a1f38",
+    "--amber": "#e8b95e",
+    "--amber-light": "#ffd98a",
+    "--amber-deep": "#854f17",
+    "--dust-72": "rgb(245 240 230 / 72%)",
+    "--dust-50": "rgb(245 240 230 / 50%)",
+    "--dust-30": "rgb(245 240 230 / 30%)",
+    "--dust-15": "rgb(245 240 230 / 15%)",
+    "--dust-08": "rgb(245 240 230 / 8%)",
+    "--display": "\"SF Pro Display\", -apple-system, blinkmacsystemfont, system-ui, sans-serif",
+    "--text": "\"SF Pro Text\", -apple-system, blinkmacsystemfont, system-ui, sans-serif",
+    "--mono": "\"SF Mono\", \"JetBrains Mono\", ui-monospace, monospace",
+    "--pad": "clamp(20px, 4vw, 64px)",
+    "--maxw": "1320px",
+    "--nav-height": "60px"
+  },
+  "_signals": {
+    "filteredInterstitials": 0,
+    "distinctHeadings": 16,
+    "mainTextLen": 4277,
+    "realImageCount": 2,
+    "trackingOnlyMedia": false,
+    "spaShellSuspect": false,
+    "screenshotMode": "fullPage"
+  },
+  "screenshot": "assets/screenshots/index.png"
+}

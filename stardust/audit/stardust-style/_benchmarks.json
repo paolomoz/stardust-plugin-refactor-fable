@@ -1,0 +1,26 @@
+{
+  "status": "done",
+  "method": "refero MCP (mcp__refero__refero_search_styles + refero_get_style), probe fired in audit Phase 0, full styles retrieved",
+  "vertical": "dark developer-tool / AI-product marketing sites",
+  "references": [
+    {
+      "title": "Langbase",
+      "url": "https://langbase.com",
+      "styleId": "6faf7a27-f3f3-42b7-9b55-1a0b2ff59439",
+      "whatTheyDoBetter": "Two-level text-color discipline (Canvas White #fafafa + Ash Gray #a1a1aa only) — stardust.style runs a 5-step dust alpha ramp (72/50/30/15/8%) that dilutes hierarchy; Langbase also frames sections with faint structural grid lines instead of relying on spacing alone."
+    },
+    {
+      "title": "Eraser",
+      "url": "https://www.tryeraser.com",
+      "styleId": "66b9ff99-f7f2-480c-97e9-42718e49cb97",
+      "whatTheyDoBetter": "Role-based type scale (caption/body/subheading/heading/heading-lg/display, 6 sizes) and a strict radius vocabulary (16px cards / 8px elements / 4px buttons) — stardust.style's scale is ad-hoc across 10 sizes with no consistent ratio (T-scale); Eraser also owns a distinctive display face (National 2 Condensed) where stardust rides the SF Pro system stack."
+    },
+    {
+      "title": "Metaview",
+      "url": "https://metaview.ai",
+      "styleId": "13ff020d-f836-4b43-89df-d11bc08f897b",
+      "whatTheyDoBetter": "Single-vivid-accent discipline (Mint Glare #7affb4 reserved exclusively for primary CTAs) — stardust.style splits its amber identity across three values (#e8b95e / #ffd98a / #854f17) with text-only/background-only role imbalance (T-color-imbalance), so no one amber is unambiguously 'the action color'."
+    }
+  ],
+  "sharedPatternNote": "All three references pair the dark canvas with an ownable display face and a tight token vocabulary; stardust.style's distinctive assets are its cream-on-ink inversion sections, the mono eyebrow labels, and the star glyph — underused as system, per audit findings."
+}

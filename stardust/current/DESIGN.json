@@ -1,0 +1,181 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:extract",
+    "writtenAt": "2026-07-02T12:12:06Z",
+    "readArtifacts": [
+      "stardust/current/_brand-extraction.json",
+      "stardust/current/DESIGN.md",
+      "stardust/current/pages/index.json",
+      "stardust/current/pages/aem.json",
+      "stardust/current/pages/docs.json",
+      "stardust/current/pages/docs-commands.json"
+    ],
+    "synthesizedInputs": [],
+    "stardustVersion": "0.14.2",
+    "note": "Descriptive sidecar of the EXISTING site at https://stardust.style. Extensions carry componentStyle, motifs, and voice per artifact-map.md."
+  },
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-02T12:12:06Z",
+  "title": "Design System: Stardust (current state)",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#0a1024" },
+      "ink-deep": { "role": "neutral", "displayName": "Deep Ink Ground", "canonical": "#060a14" },
+      "ink-soft": { "role": "neutral", "displayName": "Soft Ink (cards)", "canonical": "#141b3a" },
+      "deep-ink": { "role": "neutral", "displayName": "Card Ink Text", "canonical": "#1a1f38" },
+      "dust": { "role": "neutral", "displayName": "Dust (cream)", "canonical": "#f5f0e6" },
+      "amber": { "role": "primary", "displayName": "Amber", "canonical": "#e8b95e" },
+      "amber-light": { "role": "primary", "displayName": "Light Amber", "canonical": "#ffd98a" },
+      "amber-deep": { "role": "primary", "displayName": "Deep Amber (on cream)", "canonical": "#854f17" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page hero H1 (112px home, 96px /aem, 64px docs); carries one amber italic phrase." },
+      "headline": { "displayName": "Headline", "purpose": "Section H2 leads (77.6px home, 56px /aem, 32px docs)." },
+      "title": { "displayName": "Title", "purpose": "Card H3 headings under mono eyebrows (18–22px)." },
+      "body": { "displayName": "Body", "purpose": "Prose at 15–18px/1.6, muted via 72–78% alpha of the ground's text color." },
+      "label": { "displayName": "Mono Label", "purpose": "Uppercase SF Mono eyebrows/tags at +0.22–0.24em; also the nav pill and /docs/commands 40px command headings." }
+    },
+    "shadows": [
+      { "name": "frame", "value": "rgba(0, 0, 0, 0.45) 0px 24px 60px 0px", "purpose": "Before/after screenshot frames (index, aem) — the only large shadow on the site." },
+      { "name": "sticky-nav", "value": "rgba(6, 10, 20, 0.25) 0px 6px 20px 0px", "purpose": "Sticky header separation." }
+    ],
+    "motion": [],
+    "breakpoints": [],
+    "componentStyle": {
+      "buttons": {
+        "primary": { "background": "#e8b95e", "color": "#0a1024", "borderRadius": "8px", "padding": "14px 24px", "fontWeight": 600, "fontFamily": "SF Pro Text", "shadow": null },
+        "navPill": { "background": "#e8b95e", "color": "#0a1024", "borderRadius": "999px", "padding": "8px 14px", "fontWeight": 700, "fontFamily": "SF Mono", "textTransform": "uppercase", "letterSpacing": "1.54px" },
+        "secondary": { "background": "rgba(232, 185, 94, 0.12)", "color": "#ffd98a", "borderRadius": "8px", "padding": "14px 16px", "fontWeight": 500 },
+        "ghost": { "background": "transparent", "color": "#f5f0e6", "border": "1px solid rgba(245, 240, 230, 0.15)" }
+      },
+      "dualCTAPattern": "primary-then-ghost",
+      "cards": { "background": "#141b3a", "borderRadius": "14px", "border": "1px solid rgba(245, 240, 230, 0.08)", "padding": null, "shadow": null },
+      "inputs": null,
+      "links": { "onInk": "#e8b95e", "onCream": "#854f17", "decoration": "underline on inline prose links, none on nav" }
+    },
+    "motifs": {
+      "borderRadius": {
+        "primary": "4px",
+        "secondary": "14px",
+        "pill": "999px",
+        "occurrences": { "4px": 89, "14px": 31, "22px": 10, "999px": 7, "0px 8px 8px 0px": 7, "12px": 6, "18px": 6, "8px": 4, "6px": 1 }
+      },
+      "shadows": [
+        { "value": "rgba(0, 0, 0, 0.45) 0px 24px 60px 0px", "uses": "before/after screenshot frames" },
+        { "value": "rgba(6, 10, 20, 0.25) 0px 6px 20px 0px", "uses": "sticky header" }
+      ],
+      "gradients": [
+        { "value": "radial-gradient(90% 70% at 80% 35%, rgb(26, 36, 80) 0%, rgb(7, 12, 30) 55%, rgb(6, 10, 20) 100%)", "uses": "hero background glow" },
+        { "value": "stacked micro radial-gradients of rgba(245,240,230,.26–.5)", "uses": "hero starfield dots" },
+        { "value": "linear-gradient(rgb(6, 10, 20) 0%, rgb(10, 16, 36) 100%)", "uses": "section transition band" },
+        { "value": "linear-gradient(rgba(0,0,0,0) 60%, rgba(232, 185, 94, 0.32) 60%)", "uses": "amber highlighter underline on emphasized words" }
+      ],
+      "patterns": [
+        "alternating-ink-cream-bands",
+        "type-only-hero-with-starfield",
+        "card-grid-3up",
+        "uppercase-mono-eyebrows",
+        "amber-italic-emphasis-in-headings",
+        "before-after-image-pair",
+        "dark-rounded-code-blocks",
+        "pipeline-step-row",
+        "marquee-sample-ribbon",
+        "docs-sticky-sidebar"
+      ]
+    },
+    "voice": {
+      "heroHeadline": "Redesign the Web.",
+      "heroSubcopy": "Math, not mysticism.",
+      "primaryCTALabel": "Install in two minutes",
+      "ctaSamples": ["Install in two minutes", "View on GitHub", "See how Stardust ships to AEM Edge Delivery ›", "Read the deployment notes ›"],
+      "navItems": ["Stardust", "Docs", "GitHub ›"],
+      "toneGuess": "technical-precise"
+    },
+    "systemComponents": [
+      { "name": "site-header", "kind": "header", "occurrences": 4 },
+      { "name": "site-footer", "kind": "footer", "occurrences": 4 },
+      { "name": "docs-sidebar", "kind": "nav-secondary", "occurrences": 2 }
+    ],
+    "scaleAudit": { "kind": "ad-hoc", "ratios": [1.17, 1.24, 1.21, 1.14, 1.17, 1.2, 1.25, 1.45, 1.22], "matchedScale": null }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Hero primary CTA — amber fill, ink text, 8px radius, no shadow.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Install in two minutes</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #e8b95e; color: #0a1024; padding: 14px 24px; border-radius: 8px; font-family: \"SF Pro Text\", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-weight: 600; font-size: 16px; text-decoration: none; transition: background 0.2s; } .ds-btn-primary:hover { background: #ffd98a; } .ds-btn-primary:focus-visible { outline: 2px solid #e8b95e; outline-offset: 3px; }"
+    },
+    {
+      "name": "Nav Pill",
+      "kind": "button",
+      "refersTo": "button-nav-pill",
+      "description": "Header CTA pill — amber, SF Mono uppercase, full pill radius.",
+      "html": "<a class=\"ds-nav-pill\" href=\"#\">Docs</a>",
+      "css": ".ds-nav-pill { display: inline-block; background: #e8b95e; color: #0a1024; padding: 8px 14px; border-radius: 999px; font-family: \"SF Mono\", \"JetBrains Mono\", ui-monospace, monospace; font-weight: 700; font-size: 11px; letter-spacing: 1.54px; text-transform: uppercase; text-decoration: none; transition: background 0.2s; } .ds-nav-pill:hover { background: #ffd98a; } .ds-nav-pill:focus-visible { outline: 2px solid #ffd98a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Dual-CTA partner — transparent with dust hairline on ink grounds.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">View on GitHub</a>",
+      "css": ".ds-btn-ghost { display: inline-block; background: transparent; color: #f5f0e6; border: 1px solid rgba(245,240,230,0.15); padding: 14px 24px; border-radius: 8px; font-family: \"SF Pro Text\", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-weight: 600; font-size: 16px; text-decoration: none; transition: border-color 0.2s; } .ds-btn-ghost:hover { border-color: rgba(245,240,230,0.4); } .ds-btn-ghost:focus-visible { outline: 2px solid #e8b95e; outline-offset: 3px; }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "3-up grid card on ink sections — soft-ink fill, hairline border, mono eyebrow + title + muted body.",
+      "html": "<div class=\"ds-card\"><span class=\"ds-eyebrow\">Names the defaults</span><h3 class=\"ds-card-title\">The divergence toolkit.</h3><p class=\"ds-card-body\">Lists the moves an LLM reaches for first — gradient blob hero, glassmorphism, generic icon trios. Stardust subverts them deliberately.</p></div>",
+      "css": ".ds-card { background: #141b3a; border: 1px solid rgba(245,240,230,0.08); border-radius: 14px; padding: 24px; max-width: 340px; } .ds-card-title { font-family: \"SF Pro Display\", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2; letter-spacing: -0.022em; color: #f5f0e6; margin: 10px 0 8px; } .ds-card-body { font-family: \"SF Pro Text\", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 15px; line-height: 1.6; color: rgba(245,240,230,0.72); margin: 0; }"
+    },
+    {
+      "name": "Mono Eyebrow",
+      "kind": "chip",
+      "refersTo": "label",
+      "description": "Uppercase SF Mono section eyebrow — the site-wide structural marker.",
+      "html": "<span class=\"ds-eyebrow\">Structured signal</span>",
+      "css": ".ds-eyebrow { display: inline-block; font-family: \"SF Mono\", \"JetBrains Mono\", ui-monospace, monospace; font-weight: 500; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: #e8b95e; }"
+    },
+    {
+      "name": "Site Header",
+      "kind": "nav",
+      "refersTo": "button-nav-pill",
+      "description": "Sticky 60px deep-ink bar: amber SVG star mark + wordmark left, mono pill + GitHub link right.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><g fill=\"#e8b95e\"><rect x=\"11\" y=\"3\" width=\"2\" height=\"3\"/><rect x=\"11\" y=\"18\" width=\"2\" height=\"3\"/><rect x=\"3\" y=\"11\" width=\"3\" height=\"2\"/><rect x=\"18\" y=\"11\" width=\"3\" height=\"2\"/><rect x=\"10\" y=\"10\" width=\"4\" height=\"4\"/></g></svg>Stardust</a><span class=\"ds-nav-meta\"><a class=\"ds-nav-pill\" href=\"#\">Docs</a><a class=\"ds-nav-link\" href=\"#\">GitHub ›</a></span></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; height: 60px; padding: 0 20px; background: #060a14; } .ds-nav-mark { display: inline-flex; align-items: center; gap: 8px; color: #f5f0e6; font-family: \"SF Pro Display\", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-weight: 600; font-size: 16px; text-decoration: none; } .ds-nav-meta { display: inline-flex; align-items: center; gap: 16px; } .ds-nav-link { color: rgba(245,240,230,0.78); font-family: \"SF Pro Text\", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 14px; text-decoration: none; } .ds-nav-link:hover { color: #f5f0e6; } .ds-nav-pill { display: inline-block; background: #e8b95e; color: #0a1024; padding: 8px 14px; border-radius: 999px; font-family: \"SF Mono\", \"JetBrains Mono\", ui-monospace, monospace; font-weight: 700; font-size: 11px; letter-spacing: 1.54px; text-transform: uppercase; text-decoration: none; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Math, not mysticism",
+    "overview": "A dark editorial two-ground composition: deep ink navy alternating with warm cream in full-bleed bands, one amber accent doing every chromatic job. Type-only heroes at 96–112px over a radial ink glow and CSS starfield; SF Mono uppercase eyebrows mark every section; surfaces are flat, separated by 1px dust-alpha hairlines rather than shadows. Docs pages invert to cream with an ink sidebar without changing the vocabulary.",
+    "keyCharacteristics": [
+      "Two grounds (ink / cream), one accent (amber), zero other hues",
+      "Type-only heroes with starfield texture; flat, nearly shadowless surfaces",
+      "SF Mono as a structural voice (eyebrows, labels, nav pill, command headings)",
+      "Amber italic emphasis as the signature move inside display headings",
+      "System font stacks throughout — no webfont files ship"
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Amber is the only saturated hue on the site; every other color is a navy or the cream.", "section": "colors" },
+      { "name": "The Ad-hoc Scale", "body": "Captured heading sizes fit no single modular ratio; per-page pairings are internally consistent, the cross-page scale is not.", "section": "typography" },
+      { "name": "The Hairline-Not-Shadow Rule", "body": "Cards separate from their ground with a 1px rgba(245,240,230,.08) border and a lighter navy fill — never a drop shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep amber (#e8b95e) as the single accent and spend it on one emphasis per composition.",
+      "Do alternate full-bleed ink (#0a1024) and cream (#f5f0e6) grounds.",
+      "Do mark structure with SF Mono uppercase eyebrows at +0.22–0.24em tracking.",
+      "Do separate surfaces with 1px dust-alpha hairlines, not shadows.",
+      "Do set heroes as pure type over the radial ink glow + starfield."
+    ],
+    "donts": [
+      "Don't use \"gradient blob hero, glassmorphism, generic icon trios\" — the site's own named anti-toolbox.",
+      "Don't deliver \"the average\" / shelf-component sameness — \"sites got fast by getting boring\".",
+      "Don't introduce a second saturated hue.",
+      "Don't add drop shadows to cards or buttons.",
+      "Don't load webfonts — the captured system runs entirely on system stacks."
+    ]
+  }
+}

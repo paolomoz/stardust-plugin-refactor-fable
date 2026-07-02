@@ -1,0 +1,397 @@
+{
+  "_provenance": {
+    "renderedBy": "playwright",
+    "fetchedAt": "2026-07-02T12:03:19.838Z",
+    "waitMode": "medium",
+    "waitMs": 2500,
+    "httpStatus": 200
+  },
+  "slug": "docs-commands",
+  "url": "https://stardust.style/docs/commands/",
+  "renderedBy": "playwright",
+  "fetchedAt": "2026-07-02T12:03:19.838Z",
+  "finalUrl": "https://stardust.style/docs/commands/",
+  "title": "Stardust commands reference — every sub-command & flag",
+  "description": "Every Stardust sub-command: uplift, extract, direct, prototype, migrate, deploy, diff, prepare-migration. Inputs, flags, and what each writes.",
+  "og": {
+    "title": "Stardust commands reference — every sub-command & flag",
+    "description": "Every Stardust sub-command: uplift, extract, direct, prototype, migrate, deploy, diff, prepare-migration. Inputs, flags, and what each writes.",
+    "image": "https://stardust.style/default-meta-image.png?width=1200&format=pjpg&optimize=medium",
+    "type": null
+  },
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Every sub-command,named."
+    },
+    {
+      "tag": "h2",
+      "text": "/stardust:uplift#"
+    },
+    {
+      "tag": "h3",
+      "text": "Syntax"
+    },
+    {
+      "tag": "h3",
+      "text": "Flags"
+    },
+    {
+      "tag": "h3",
+      "text": "Writes"
+    },
+    {
+      "tag": "h3",
+      "text": "Example"
+    },
+    {
+      "tag": "h2",
+      "text": "/stardust:extract#"
+    },
+    {
+      "tag": "h3",
+      "text": "Syntax"
+    },
+    {
+      "tag": "h3",
+      "text": "Flags"
+    },
+    {
+      "tag": "h3",
+      "text": "Writes"
+    },
+    {
+      "tag": "h3",
+      "text": "Example"
+    },
+    {
+      "tag": "h2",
+      "text": "/stardust:direct#"
+    },
+    {
+      "tag": "h3",
+      "text": "Syntax"
+    },
+    {
+      "tag": "h3",
+      "text": "Flags"
+    },
+    {
+      "tag": "h3",
+      "text": "Writes"
+    },
+    {
+      "tag": "h3",
+      "text": "Example"
+    },
+    {
+      "tag": "h2",
+      "text": "/stardust:prototype#"
+    },
+    {
+      "tag": "h3",
+      "text": "Syntax"
+    },
+    {
+      "tag": "h3",
+      "text": "Flags"
+    },
+    {
+      "tag": "h3",
+      "text": "Writes"
+    },
+    {
+      "tag": "h3",
+      "text": "Example"
+    },
+    {
+      "tag": "h2",
+      "text": "/stardust:migrate#"
+    },
+    {
+      "tag": "h3",
+      "text": "Syntax"
+    },
+    {
+      "tag": "h3",
+      "text": "Flags"
+    },
+    {
+      "tag": "h3",
+      "text": "Writes"
+    },
+    {
+      "tag": "h3",
+      "text": "Example"
+    },
+    {
+      "tag": "h3",
+      "text": "Syntax"
+    },
+    {
+      "tag": "h3",
+      "text": "Flags"
+    },
+    {
+      "tag": "h3",
+      "text": "Writes"
+    },
+    {
+      "tag": "h3",
+      "text": "Example"
+    },
+    {
+      "tag": "h2",
+      "text": "/stardust:deploy— ship to AEM#"
+    },
+    {
+      "tag": "h3",
+      "text": "Syntax"
+    },
+    {
+      "tag": "h3",
+      "text": "Requires"
+    },
+    {
+      "tag": "h3",
+      "text": "Writes"
+    },
+    {
+      "tag": "h3",
+      "text": "Example"
+    },
+    {
+      "tag": "h2",
+      "text": "/stardust:diff— verify the build#"
+    },
+    {
+      "tag": "h3",
+      "text": "Syntax"
+    },
+    {
+      "tag": "h3",
+      "text": "Flags"
+    },
+    {
+      "tag": "h3",
+      "text": "Outputs"
+    },
+    {
+      "tag": "h3",
+      "text": "Example"
+    }
+  ],
+  "body": [
+    "Docs › Commands",
+    "Reference for the Stardust sub-commands. Inputs, common flags, and the artifacts each one writes.",
+    "You don't need to memorize the syntax. Every command and flag can be triggered through plain conversational intent — Stardust reads your phrasing and routes it. The reference below is the canonical form, not a requirement.",
+    "/stardust:upliftshortcut",
+    "/stardust:extract01",
+    "/stardust:direct02",
+    "/stardust:prototype03",
+    "/stardust:migrate04",
+    "/stardust:deployAEM",
+    "/stardust:diffAEM",
+    "The main flow is four commands in order — extract describes the current state, direct resolves a target, prototype renders proposed redesigns, migrate ships deployable HTML. Each writes its own artifacts under stardust/; the next reads them. You can run them in order, or jump in at any point. For a presales pitch deck, the uplift shortcut collapses extract → direct → three variants into one command. To ship to AEM Edge Delivery, deploy converts the approved page into authorable EDS blocks and diff verifies the built page against the source prototype.",
+    "One URL in. Three presales-quality redesign variants out. Collapses extract → direct → prototype × 3 into one opinionated command — every variability axis is picked from the captured brand surface rather than asked. Variant C is always cinematic.",
+    "stardust/uplift-improvements.mdfive specific captured-site weaknesses — load-bearing for variant A",
+    "stardust/uplift-questions.md\"what if…\" candidate walk with disqualifications",
+    "stardust/direction.mdresolved direction + three variant declarations",
+    "stardust/prototypes/<slug>-{A,B,C}-proposed.htmlthree rendered variants",
+    "stardust/prototypes/<slug>-C-cinematic.htmlcinematic variant C",
+    "DESIGN-{A,B,C}.{md,json}per-variant design specs at project root",
+    "The three-variant role contract is non-negotiable. A is \"tomorrow's version of the site you have today.\" B is \"what if we amplified <captured trait>?\" C is \"what if motion was part of the identity?\" Uplift refuses to ship three weak variants — if the brand surface can't differentiate three, it drops to two automatically.",
+    "Capture a brand surface — palette, typography, voice, motifs. Most often from a live URL (Stardust crawls it), but also from a prompt, a document, a Figma file, or any other source where brand traits can be read. Descriptive only; does not modify the source.",
+    "stardust/current/PRODUCT.mddescriptive snapshot of the captured brand",
+    "stardust/current/DESIGN.md+ DESIGN.json — captured visual surface",
+    "stardust/current/brand-review.htmleyeball-check artifact",
+    "stardust/current/pages/<slug>.jsonper-page parsed structure + content (URL crawl)",
+    "stardust/current/_brand-extraction.jsonconsolidated brand surface",
+    "stardust/state.jsonpages: extracted",
+    "New site, no source to extract from? Stardust supports designing new sites too — provide a brief about the new brand and it will roll a fresh seed without an inherited surface. Redesigning an existing source is the main supported use case today; new-site design works but is less battle-tested.",
+    "Resolve a redesign direction from a freeform phrase. Writes the target spec — what the site should become.",
+    "PRODUCT.mdat project root — target product spec",
+    "DESIGN.md + DESIGN.jsonat project root — target design system",
+    "stardust/direction.mdresolved direction + full reasoning trace",
+    "stardust/state.jsonpages: extracted → directed",
+    "Generate a proposed redesign for one page or all directed pages. Writes a per-page composition brief, then renders the proposed HTML, then opens a before/after viewer.",
+    "stardust/prototypes/<slug>-shape.mdper-page composition brief",
+    "stardust/prototypes/<slug>-proposed.htmlthe proposed redesign",
+    "stardust/prototypes/<slug>-cinematic.htmlcinematic overlay (when --cinematic is set)",
+    "stardust/prototypes/<slug>.htmlbefore/after viewer",
+    "stardust/state.jsonpage status: directed → prototyped",
+    "Emit deployable static HTML from approved prototypes. The final step. Output is yours to publish anywhere.",
+    "stardust/migrated/<slug>.htmldeployable static page",
+    "stardust/migrated/assets/media + fonts + anything referenced",
+    "stardust/state.jsonpage status: prototyped/approved → migrated",
+    "Before migrate can run at scale, the project needs a typed-page catalog, a module catalog, canon, and downloaded assets. prepare-migration orchestrates that cascade. It runs extract --prep, direct --prep, prototype --prep, and an assets-prep phase in sequence, with confirmation gates between phases.",
+    "state.json.pages[].typepage typing — set by extract --prep",
+    "DESIGN.json.extensions.modules[]module catalog — confirmed by direct --prep",
+    "DESIGN.json.extensions.colorReservations[]color reservations — by direct --prep",
+    "stardust/canon/header, footer, css, modules — by prototype --prep",
+    "stardust/migrated/assets/favicon-*favicon variants — by assets prep",
+    "stardust/migrated/assets/fonts/downloaded webfont files — by assets prep",
+    "Why the two-step boundary? The split between prepare-migration and migrate is intentional. It makes \"I'm committing to migrate this site\" a conscious gesture and keeps idempotency obvious — re-running prep resumes from the earliest incomplete phase without re-doing settled work.",
+    "Convert an approved Stardust prototype into an AEM Edge Delivery experience and deploy it. Each prototype section becomes one independent EDS block — the section's CSS becomes that block's scoped stylesheet, and its text and images become authorable. Header and footer drop into static fragments; the page ships as a content fragment to AEM. Targets a project on the AuthorKit runtime; a vanilla aem-boilerplate is bootstrapped first.",
+    "blocks/<block>/one block (decorate JS + scoped CSS) per prototype section",
+    "styles/styles.cssfoundation tokens, global reset, self-hosted fonts",
+    "fragments/header.html + fragments/footer.htmlstatic chrome",
+    "the content pagea body fragment, shipped to AEM via the source API",
+    "Reconcile a built page against its source prototype with two complementary probes: a pixel/layout diff (stretched images, dropped wraps, blank renders, colour flips) and a structural content + typography diff (dropped or mis-slotted headings, eyebrows, CTAs; rendered-face font forks). Run both — either alone gives a false \"looks fine\". Stack-agnostic via profiles.",
+    "a structural report🔴 missing / role-swapped content · 🟡 body drift · 🟠 font forks",
+    "a pixel/layout reportgeometry, image, and colour red flags",
+    "<out>/ screenshotsper-section captures when --sections is set"
+  ],
+  "ctas": [
+    {
+      "label": "Stardust",
+      "href": "/"
+    },
+    {
+      "label": "Docs",
+      "href": "/docs/"
+    },
+    {
+      "label": "GitHub ›",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust"
+    },
+    {
+      "label": "Get started01",
+      "href": "/docs/"
+    },
+    {
+      "label": "Commands02",
+      "href": "/docs/commands/"
+    },
+    {
+      "label": "Docs",
+      "href": "/docs/"
+    },
+    {
+      "label": "/stardust:upliftshortcut",
+      "href": "#uplift"
+    },
+    {
+      "label": "/stardust:extract01",
+      "href": "#extract"
+    },
+    {
+      "label": "/stardust:direct02",
+      "href": "#direct"
+    },
+    {
+      "label": "/stardust:prototype03",
+      "href": "#prototype"
+    },
+    {
+      "label": "/stardust:migrate04",
+      "href": "#migrate"
+    },
+    {
+      "label": "/stardust:deployAEM",
+      "href": "#deploy"
+    },
+    {
+      "label": "/stardust:diffAEM",
+      "href": "#diff"
+    },
+    {
+      "label": "#",
+      "href": "#uplift"
+    },
+    {
+      "label": "#",
+      "href": "#extract"
+    },
+    {
+      "label": "#",
+      "href": "#direct"
+    },
+    {
+      "label": "#",
+      "href": "#prototype"
+    },
+    {
+      "label": "#",
+      "href": "#migrate"
+    },
+    {
+      "label": "#",
+      "href": "#prepare-migration"
+    },
+    {
+      "label": "#",
+      "href": "#deploy"
+    },
+    {
+      "label": "#",
+      "href": "#diff"
+    },
+    {
+      "label": "Docs",
+      "href": "/docs/"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/adobe/skills/tree/main/plugins/stardust"
+    },
+    {
+      "label": "Apache 2.0 License",
+      "href": "https://github.com/adobe/skills/blob/main/LICENSE"
+    }
+  ],
+  "links": [
+    "https://stardust.style/",
+    "https://stardust.style/docs/",
+    "https://github.com/adobe/skills/tree/main/plugins/stardust",
+    "https://stardust.style/docs/commands/",
+    "https://stardust.style/docs/commands/#uplift",
+    "https://stardust.style/docs/commands/#extract",
+    "https://stardust.style/docs/commands/#direct",
+    "https://stardust.style/docs/commands/#prototype",
+    "https://stardust.style/docs/commands/#migrate",
+    "https://stardust.style/docs/commands/#deploy",
+    "https://stardust.style/docs/commands/#diff",
+    "https://stardust.style/docs/commands/#prepare-migration",
+    "https://github.com/adobe/skills/blob/main/LICENSE"
+  ],
+  "media": {
+    "imgs": [],
+    "allImgCount": 0,
+    "cssBackgrounds": [],
+    "modals": [],
+    "videos": [],
+    "iframes": []
+  },
+  "customProps": {
+    "--ink": "#0a1024",
+    "--ink-deep": "#060a14",
+    "--ink-soft": "#141b3a",
+    "--dust": "#f5f0e6",
+    "--deep-ink": "#1a1f38",
+    "--amber": "#e8b95e",
+    "--amber-light": "#ffd98a",
+    "--amber-deep": "#854f17",
+    "--dust-72": "rgb(245 240 230 / 72%)",
+    "--dust-50": "rgb(245 240 230 / 50%)",
+    "--dust-30": "rgb(245 240 230 / 30%)",
+    "--dust-15": "rgb(245 240 230 / 15%)",
+    "--dust-08": "rgb(245 240 230 / 8%)",
+    "--display": "\"SF Pro Display\", -apple-system, blinkmacsystemfont, system-ui, sans-serif",
+    "--text": "\"SF Pro Text\", -apple-system, blinkmacsystemfont, system-ui, sans-serif",
+    "--mono": "\"SF Mono\", \"JetBrains Mono\", ui-monospace, monospace",
+    "--pad": "clamp(20px, 4vw, 64px)",
+    "--maxw": "1320px",
+    "--nav-height": "60px"
+  },
+  "_signals": {
+    "filteredInterstitials": 0,
+    "distinctHeadings": 14,
+    "mainTextLen": 12417,
+    "realImageCount": 0,
+    "trackingOnlyMedia": false,
+    "spaShellSuspect": false,
+    "screenshotMode": "fullPage"
+  },
+  "screenshot": "assets/screenshots/docs-commands.png"
+}

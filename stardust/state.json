@@ -1,0 +1,81 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:extract",
+    "writtenAt": "2026-07-02T12:12:06Z",
+    "userInput": "final validation: audit + redesign + deploy https://stardust.style, hands-off",
+    "date": "2026-07-02",
+    "stardustVersion": "0.14.2"
+  },
+  "site": {
+    "originUrl": "https://stardust.style",
+    "deployUrl": null,
+    "extractedAt": "2026-07-02T12:03:19.840Z",
+    "pageCap": 8,
+    "totalDiscovered": 4,
+    "crawled": 4
+  },
+  "direction": null,
+  "handsOff": true,
+  "pages": [
+    {
+      "slug": "index",
+      "url": "https://stardust.style/",
+      "title": "Stardust — AI website redesign tool, math not mysticism",
+      "type": null,
+      "status": "extracted",
+      "history": [
+        { "status": "extracted", "at": "2026-07-02T12:03:19.840Z" }
+      ],
+      "stale": false,
+      "staleReason": null,
+      "currentStatePath": "stardust/current/pages/index.json",
+      "prototypePath": null,
+      "migratedPath": null
+    },
+    {
+      "slug": "aem",
+      "url": "https://stardust.style/aem",
+      "title": "Stardust on AEM Edge Delivery — production-ready",
+      "type": null,
+      "status": "extracted",
+      "history": [
+        { "status": "extracted", "at": "2026-07-02T12:03:19.838Z" }
+      ],
+      "stale": false,
+      "staleReason": null,
+      "currentStatePath": "stardust/current/pages/aem.json",
+      "prototypePath": null,
+      "migratedPath": null
+    },
+    {
+      "slug": "docs",
+      "url": "https://stardust.style/docs/",
+      "title": "Get started with Stardust — install & first redesign",
+      "type": null,
+      "status": "extracted",
+      "history": [
+        { "status": "extracted", "at": "2026-07-02T12:03:19.836Z" }
+      ],
+      "stale": false,
+      "staleReason": null,
+      "currentStatePath": "stardust/current/pages/docs.json",
+      "prototypePath": null,
+      "migratedPath": null
+    },
+    {
+      "slug": "docs-commands",
+      "url": "https://stardust.style/docs/commands/",
+      "title": "Stardust commands reference — every sub-command & flag",
+      "type": null,
+      "status": "extracted",
+      "history": [
+        { "status": "extracted", "at": "2026-07-02T12:03:19.838Z" }
+      ],
+      "stale": false,
+      "staleReason": null,
+      "currentStatePath": "stardust/current/pages/docs-commands.json",
+      "prototypePath": null,
+      "migratedPath": null
+    }
+  ]
+}

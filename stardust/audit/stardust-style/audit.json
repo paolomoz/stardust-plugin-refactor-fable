@@ -1,0 +1,863 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:audit",
+    "writtenAt": "2026-07-02T12:39:55.087Z",
+    "againstInput": "https://stardust.style",
+    "readArtifacts": [
+      "stardust/current/_brand-extraction.json",
+      "stardust/current/brand-review.html",
+      "stardust/current/pages/index.json",
+      "stardust/current/pages/aem.json",
+      "stardust/current/pages/docs.json",
+      "stardust/current/pages/docs-commands.json",
+      "stardust/audit/stardust-style/_arms/phase3-seo.json",
+      "stardust/audit/stardust-style/_arms/phase4-llm.json",
+      "stardust/audit/stardust-style/_benchmarks.json"
+    ],
+    "synthesizedInputs": [],
+    "stardustVersion": "0.14.2"
+  },
+  "site": {
+    "url": "https://stardust.style",
+    "domainSlug": "stardust-style",
+    "pagesAudited": [
+      "index",
+      "aem",
+      "docs",
+      "docs-commands"
+    ],
+    "extraction": {
+      "reused": false,
+      "extractedAt": "2026-07-02T12:14:00Z",
+      "pageCount": 4
+    }
+  },
+  "assumptions": [
+    "Primary conversion action assumed to be the plugin install (hero CTA \"Install in two minutes\" -> /docs/ install commands); the GitHub repo is treated as the secondary ask.",
+    "The site is read in register \"brand\" (marketing/landing) with /docs/* as conversion-support pages.",
+    "Core Web Vitals are unthrottled local lab measurements (PSI API rate-limited without a key); with LCP 200-316 ms the good classification holds even under 4x throttle margin, so the dimension is scored rather than nulled.",
+    "The sub-5% amber pixel share is scored as a deliberate restraint strategy on a dark-canvas brand whose ink/cream grounds are themselves brand colors — not as template default (the palette is fully tokenized and distinctive).",
+    "The first crawl pass dropped animated h1s (crawler defect, fixed and re-crawled); all heading data below is from the corrected live-DOM capture."
+  ],
+  "scorecard": {
+    "overall": 68,
+    "scoredWeight": 100,
+    "dimensions": {
+      "brand-expression": {
+        "score": 62,
+        "weight": 10,
+        "evidence": [
+          "measurements.brandColorShare",
+          "T-scale",
+          "T-color-imbalance",
+          "T-logo-variants",
+          "F-004",
+          "F-008",
+          "benchmarks"
+        ],
+        "notMeasured": []
+      },
+      "visual-hierarchy-craft": {
+        "score": 58,
+        "weight": 15,
+        "evidence": [
+          "measurements.typeScale",
+          "measurements.radiusSprawl",
+          "F-013",
+          "F-010"
+        ],
+        "notMeasured": []
+      },
+      "conversion-focus": {
+        "score": 50,
+        "weight": 20,
+        "evidence": [
+          "measurements.ctaFragmentation",
+          "F-003",
+          "F-005",
+          "F-011",
+          "F-012"
+        ],
+        "notMeasured": []
+      },
+      "accessibility": {
+        "score": 78,
+        "weight": 10,
+        "evidence": [
+          "measurements.contrast",
+          "measurements.altCoverage",
+          "F-009",
+          "F-014"
+        ],
+        "notMeasured": []
+      },
+      "technical-seo": {
+        "score": 72,
+        "weight": 15,
+        "evidence": [
+          "F-001",
+          "F-016",
+          "check:canonical",
+          "check:title-missing",
+          "check:meta-description"
+        ],
+        "notMeasured": []
+      },
+      "content-llm-visibility": {
+        "score": 68,
+        "weight": 15,
+        "evidence": [
+          "F-002",
+          "F-006",
+          "measurements.llmsTxt",
+          "measurements.headingQuestionCoverage"
+        ],
+        "notMeasured": []
+      },
+      "performance": {
+        "score": 92,
+        "weight": 15,
+        "evidence": [
+          "measurements.cwv",
+          "check:core-web-vitals"
+        ],
+        "notMeasured": []
+      }
+    }
+  },
+  "measurements": {
+    "brandColorShare": {
+      "value": 0.0099,
+      "unit": "share-of-all-sampled-pixels",
+      "status": "measured",
+      "method": "pixel-sample",
+      "detail": {
+        "screenshot": "stardust/current/assets/screenshots/index.png",
+        "grid": "every 8th px, 138600 samples, tolerance 24 RGB",
+        "perHexPercent": {
+          "#060a14": 54.31,
+          "#f5f0e6": 17.37,
+          "#141b3a": 12.16,
+          "#0a1024": 7.6,
+          "#e8b95e": 0.83,
+          "#1a1f38": 0.72,
+          "#854f17": 0.12,
+          "#ffd98a": 0.04
+        },
+        "note": "Amber accent family paints 0.99% of the home page; ink family ~75%, cream ~17% — restraint strategy at its extreme low end."
+      }
+    },
+    "ctaFragmentation": {
+      "value": 7,
+      "unit": "distinct-labels-per-bucket",
+      "status": "measured",
+      "method": "pages-json-aggregation",
+      "detail": {
+        "bucket": "github-repo",
+        "labels": [
+          "GitHub ›",
+          "GitHub",
+          "View on GitHub",
+          "github.com/adobe/skills ›",
+          "Before",
+          "After · Stardust",
+          "(sample sticker)"
+        ],
+        "secondaryBucket": {
+          "docs-install": 4
+        },
+        "totals": {
+          "ctaInstances": 59,
+          "distinctLabels": 27
+        }
+      }
+    },
+    "typeScale": {
+      "value": "ad-hoc",
+      "unit": "scale-kind",
+      "status": "measured",
+      "method": "brand-extraction",
+      "detail": {
+        "headingSizes": [
+          112,
+          96,
+          77.6,
+          64,
+          56,
+          48,
+          40,
+          32,
+          22,
+          18
+        ],
+        "stepRatios": [
+          1.17,
+          1.24,
+          1.21,
+          1.14,
+          1.17,
+          1.2,
+          1.25,
+          1.45,
+          1.22
+        ],
+        "ratio": null
+      }
+    },
+    "radiusSprawl": {
+      "value": 9,
+      "unit": "distinct-radii",
+      "status": "measured",
+      "method": "brand-extraction",
+      "detail": {
+        "occurrences": {
+          "4px": 89,
+          "14px": 31,
+          "22px": 10,
+          "999px": 7,
+          "0px 8px 8px 0px": 7,
+          "12px": 6,
+          "18px": 6,
+          "8px": 4,
+          "6px": 1
+        },
+        "note": "4px and 14px carry 76% of uses."
+      }
+    },
+    "contrast": {
+      "status": "measured",
+      "method": "wcag-computed",
+      "detail": {
+        "pairs": [
+          {
+            "fg": "rgba(245,240,230,0.4)",
+            "bg": "#0a1024",
+            "ratio": 3.48,
+            "role": "footer sigil (decorative)",
+            "passesAA": false
+          },
+          {
+            "fg": "#854f17",
+            "bg": "#f5f0e6",
+            "ratio": 5.91,
+            "role": "amber-deep on cream (its only live use)",
+            "passesAA": true
+          },
+          {
+            "fg": "#e8b95e",
+            "bg": "#0a1024",
+            "ratio": 10.37,
+            "role": "amber on ink (its only live use)",
+            "passesAA": true
+          },
+          {
+            "fg": "rgba(245,240,230,0.5)",
+            "bg": "#0a1024",
+            "ratio": 4.8,
+            "role": "muted body",
+            "passesAA": true
+          }
+        ]
+      }
+    },
+    "altCoverage": {
+      "value": 1,
+      "unit": "share-of-images-with-meaningful-alt",
+      "status": "measured",
+      "method": "pages-json-aggregation",
+      "detail": {
+        "images": 4,
+        "emptyAlt": 0,
+        "genericAlt": 0
+      }
+    },
+    "cwv": {
+      "status": "measured",
+      "method": "playwright-lab",
+      "detail": {
+        "home": {
+          "mobile": {
+            "lcp": {
+              "value": 212,
+              "unit": "ms",
+              "class": "good"
+            },
+            "cls": {
+              "value": 0,
+              "unit": "score",
+              "class": "good"
+            },
+            "tbt": {
+              "value": 0,
+              "unit": "ms",
+              "class": "good"
+            }
+          },
+          "desktop": {
+            "lcp": {
+              "value": 236,
+              "unit": "ms",
+              "class": "good"
+            },
+            "cls": {
+              "value": 0,
+              "unit": "score",
+              "class": "good"
+            },
+            "tbt": {
+              "value": 0,
+              "unit": "ms",
+              "class": "good"
+            }
+          }
+        },
+        "aem": {
+          "mobile": {
+            "lcp": {
+              "value": 200,
+              "unit": "ms",
+              "class": "good"
+            },
+            "cls": {
+              "value": 0,
+              "unit": "score",
+              "class": "good"
+            },
+            "tbt": {
+              "value": 0,
+              "unit": "ms",
+              "class": "good"
+            }
+          },
+          "desktop": {
+            "lcp": {
+              "value": 316,
+              "unit": "ms",
+              "class": "good"
+            },
+            "cls": {
+              "value": 0,
+              "unit": "score",
+              "class": "good"
+            },
+            "tbt": {
+              "value": 0,
+              "unit": "ms",
+              "class": "good"
+            }
+          }
+        },
+        "note": "Median of 3 cold-context runs per cell, unthrottled local lab; lab TBT (0 ms — no long tasks at all) is a proxy for INP; PSI field data unavailable (429 without key)."
+      }
+    },
+    "llmsTxt": {
+      "value": true,
+      "unit": "present",
+      "status": "measured",
+      "method": "curl",
+      "detail": {
+        "url": "https://stardust.style/llms.txt",
+        "quality": "high — follows llmstxt.org convention, lists all 8 commands, current",
+        "defect": "all 8 command deep-link anchors 404 (live ids differ)"
+      }
+    },
+    "headingQuestionCoverage": {
+      "status": "measured",
+      "method": "pages-json-aggregation",
+      "detail": {
+        "index": "7/15",
+        "aem": "4/10",
+        "docs": "7/7",
+        "docs-commands": "41/41"
+      }
+    },
+    "extractableProseWords": {
+      "status": "measured",
+      "method": "pages-json-aggregation",
+      "detail": {
+        "index": 495,
+        "aem": 435,
+        "docs": 774,
+        "docs-commands": 822
+      }
+    },
+    "ogCompleteness": {
+      "status": "measured",
+      "method": "rendered-dom",
+      "detail": {
+        "present": [
+          "og:title",
+          "og:description",
+          "og:image",
+          "og:url",
+          "twitter:card"
+        ],
+        "missing": [
+          "og:type (all 4 pages)"
+        ],
+        "note": "docs pages fall back to generic default-meta-image.png"
+      }
+    },
+    "redirectChain": {
+      "status": "measured",
+      "method": "curl",
+      "detail": {
+        "http->https": "301, 1 hop",
+        "www->apex": "301, 1 hop",
+        "hsts": true,
+        "slashVariants": "/docs, /docs/commands, /aem/ all 404 with no redirect"
+      }
+    },
+    "jsonldTypes": {
+      "status": "measured",
+      "method": "rendered-dom-vs-static-fetch",
+      "detail": {
+        "static": 0,
+        "rendered": {
+          "index": [
+            "Organization",
+            "WebSite",
+            "SoftwareApplication (license, free Offer)"
+          ],
+          "aem": [
+            "Organization",
+            "WebSite"
+          ],
+          "docs": [
+            "Organization",
+            "WebSite"
+          ],
+          "docs-commands": [
+            "Organization",
+            "WebSite"
+          ]
+        },
+        "note": "Injected client-side by scripts.js — invisible to static fetchers."
+      }
+    }
+  },
+  "benchmarks": {
+    "status": "done",
+    "method": "refero MCP (mcp__refero__refero_search_styles + refero_get_style), probe fired in audit Phase 0, full styles retrieved",
+    "vertical": "dark developer-tool / AI-product marketing sites",
+    "references": [
+      {
+        "title": "Langbase",
+        "url": "https://langbase.com",
+        "styleId": "6faf7a27-f3f3-42b7-9b55-1a0b2ff59439",
+        "whatTheyDoBetter": "Two-level text-color discipline (Canvas White #fafafa + Ash Gray #a1a1aa only) — stardust.style runs a 5-step dust alpha ramp (72/50/30/15/8%) that dilutes hierarchy; Langbase also frames sections with faint structural grid lines instead of relying on spacing alone."
+      },
+      {
+        "title": "Eraser",
+        "url": "https://www.tryeraser.com",
+        "styleId": "66b9ff99-f7f2-480c-97e9-42718e49cb97",
+        "whatTheyDoBetter": "Role-based type scale (caption/body/subheading/heading/heading-lg/display, 6 sizes) and a strict radius vocabulary (16px cards / 8px elements / 4px buttons) — stardust.style's scale is ad-hoc across 10 sizes with no consistent ratio (T-scale); Eraser also owns a distinctive display face (National 2 Condensed) where stardust rides the SF Pro system stack."
+      },
+      {
+        "title": "Metaview",
+        "url": "https://metaview.ai",
+        "styleId": "13ff020d-f836-4b43-89df-d11bc08f897b",
+        "whatTheyDoBetter": "Single-vivid-accent discipline (Mint Glare #7affb4 reserved exclusively for primary CTAs) — stardust.style splits its amber identity across three values (#e8b95e / #ffd98a / #854f17) with text-only/background-only role imbalance (T-color-imbalance), so no one amber is unambiguously 'the action color'."
+      }
+    ],
+    "sharedPatternNote": "All three references pair the dark canvas with an ownable display face and a tight token vocabulary; stardust.style's distinctive assets are its cream-on-ink inversion sections, the mono eyebrow labels, and the star glyph — underused as system, per audit findings."
+  },
+  "degradations": [
+    {
+      "capability": "refero-mcp",
+      "status": "available",
+      "effect": null
+    },
+    {
+      "capability": "marketing-skills",
+      "status": "available",
+      "effect": "seo-audit + ai-seo methodologies followed"
+    },
+    {
+      "capability": "modern-web-guidance",
+      "status": "available",
+      "effect": "searched for all failure classes; no topically applicable guides returned — guides[] empty, not padded"
+    },
+    {
+      "capability": "pagespeed-insights",
+      "status": "unreachable",
+      "effect": "Playwright-only lab metrics (429 without API key); lab TBT proxies INP"
+    },
+    {
+      "capability": "rollout-ledger",
+      "status": "absent",
+      "effect": "no findings.mjs recording; ledgerId null on every finding"
+    },
+    {
+      "capability": "impeccable",
+      "status": "available",
+      "effect": "critique + audit passes ran (v3.9.1); report rendered by craft"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "P1",
+      "dimension": "technical-seo",
+      "title": "Trailing-slash variants 404 with no redirect",
+      "evidence": {
+        "type": "check",
+        "ref": "check:canonical",
+        "observed": "/docs, /docs/commands, /aem/ all return 404 while their canonical twins return 200; no 301 in either direction; sitemap convention is itself mixed (/aem bare, docs pages slashed)"
+      },
+      "businessImpact": "External links, shares, and typed URLs on the wrong slash form hard-404 — lost visitors and discarded link equity on a 4-page site where every backlink matters.",
+      "fix": "Add 301s from each non-canonical variant at the edge; better, adopt one convention site-wide and update canonicals + sitemap + internal links in one change.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-002",
+      "severity": "P1",
+      "dimension": "content-llm-visibility",
+      "title": "Structured data is injected client-side only — invisible to AI crawlers",
+      "evidence": {
+        "type": "check",
+        "ref": "check:jsonld",
+        "observed": "Static HTML carries 0 ld+json blocks; the rendered DOM has a full @graph (Organization + WebSite + SoftwareApplication with license and free Offer) on every page — GPTBot, ClaudeBot, PerplexityBot and Bing's non-rendered pass never see it"
+      },
+      "businessImpact": "A product whose positioning is \"the AI-facing web\" is entity-invisible to the exact crawlers it courts; competing tools with static SoftwareApplication markup win the entity slot.",
+      "fix": "Emit the identical JSON-LD @graph in the served HTML head (head.html or publish-time metadata) instead of scripts.js; add TechArticle with dateModified on the three non-home pages.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-003",
+      "severity": "P1",
+      "dimension": "conversion-focus",
+      "title": "Key teaching example truncated mid-word on desktop docs",
+      "evidence": {
+        "type": "screenshot",
+        "ref": "stardust/current/assets/screenshots/docs.png (Step 2 code block)",
+        "observed": "pre.code clientWidth 538px vs scrollWidth 768px, no scrollbar/fade/wrap: \"/stardust:direct \"more editorial. lean into typography. ke\" — while ~390px of margin sits unused"
+      },
+      "businessImpact": "The one sentence that teaches the product's core interaction (directing a redesign in natural language) is silently amputated on the conversion page.",
+      "fix": "white-space: pre-wrap on long command examples (or widen the pre), plus a copy button.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-004",
+      "severity": "P1",
+      "dimension": "brand-expression",
+      "title": "Letter-split animation drops space glyphs — \"Getstarted\" in primary docs nav, \"Redesignthe Web.\" in the home h1 textContent",
+      "evidence": {
+        "type": "screenshot",
+        "ref": "stardust/current/assets/screenshots/docs.png (sidebar) + pages/index.json#headings[0]",
+        "observed": "/docs/ active sidebar renders \"Getstarted\"; home h1 textContent is \"Redesignthe Web.\" and its anchor id \"redesignthe-web\" — systemic to the per-character span animation"
+      },
+      "businessImpact": "A typo in the primary nav of a design tool selling craft discipline falsifies the brand promise in seconds — and the h1 the crawlers index reads \"Redesignthe\".",
+      "fix": "Preserve space characters in the letter-split (nbsp or white-space:pre on space spans); slugify with the visual break as a word separator.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-005",
+      "severity": "P1",
+      "dimension": "conversion-focus",
+      "title": "No closing CTA and no copy affordance at the conversion moment",
+      "evidence": {
+        "type": "measurement",
+        "ref": "measurements.ctaFragmentation",
+        "observed": "Exactly 1 \"Install in two minutes\" link on the whole home page (hero only); the page ends on the AEM upsell then footer; the /docs/ install block is 4 commands across 2 marketplaces with 0 copy-to-clipboard affordances site-wide"
+      },
+      "businessImpact": "Peak-end violation: a convinced scroller must scroll back to the hero to convert, and the \"two minutes\" promise is spent hand-transcribing four commands.",
+      "fix": "Repeat the install CTA after the last home section; add copy buttons to every pre; close the install block with a confirmation beat.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-006",
+      "severity": "P2",
+      "dimension": "content-llm-visibility",
+      "title": "\"Free\" is never stated in crawlable text on any page",
+      "evidence": {
+        "type": "check",
+        "ref": "check:key-facts",
+        "observed": "grep across all four live pages: \"free\" matches only \"freeform\"; Apache 2.0 appears on the home page and llms.txt only"
+      },
+      "businessImpact": "\"Is Stardust free / what does it cost\" yields no extractable answer passage anywhere — the answer engines must infer, and inference goes to competitors or hallucination.",
+      "fix": "One explicit sentence on home + /docs/ install: \"Stardust is free and open source under the Apache 2.0 license — there is no paid tier.\"",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-007",
+      "severity": "P2",
+      "dimension": "content-llm-visibility",
+      "title": "All 8 llms.txt command deep-links use anchors that do not exist",
+      "evidence": {
+        "type": "measurement",
+        "ref": "measurements.llmsTxt",
+        "observed": "llms.txt links #uplift, #extract, …; the live h2 ids are #stardustuplift, #stardustextract, #stardustdeploy--ship-to-aem, …"
+      },
+      "businessImpact": "Agents following llms.txt land at the top of a 22KB page instead of the passage — degraded retrieval and citation precision for every command query.",
+      "fix": "Rewrite the eight anchors to the real ids, or give the h2s stable short ids.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-008",
+      "severity": "P2",
+      "dimension": "brand-expression",
+      "title": "The site mocks AI design grammar while writing in it",
+      "evidence": {
+        "type": "screenshot",
+        "ref": "stardust/current/assets/screenshots/index.png (y≈2150, 3050–3450, 3950–4300)",
+        "observed": "26–54 uppercase tracked eyebrows per page; three near-identical eyebrow+h3+muted-body card trios on home; /aem repeats the same grammar twice; the copy itself says \"Lists the moves an LLM reaches for first… Stardust subverts them deliberately\""
+      },
+      "businessImpact": "Undercuts the anti-average positioning for exactly the audience (designers, AEM partners) that recognizes the scaffold.",
+      "fix": "Keep the mono kicker as one named, sparing system; restructure at least one card band per page into a different affordance; vary the /aem hero from the home hero.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-009",
+      "severity": "P2",
+      "dimension": "accessibility",
+      "title": "\"Copy link\" aria-labels promise an action that never happens",
+      "evidence": {
+        "type": "check",
+        "ref": "check:aria-label-truth",
+        "observed": "All 8 permalink anchors on /docs/commands/ carry aria-label=\"Copy link to stardust:<cmd>\" but scripts contain zero clipboard/writeText calls"
+      },
+      "businessImpact": "Screen-reader users \"copy\" repeatedly and get nothing — an accessible-name lie on the page developers share links from.",
+      "fix": "Implement copy-to-clipboard with a confirmation state, or relabel to \"Link to section\".",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-010",
+      "severity": "P2",
+      "dimension": "visual-hierarchy-craft",
+      "title": "Mobile: hex-seed mark collides with the hero eyebrow; long commands hide up to 2x viewport width",
+      "evidence": {
+        "type": "screenshot",
+        "ref": "live 390×844 probes",
+        "observed": "Hex seed \"a3f7\" overlaps the STARDUST eyebrow glyph-on-glyph; /docs/commands/ code blocks measure scrollWidth/clientWidth up to 693/350 with no scrollbar or fade; the commands page is ~14000px tall with no TOC access after the top"
+      },
+      "businessImpact": "The brand's first mobile impression is a rendering collision, and half of every long command is invisible to a mobile reader.",
+      "fix": "Hide the decorative hex marks below ~480px; wrap or fade long commands; add a persistent jump-to-command affordance on mobile.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-011",
+      "severity": "P2",
+      "dimension": "conversion-focus",
+      "title": "One proof asset for the whole site — the \"three variants\" differentiator is never shown",
+      "evidence": {
+        "type": "measurement",
+        "ref": "measurements.brandColorShare",
+        "observed": "The same coffee-site before/after pair is the only imagery on the site (2 imgs home, 2 on /aem, 0 on docs); the copy claims \"three variant theses per page, each rendered, each rationalized\" but no variant trio is ever pictured"
+      },
+      "businessImpact": "The core differentiator remains an unillustrated claim at the exact moment the visitor evaluates proof.",
+      "fix": "Add a variant A/B/C strip for one page of the sample redesign; point the before/after images at the live sample.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-012",
+      "severity": "P2",
+      "dimension": "conversion-focus",
+      "title": "Insider vocabulary gates the pitch before any concrete image",
+      "evidence": {
+        "type": "screenshot",
+        "ref": "stardust/current/assets/screenshots/index.png (hero)",
+        "observed": "Hero paragraph leads with \"a brand expression for today only — one that this brand and this date alone can produce\"; \"seed\", \"canon\", \"register\" recur undefined; \"do I need Claude Code?\" answered only implicitly four sections into /docs/"
+      },
+      "businessImpact": "First-time visitors must decode the philosophy before learning what the tool does or requires — abandonment risk at the fold.",
+      "fix": "One concrete sentence at the fold (\"Point it at your URL; get a redesigned, deployable copy of your site\") and a visible \"Requires Claude Code\" chip next to the install CTA.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-013",
+      "severity": "P2",
+      "dimension": "content-llm-visibility",
+      "title": "Home and /aem headings are slogan-heavy (8/15 and 6/10 slogans)",
+      "evidence": {
+        "type": "measurement",
+        "ref": "measurements.headingQuestionCoverage",
+        "observed": "\"Every design tool promises uniqueness.\", \"The seed picks the lane.\", \"Web publishing changed under us.\" carry no askable topic; /docs/ is 7/7 topic-bearing"
+      },
+      "businessImpact": "Slogan headings block passage retrieval for \"how does Stardust work\" / \"why AEM Edge Delivery\" queries even though the prose beneath answers them.",
+      "fix": "Keep the slogans as styled eyebrows; let the h2 carry the topic (\"How Stardust works: extract → direct → prototype → migrate\").",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-014",
+      "severity": "P3",
+      "dimension": "accessibility",
+      "title": "Footer sigil fails AA at 3.48:1 — the only genuine contrast failure",
+      "evidence": {
+        "type": "measurement",
+        "ref": "measurements.contrast",
+        "observed": "rgba(245,240,230,0.4) 10px text over #0a1024 = 3.48:1 (needs 4.5:1); every other live pair passes"
+      },
+      "businessImpact": "One decorative line unreadable for low-vision users on an otherwise exemplary a11y surface.",
+      "fix": "Raise the sigil to dust-55+ (dust-50 already measures 4.80:1) or enlarge it.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-015",
+      "severity": "P3",
+      "dimension": "visual-hierarchy-craft",
+      "title": "Vertical rhythm collapses at the largest type; the scale is ad-hoc",
+      "evidence": {
+        "type": "measurement",
+        "ref": "measurements.typeScale",
+        "observed": "Two of five 77.6px h2s on home have 0px margin to the following paragraph vs 56–64px on siblings; 10 heading sizes with step ratios 1.14–1.45 and no consistent ratio; 9 distinct radii"
+      },
+      "businessImpact": "A typography-led brand selling typographic discipline shows inconsistent rhythm at its most visible sizes.",
+      "fix": "Consistent margin-block-end on display h2s; adopt a named modular scale and a 2–3 value radius vocabulary in the token layer.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-016",
+      "severity": "P3",
+      "dimension": "technical-seo",
+      "title": "og:type missing on all 4 pages; docs pages share a generic og:image",
+      "evidence": {
+        "type": "check",
+        "ref": "check:open-graph",
+        "observed": "og:title/description/image/url + twitter:card present everywhere; og:type null everywhere; /docs/ and /docs/commands/ fall back to default-meta-image.png"
+      },
+      "businessImpact": "Spec-incomplete OG markup and a generic share image weaken share CTR for documentation links.",
+      "fix": "Add og:type=website via head.html; page-specific og:images for the docs pages.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-017",
+      "severity": "P3",
+      "dimension": "technical-seo",
+      "title": "/docs/commands/: the prepare-migration section is missing its h2",
+      "evidence": {
+        "type": "check",
+        "ref": "check:single-h1",
+        "observed": "After /stardust:migrate (h2), a second Syntax/Flags/Writes/Example h3 group appears with no owning h2 before /stardust:deploy; the meta description promises prepare-migration coverage"
+      },
+      "businessImpact": "The command is not addressable in the document outline — it cannot rank for its own queries and screen-reader users cannot navigate to it.",
+      "fix": "Add the missing /stardust:prepare-migration h2 matching the other seven command sections.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-018",
+      "severity": "P3",
+      "dimension": "content-llm-visibility",
+      "title": "License and authorship facts live only on the home page",
+      "evidence": {
+        "type": "check",
+        "ref": "check:key-facts",
+        "observed": "\"Apache\" per page: / = 2, /aem = 0, /docs/ = 0, /docs/commands/ = 0; \"Adobe\" absent from /docs/commands/ entirely"
+      },
+      "businessImpact": "Docs pages are the most likely retrieval targets for install queries but carry zero trust/provenance facts.",
+      "fix": "Add the home-footer fact line to the shared footer of every page.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-019",
+      "severity": "P3",
+      "dimension": "content-llm-visibility",
+      "title": "Performance claims are unsourced and pages carry no freshness signals",
+      "evidence": {
+        "type": "screenshot",
+        "ref": "stardust/current/assets/screenshots/aem.png (performance card)",
+        "observed": "\"100/100 Lighthouse scores… the default\" and \"top-decile Core Web Vitals\" carry no linked source or date; no page shows a last-updated line"
+      },
+      "businessImpact": "Unsourced superlatives are discounted by answer engines; undated docs lose retrieval weight.",
+      "fix": "Link the CWV claims to aem.live performance documentation; add a visible last-updated line + dateModified schema on docs pages.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-020",
+      "severity": "P3",
+      "dimension": "brand-expression",
+      "title": "Palette pairings are one-way streets and the logo has one variant",
+      "evidence": {
+        "type": "tension",
+        "ref": "T-color-imbalance",
+        "observed": "4 of 8 palette entries used in a single context only; #854f17 passes contrast only on cream, #e8b95e only on ink; one amber-on-transparent logo variant captured (T-logo-variants)"
+      },
+      "businessImpact": "Any new surface that recombines the tokens naively ships illegible amber-on-cream or an invisible logo.",
+      "fix": "Document allowed color pairings as token aliases; ship a logo variant set (mono, inverted, on-cream).",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-021",
+      "severity": "P3",
+      "dimension": "conversion-focus",
+      "title": "CTA vocabulary fragments: 7 labels for GitHub, 4 for the install destination",
+      "evidence": {
+        "type": "measurement",
+        "ref": "measurements.ctaFragmentation",
+        "observed": "27 distinct labels over 59 CTA instances; the gold DOCS nav pill reads as CTA on home and as accidental active state on docs; /aem is reachable only from the last home section"
+      },
+      "businessImpact": "Scattered labels dilute the scent trail to the two destinations that matter and blur wayfinding.",
+      "fix": "Canonicalize one label per destination; distinct active state for the nav pill; add /aem to the nav or footer.",
+      "guides": [],
+      "ledgerId": null
+    },
+    {
+      "id": "F-022",
+      "severity": "P3",
+      "dimension": "brand-expression",
+      "title": "The single accent is under-spent: amber paints 0.99% of the home page",
+      "evidence": {
+        "type": "measurement",
+        "ref": "measurements.brandColorShare",
+        "observed": "Amber family 0.99% of 138600 sampled pixels; between the seed section and the AEM band chroma appears only in italics and 11px eyebrows"
+      },
+      "businessImpact": "The long tell-don't-show mid-page reads monochrome and abstract exactly where attention flags.",
+      "fix": "Spend the accent on one committed mid-page moment (an amber band, a large annotated artifact, or the variant-trio strip).",
+      "guides": [],
+      "ledgerId": null
+    }
+  ],
+  "upliftDirections": [
+    {
+      "id": "A",
+      "pitch": "Tomorrow's version of the site you have today.",
+      "summary": "Same IA and voice, the P1/P2 ledger resolved: slash-variant 301s, static JSON-LD, wrapped + copyable command examples, space-safe letter-split, a closing install CTA, topic-bearing h2s with the slogans kept as eyebrows, and the free/Apache-2.0 facts stated in crawlable text.",
+      "addressesFindings": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-013"
+      ]
+    },
+    {
+      "id": "B",
+      "pitch": "What if provenance was the show, not the sigil?",
+      "summary": "Amplify the captured provenance-as-ornament trait (hex seed marks, brief+seed=star, md5 receipts) into the compositional spine: a visible receipts system, the variant A/B/C trio rendered as evidence cards, amber spent on the proof moments.",
+      "addressesFindings": [
+        "F-011",
+        "F-022",
+        "F-008"
+      ]
+    },
+    {
+      "id": "C",
+      "pitch": "What if the pipeline ran before your eyes?",
+      "register": "live-systems",
+      "summary": "Same IA as A; the extract → direct → prototype → migrate pipeline rendered kinetic — data-stream motion in the live-systems register, reduced-motion safe, the deterministic-seed story told by the page itself.",
+      "addressesFindings": []
+    }
+  ]
+}

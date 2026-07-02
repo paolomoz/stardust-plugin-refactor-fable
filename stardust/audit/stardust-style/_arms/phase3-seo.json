@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {"id": "robots-txt", "status": "pass"},
+    {"id": "sitemap", "status": "pass", "note": "valid, 4 URLs, but mixed slash convention: /aem no slash, /docs/ + /docs/commands/ with slash"},
+    {"id": "slash-variant-redirects", "status": "fail", "evidence": "/docs 404, /docs/commands 404, /aem/ 404; no 301 in either direction"},
+    {"id": "protocol-host-redirects", "status": "pass", "evidence": "http->https 301 1 hop; www->apex 301 1 hop; HSTS present"},
+    {"id": "canonical", "status": "pass", "evidence": "self-referential on all 4"},
+    {"id": "meta-robots-indexable", "status": "pass"},
+    {"id": "title-unique-quality", "status": "pass", "evidence": "4 unique keyword-first titles 47-55 chars"},
+    {"id": "meta-description", "status": "pass", "evidence": "unique 137-155 chars all pages"},
+    {"id": "open-graph", "status": "fail", "evidence": "og:type null on all 4; docs pages use generic default-meta-image.png"},
+    {"id": "single-h1", "status": "pass", "evidence": "exactly 1 h1 per page (live DOM)"},
+    {"id": "heading-hierarchy", "status": "pass", "evidence": "no level skips; but prepare-migration section on /docs/commands/ missing its h2"},
+    {"id": "landmarks", "status": "pass", "evidence": "main/nav/footer/header on every page"},
+    {"id": "jsonld", "status": "pass-with-caveat", "evidence": "REFUTES curl-based 'no JSON-LD': client-side-injected @graph on all 4 pages (home: Organization+WebSite+SoftwareApplication with license + free Offer; others: Organization+WebSite). Invisible to static fetch."},
+    {"id": "img-alt", "status": "pass", "evidence": "4/4 images descriptive alt"},
+    {"id": "mobile-friendly", "status": "pass"},
+    {"id": "core-web-vitals", "status": "pass", "evidence": "LCP 200-316ms, CLS 0.0000, TBT 0ms — all good, median of 3 runs, playwright-lab unthrottled"}
+  ],
+  "cwv": {
+    "home": {"mobile": {"lcp": 212, "cls": 0, "tbt": 0, "ttfb": 96, "method": "playwright-lab", "runs": 3}, "desktop": {"lcp": 236, "cls": 0, "tbt": 0, "ttfb": 82, "method": "playwright-lab", "runs": 3}},
+    "aem": {"mobile": {"lcp": 200, "cls": 0, "tbt": 0, "ttfb": 88, "method": "playwright-lab", "runs": 3}, "desktop": {"lcp": 316, "cls": 0, "tbt": 0, "ttfb": 81, "method": "playwright-lab", "runs": 3}},
+    "classification": "all good on both viewports both pages; lab TBT=0 proxies INP; PSI unavailable (429)"
+  },
+  "findings": [
+    {"id": "S-1", "dimension": "technical-seo", "severity": "P1", "title": "Trailing-slash variants 404 with no redirect", "evidence": "check:canonical adjacent — /docs 404, /docs/commands 404, /aem/ 404; sitemap+canonicals mixed convention (/aem no slash, docs pages with slash)", "businessImpact": "Inbound links/typed URLs on the wrong variant hard-404; link equity discarded — on a 4-page site every backlink matters.", "fix": "301 each non-canonical variant to its canonical at the edge; better: one convention site-wide, update canonical+sitemap+internal links together.", "guides": []},
+    {"id": "S-2", "dimension": "technical-seo", "severity": "P3", "title": "og:type missing on all 4 pages", "evidence": "rendered DOM: og:title/description/image/url + twitter:card present, og:type null everywhere; docs pages share generic og:image", "businessImpact": "Spec-incomplete OG; generic share image weakens docs share CTR.", "fix": "Add og:type=website via head.html/metadata; page-specific og:images for docs.", "guides": []},
+    {"id": "S-3", "dimension": "technical-seo", "severity": "P3", "title": "/docs/commands/: prepare-migration section missing its h2", "evidence": "check:single-h1 outline — second Syntax/Flags/Writes/Example h3 group after /stardust:migrate has no owning h2; meta description promises prepare-migration coverage", "businessImpact": "Command not addressable in document outline — cannot rank for its own queries; screen-reader users cannot navigate to it.", "fix": "Add the /stardust:prepare-migration h2 matching the other seven command sections.", "guides": []}
+  ],
+  "methodNotes": "modern-web-guidance searched for all 4 failure classes; returned nothing topically applicable — guides[] honestly empty. Scripts at stardust/tmp/audit-dom.mjs, audit-cwv.mjs."
+}

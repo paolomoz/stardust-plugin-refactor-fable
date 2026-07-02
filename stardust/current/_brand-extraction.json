@@ -1,0 +1,336 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:extract",
+    "writtenAt": "2026-07-02T12:12:06Z",
+    "readArtifacts": [
+      "https://stardust.style/",
+      "https://stardust.style/aem",
+      "https://stardust.style/docs/",
+      "https://stardust.style/docs/commands/",
+      "stardust/current/pages/index.json",
+      "stardust/current/pages/aem.json",
+      "stardust/current/pages/docs.json",
+      "stardust/current/pages/docs-commands.json",
+      "stardust/current/_crawl-log.json"
+    ],
+    "synthesizedInputs": [],
+    "stardustVersion": "0.14.2",
+    "notes": [
+      "Palette occurrences are element-count weighted (computed-style sweep over all visible elements on the 4 live pages at 1440×900), not pixel-area weighted; large single-element grounds (body backgrounds) therefore carry low counts relative to leaf text nodes.",
+      "amber-deep #854f17 outranks amber #e8b95e by raw element count (250 vs ~159) because docs-commands is dense with mono labels; the visual anchor across all four screenshots is amber #e8b95e (nav pill, primary CTAs, italic emphasis, logo mark), so role 'primary' stays on #e8b95e and #854f17 is 'primary-deep'.",
+      "Dropped from the 8-entry palette cap: the --dust alpha ramp rgb(245 240 230 / 72|50|30|15|8%) (muted text / hairline borders on ink) and the rgba(26,31,56,*) muted-text ramp on cream; both are tints of retained entries.",
+      "heroImage is null: the home hero is display type over a radial ink-glow + CSS starfield gradient; the only home images (before/after coffee-site screenshots, media_1d66a8cd... and media_18bac084...) sit below the first viewport.",
+      "heroMedium is null: no video/canvas/lottie hero. The hero h1 has a CSS entrance animation (see _crawl-log.json visionCheck) and the sample ribbon '★ REAL · STARDUST · SAMPLE · CLICK ME' is a CSS marquee; neither is a discrete hero medium.",
+      "Type sizes/weights were captured by a live computed-style probe of the same 4 URLs (playwright, 1440×900, reducedMotion: reduce) because pages/<slug>.json carries customProps but not per-element computed type metrics. No @font-face rules exist on any page — the site runs entirely on system stacks (SF Pro Display / SF Pro Text / SF Mono with system fallbacks), so type.files is empty.",
+      "Spacing baseUnit/scale left null/empty: observed paddings (8, 14, 16, 24 px, clamp(20px,4vw,64px)) do not resolve to a single detectable base grid from the captured samples.",
+      "docs-commands renders its h2 command headings in SF Mono at 40px (/stardust:uplift etc.) — a deliberate mono-display move on that page only; the cross-page heading mode stays SF Pro Display."
+    ]
+  },
+  "site": {
+    "name": "Stardust",
+    "tagline": "Math, not mysticism.",
+    "originUrl": "https://stardust.style"
+  },
+  "origins": [
+    {
+      "origin": "https://stardust.style",
+      "role": "primary",
+      "pagesCaptured": 4,
+      "contributedSignals": []
+    }
+  ],
+  "logo": {
+    "source": "inline-svg",
+    "sourceSelector": "header a.nav-mark svg",
+    "localPath": "stardust/current/assets/logo.svg",
+    "format": "svg",
+    "intrinsicWidth": 22,
+    "intrinsicHeight": 22,
+    "synthesized": false,
+    "synthesizedBasis": null,
+    "notes": "Raw server HTML ships an empty <header></header> (EDS header block decorates client-side); the rendered header contains an inline 24×24-viewBox amber (#e8b95e) star/sparkle mark of five rects next to the wordmark 'Stardust'. Also present but not captured as variants: /favicon.svg (svg, 1690B), /apple-touch-icon.png (png), /favicon.png (96×96)."
+  },
+  "palette": [
+    {
+      "role": "primary-deep",
+      "value": "#854f17",
+      "occurrences": 250,
+      "sourceSelectors": ["--amber-deep", "h3 (docs-commands mono labels)", "a (links on cream)"],
+      "sources": ["docs-commands", "docs", "index"],
+      "usedAs": ["text"]
+    },
+    {
+      "role": "primary",
+      "value": "#e8b95e",
+      "occurrences": 159,
+      "sourceSelectors": ["--amber", "header .nav-cta", "a.button (hero CTA)", "h1 em / italic emphasis", "header a.nav-mark svg g[fill]"],
+      "sources": ["index", "aem", "docs"],
+      "usedAs": ["text", "background", "border", "fill"]
+    },
+    {
+      "role": "surface",
+      "value": "#f5f0e6",
+      "occurrences": 120,
+      "sourceSelectors": ["--dust", "h1/h2/h3 on ink pages", "section (cream bands)", "body (docs pages)"],
+      "sources": ["index", "aem", "docs"],
+      "usedAs": ["text", "background", "border"]
+    },
+    {
+      "role": "text-primary",
+      "value": "#1a1f38",
+      "occurrences": 95,
+      "sourceSelectors": ["--deep-ink", "h1/h2 on cream pages", "p/li on cream pages"],
+      "sources": ["docs", "docs-commands", "index"],
+      "usedAs": ["text", "border"]
+    },
+    {
+      "role": "surface-raised",
+      "value": "#141b3a",
+      "occurrences": 38,
+      "sourceSelectors": ["--ink-soft", ".card / feature panels on ink sections"],
+      "sources": ["index", "aem", "docs"],
+      "usedAs": ["background"]
+    },
+    {
+      "role": "accent-light",
+      "value": "#ffd98a",
+      "occurrences": 37,
+      "sourceSelectors": ["--amber-light", "sidebar nav item text (docs)", "emphasis on ink"],
+      "sources": ["docs", "docs-commands", "index"],
+      "usedAs": ["text"]
+    },
+    {
+      "role": "background-deep",
+      "value": "#060a14",
+      "occurrences": 14,
+      "sourceSelectors": ["--ink-deep", "header (sticky nav)", "hero gradient stop", "code blocks"],
+      "sources": ["index", "aem", "docs"],
+      "usedAs": ["background"]
+    },
+    {
+      "role": "background",
+      "value": "#0a1024",
+      "occurrences": 11,
+      "sourceSelectors": ["--ink", "body (index, aem)", "a.button color (text on amber CTA)"],
+      "sources": ["index", "aem", "docs"],
+      "usedAs": ["background", "text"]
+    }
+  ],
+  "type": {
+    "headingFamily": {
+      "name": "SF Pro Display",
+      "stack": "\"SF Pro Display\", -apple-system, blinkmacsystemfont, system-ui, sans-serif",
+      "weights": [600],
+      "sizes": ["112px", "77.6px", "22px"],
+      "lineHeights": [0.96, 0.98, 1.2],
+      "letterSpacing": ["-0.04em", "-0.032em", "-0.022em"],
+      "sourceSelectors": ["h1", "h2", "h3"]
+    },
+    "bodyFamily": {
+      "name": "SF Pro Text",
+      "stack": "\"SF Pro Text\", -apple-system, blinkmacsystemfont, system-ui, sans-serif",
+      "weights": [400, 500],
+      "sizes": ["16px", "15px", "18px"],
+      "lineHeights": [1.6, 1.55, 1.6],
+      "letterSpacing": ["normal"],
+      "sourceSelectors": ["main p", "main li"]
+    },
+    "monoFamily": {
+      "name": "SF Mono",
+      "stack": "\"SF Mono\", \"JetBrains Mono\", ui-monospace, monospace",
+      "weights": [500, 700],
+      "sizes": ["11px", "12px", "14px", "40px"],
+      "lineHeights": [1.0, 1.4, 1.1],
+      "letterSpacing": ["0.22em (uppercase labels)", "0.24em (eyebrows)", "normal (code)"],
+      "sourceSelectors": ["span.eyebrow", "span.label-tag", "pre.code", "h2 (docs-commands command headings)", "header .nav-cta"]
+    },
+    "scaleRatio": null,
+    "scaleAudit": {
+      "kind": "ad-hoc",
+      "ratios": [1.17, 1.24, 1.21, 1.14, 1.17, 1.2, 1.25, 1.45, 1.22],
+      "matchedScale": null,
+      "observedSizesPx": [112, 96, 77.6, 64, 56, 48, 40, 32, 22, 18]
+    },
+    "loadStrategy": null,
+    "files": []
+  },
+  "spacing": {
+    "baseUnit": null,
+    "scale": [],
+    "sectionPadding": "clamp(20px, 4vw, 64px)",
+    "containerMaxWidth": "1320px",
+    "gridGap": null,
+    "navHeight": "60px",
+    "sourceSelectors": ["--pad", "--maxw", "--nav-height"]
+  },
+  "motifs": {
+    "borderRadius": {
+      "primary": "4px",
+      "secondary": "14px",
+      "pill": "999px",
+      "primarySources": ["index", "aem", "docs", "docs-commands"],
+      "occurrences": { "4px": 89, "14px": 31, "22px": 10, "999px": 7, "0px 8px 8px 0px": 7, "12px": 6, "18px": 6, "8px": 4, "6px": 1 }
+    },
+    "shadows": [
+      { "value": "rgba(0, 0, 0, 0.45) 0px 24px 60px 0px", "uses": "before/after screenshot frames (index, aem)" },
+      { "value": "rgba(6, 10, 20, 0.25) 0px 6px 20px 0px", "uses": "sticky header" }
+    ],
+    "gradients": [
+      { "value": "radial-gradient(90% 70% at 80% 35%, rgb(26, 36, 80) 0%, rgb(7, 12, 30) 55%, rgb(6, 10, 20) 100%)", "uses": "hero background glow (index; aem uses 90% 60% at 70% 30% variant)" },
+      { "value": "stacked micro radial-gradients of rgba(245,240,230,.26–.5) at scattered positions", "uses": "hero starfield dots (index, aem)" },
+      { "value": "linear-gradient(rgb(6, 10, 20) 0%, rgb(10, 16, 36) 100%)", "uses": "section transition band" },
+      { "value": "linear-gradient(rgba(0,0,0,0) 60%, rgba(232, 185, 94, 0.32) 60%)", "uses": "amber highlighter underline on emphasized words" }
+    ],
+    "patterns": [
+      { "name": "alternating-ink-cream-bands", "evidence": "index and aem alternate full-bleed #0a1024 ink sections with #f5f0e6 cream sections; docs pages invert to cream body with ink sidebar/code blocks" },
+      { "name": "type-only-hero-with-starfield", "evidence": "index and aem heroes are display type over radial ink glow + CSS starfield; no hero photography" },
+      { "name": "card-grid-3up", "evidence": "index (2 sections) and aem (2 sections) use 3-column #141b3a card grids with mono eyebrow + h3 + body" },
+      { "name": "uppercase-mono-eyebrows", "evidence": "SF Mono 11–12px, 0.22–0.24em tracking, uppercase, amber/amber-deep — on every section of all 4 pages" },
+      { "name": "amber-italic-emphasis-in-headings", "evidence": "display headings carry one italic amber phrase ('mysticism.', 'uniqueness.', 'AI-facing web.', 'end to end.') on index, aem, docs" },
+      { "name": "before-after-image-pair", "evidence": "index and aem show the same coffee-site before/after screenshot pair (media_1d66a8cd…, media_18bac084…)" },
+      { "name": "dark-rounded-code-blocks", "evidence": "docs and docs-commands render shell commands in #0a1024/#060a14 rounded blocks on cream" },
+      { "name": "pipeline-step-row", "evidence": "EXTRACT → DIRECT → PROTOTYPE → MIGRATE step tiles on index; GENERATE → CONVERT → PUBLISH on aem; numbered steps on docs" },
+      { "name": "marquee-sample-ribbon", "evidence": "index: '★ REAL · STARDUST · SAMPLE · CLICK ME' repeating CSS marquee link" },
+      { "name": "docs-sticky-sidebar", "evidence": "docs and docs-commands: fixed ink sidebar with amber-tinted active item" }
+    ]
+  },
+  "componentStyle": {
+    "buttons": {
+      "primary": {
+        "background": "#e8b95e",
+        "color": "#0a1024",
+        "borderRadius": "8px",
+        "padding": "14px 24px",
+        "fontWeight": 600,
+        "fontFamily": "SF Pro Text",
+        "shadow": null,
+        "sourceSelectors": ["index hero 'Install in two minutes'"]
+      },
+      "navPill": {
+        "background": "#e8b95e",
+        "color": "#0a1024",
+        "borderRadius": "999px",
+        "padding": "8px 14px",
+        "fontWeight": 700,
+        "fontFamily": "SF Mono",
+        "textTransform": "uppercase",
+        "letterSpacing": "1.54px",
+        "sourceSelectors": ["header .nav-cta ('Docs')"]
+      },
+      "secondary": {
+        "background": "rgba(232, 185, 94, 0.12)",
+        "color": "#ffd98a",
+        "borderRadius": "8px",
+        "padding": "14px 16px",
+        "fontWeight": 500,
+        "sourceSelectors": ["docs sidebar nav items"]
+      },
+      "ghost": {
+        "background": "transparent",
+        "color": "#f5f0e6",
+        "border": "1px solid rgba(245, 240, 230, 0.15)",
+        "sourceSelectors": ["index hero 'View on GitHub' (outlined pair to primary; border color from cross-page border frequency)"]
+      }
+    },
+    "dualCTAPattern": "primary-then-ghost",
+    "cards": {
+      "background": "#141b3a",
+      "borderRadius": "14px",
+      "border": "1px solid rgba(245, 240, 230, 0.08)",
+      "padding": null,
+      "shadow": null
+    },
+    "inputs": null,
+    "links": {
+      "color": "#e8b95e (on ink) / #854f17 (on cream)",
+      "decoration": "underline on inline prose links, none on nav"
+    }
+  },
+  "systemComponents": [
+    {
+      "name": "site-header",
+      "kind": "header",
+      "occurrences": 4,
+      "headingSequence": [],
+      "ctaLabels": ["Stardust", "Docs", "GitHub ›"],
+      "domFingerprintHash": null,
+      "exampleSlug": "index",
+      "exampleSelector": "header .nav-row",
+      "examplePages": ["index", "aem", "docs", "docs-commands"],
+      "notes": "Inline-SVG amber mark + 'Stardust' wordmark left; amber mono pill 'Docs' + 'GitHub ›' right; sticky, #060a14 ground."
+    },
+    {
+      "name": "site-footer",
+      "kind": "footer",
+      "occurrences": 4,
+      "headingSequence": ["Stardust"],
+      "ctaLabels": ["Docs", "GitHub", "Apache 2.0 License"],
+      "domFingerprintHash": null,
+      "exampleSlug": "index",
+      "exampleSelector": "footer",
+      "examplePages": ["index", "aem", "docs", "docs-commands"],
+      "notes": "Centered mark + wordmark; 'A design-phase toolkit by the AEM team at Adobe. Math, not mysticism.'; link row 'Docs · GitHub · Apache 2.0 License'; mono sign-off 'brief + seed = star · 2026'."
+    },
+    {
+      "name": "docs-sidebar",
+      "kind": "nav-secondary",
+      "occurrences": 2,
+      "headingSequence": [],
+      "ctaLabels": ["Get started01", "Commands02"],
+      "domFingerprintHash": null,
+      "exampleSlug": "docs",
+      "exampleSelector": "aside/sidebar nav (docs pages)",
+      "examplePages": ["docs", "docs-commands"],
+      "notes": "Qualifies at the ≥50%-of-pages threshold (2 of 4). Ink panel, amber-tinted active item rgba(232,185,94,.12) with #ffd98a text."
+    }
+  ],
+  "iconFont": null,
+  "voice": {
+    "heroHeadline": "Redesign the Web.",
+    "heroSubcopy": "Math, not mysticism.",
+    "heroImage": null,
+    "heroMedium": null,
+    "primaryCTALabel": "Install in two minutes",
+    "ctaSamples": ["Install in two minutes", "View on GitHub", "See how Stardust ships to AEM Edge Delivery ›", "Read the deployment notes ›"],
+    "navItems": ["Stardust", "Docs", "GitHub ›"],
+    "footerHeadings": ["Stardust"],
+    "firstParagraph": "Stardust is an open-source, AI-driven website redesign tool. It generates a brand expression for today only — one that this brand and this date alone can produce. Deterministic, reproducible, structured. The canonical AI-facing version of your brand, rendered as deployable HTML.",
+    "tone": {
+      "guess": "technical-precise",
+      "evidence": "Short declarative sentences with full-stop rhythm ('Deterministic, reproducible, structured.'), repeated mantra 'Math, not mysticism', exact artifact names in prose (stardust/current/, md5(brand · date)), confident second-person imperatives ('Point Stardust at a URL'). A bold-direct streak in the display headlines ('Redesign the Web.')."
+    },
+    "sourceSelectors": {
+      "heroHeadline": "pages/index.json#headings[0] (captured as 'Redesignthe Web.' — line-break element between words; visible text on screenshot reads 'Redesign the Web.')",
+      "heroSubcopy": "pages/index.json#body[0]",
+      "firstParagraph": "pages/index.json#body[1]"
+    }
+  },
+  "voiceTable": {
+    "ctaFrequency": [
+      { "label": "Docs", "total": 9, "pageCount": 4, "pages": ["index", "aem", "docs", "docs-commands"] },
+      { "label": "#", "total": 8, "pageCount": 1, "pages": ["docs-commands"] },
+      { "label": "Stardust", "total": 4, "pageCount": 4, "pages": ["index", "aem", "docs", "docs-commands"] },
+      { "label": "GitHub ›", "total": 4, "pageCount": 4, "pages": ["index", "aem", "docs", "docs-commands"] },
+      { "label": "GitHub", "total": 4, "pageCount": 4, "pages": ["index", "aem", "docs", "docs-commands"] },
+      { "label": "Apache 2.0 License", "total": 4, "pageCount": 4, "pages": ["index", "aem", "docs", "docs-commands"] },
+      { "label": "stardust:deploy", "total": 3, "pageCount": 2, "pages": ["index", "aem"] },
+      { "label": "impeccable", "total": 2, "pageCount": 2, "pages": ["index", "docs"] }
+    ],
+    "headingFrequency": [],
+    "toneMetrics": {
+      "headingsTotal": 75,
+      "headingsUppercasePercent": 0,
+      "distinctHeadings": 49,
+      "distinctCtaLabels": 27
+    }
+  },
+  "crossPromo": {
+    "detected": false,
+    "anchorHeading": null,
+    "cluster": null,
+    "pages": null,
+    "pageCount": null,
+    "totalPages": 4
+  },
+  "register": "brand"
+}

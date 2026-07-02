@@ -1,0 +1,35 @@
+{
+  "discovery": {
+    "fetchTechnique": "headless",
+    "count": 4,
+    "concurrency": 4
+  },
+  "consent": {
+    "method": "auto"
+  },
+  "crawl": {
+    "failures": []
+  },
+  "visionCheck": [
+    {
+      "slug": "index",
+      "verdict": "recaptured",
+      "notes": "first pass dropped the animated hero h1 (reduced-motion not emulated); recaptured with patched crawler — 16 headings incl. h1 Redesign the Web."
+    },
+    {
+      "slug": "aem",
+      "verdict": "recaptured",
+      "notes": "same h1 drop, recaptured; matches pixels"
+    },
+    {
+      "slug": "docs",
+      "verdict": "ok",
+      "notes": "text docs page; zero media plausible; fixed sidebar mid-page in full-page shot is a capture artifact"
+    },
+    {
+      "slug": "docs-commands",
+      "verdict": "ok",
+      "notes": "reference page; 40 headings match visible structure"
+    }
+  ]
+}
