@@ -31,7 +31,7 @@ export default async function decorate(block) {
     k.append(...pendingKicker.childNodes); wrap.append(k);
   }
   if (main) {
-    const el = document.createElement(block.classList.contains('stat') ? 'p' : 'h2');
+    const el = document.createElement('p');
     el.className = block.classList.contains('stat') ? 'stat-figure' : 'quote';
     const inner = main.matches?.('h1,h2,h3,h4,h5,h6') ? main : main.querySelector('h1,h2,h3,h4,h5,h6');
     el.append(...(inner || main).childNodes); wrap.append(el);

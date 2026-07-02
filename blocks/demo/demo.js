@@ -10,7 +10,9 @@ export default async function decorate(block) {
   const src = link ? link.getAttribute('href') : '';
   const caption = link ? link.textContent.trim() : '';
   const rows = [...block.querySelectorAll(':scope > div > div')];
-  const escapeText = rows.length > 1 ? rows[rows.length - 1].textContent.trim() : '';
+  const escapeCell = rows.length > 1 ? rows[rows.length - 1] : null;
+  const escapeHTML = escapeCell ? escapeCell.innerHTML.trim() : '';
+  const escapeText = escapeCell ? escapeCell.textContent.trim() : '';
 
   const wrap = document.createElement('div');
   wrap.className = 'demo-wrap';
@@ -44,7 +46,7 @@ export default async function decorate(block) {
   cap.innerHTML = `<span>${caption || '$ slicc demo — silent'}</span>`;
   if (escapeText && escapeText !== caption) {
     const esc = document.createElement('span');
-    esc.textContent = escapeText;
+    esc.innerHTML = escapeHTML;
     cap.append(esc);
   }
   wrap.append(cap);
