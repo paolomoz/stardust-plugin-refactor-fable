@@ -570,3 +570,6 @@ header .nav-brand .default-content-wrapper p:last-child a:hover{ background:var(
 /* footer + fragment images need height:auto (main img reset doesn't reach <footer>) */
 footer img, .trh-footer img{ height:auto; }
 .trh-footer__brand img{ width:120px; max-height:150px; object-fit:contain; }
+.triage.block .center > p{ font-size:15px; line-height:1.6; margin-top:10px; }
+.triage.block .center > p a{ color:var(--deep-harbor); font-weight:700; }
+.triage.block .crisis-panel p{ margin:6px 0; }
