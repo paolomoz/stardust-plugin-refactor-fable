@@ -14,6 +14,44 @@
   "schemaVersion": 2,
   "name": "Stardust (target)",
   "extensions": {
+    "canon": {
+      "source": "auto-bootstrap: index",
+      "sourceSlug": "index",
+      "approvedAt": "2026-07-02T13:46:08.527Z",
+      "writtenAt": "2026-07-02T14:12:08Z",
+      "files": {
+        "header": { "path": "stardust/canon/header.html", "sha": "3cc4dbd7ada92360b43e6e9fa5bc2646502d0e36" },
+        "footer": { "path": "stardust/canon/footer.html", "sha": "5cb271f441783fbdb51ce45d374706e4287b2d52" },
+        "css":    { "path": "stardust/canon/canon.css",   "sha": "f39b8566eb0ccf725f0d8386d4cf7871330e8dfa" }
+      },
+      "pinned": {
+        "sectionPadding.desktop": "64px",
+        "sectionPadding.tablet": "48px",
+        "sectionPadding.mobile": "32px",
+        "typeScale": 1.25,
+        "lineHeights.display": 0.96,
+        "lineHeights.heading": 0.98,
+        "lineHeights.body": 1.6,
+        "containerMax": "1320px",
+        "navHeight": "60px",
+        "radius.sm": "4px",
+        "radius.lg": "14px",
+        "radius.pill": "999px",
+        "padInline": "clamp(20px, 4vw, 64px)"
+      },
+      "compositionalMoves": [
+        "Full-bleed ink and cream grounds alternate down the page; docs templates invert to a cream prose ground with an ink fixed sidebar",
+        "Heroes are type-only over a radial ink glow with CSS starfield dots — never hero photography",
+        "Each page spends amber on exactly one committed proof moment beyond chrome (home: variant receipt strip; docs: fact chips; aem: pipeline band)",
+        "Section heads stack mono eyebrow or performing deck above a topic-bearing h2; slogans never carry the heading alone",
+        "Hairlines replace shadows everywhere except the frame and sticky-nav surfaces; receipt/ledger surfaces may render the hairline dotted",
+        "Hex-seed corner marks appear as provenance ornament on hero-scale sections, hidden below 480px",
+        "Every command example ships in a deep-ink code block with a docked mono copy button and text-only confirmation"
+      ],
+      "history": [
+        { "at": "2026-07-02T14:12:08Z", "from": "index", "kind": "first-approval (auto-bootstrap by stardust:migrate — no prepare-migration ran; hands-off, logged)" }
+      ]
+    },
     "colorMeta": {
       "pairings": {
         "amber": "ink-grounds-only (10.37:1)",

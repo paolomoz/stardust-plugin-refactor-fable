@@ -1,0 +1,168 @@
+/* stardust:canon
+  writtenBy:        stardust:migrate (canon auto-bootstrap, SKILL.md Setup step 4)
+  writtenAt:        2026-07-02T14:12:08Z
+  sourceSlug:       index
+  sourcePrototype:  stardust/prototypes/index-proposed.html
+  region:           css
+  note:             compound CSS — the reusable visual language lifted from the
+                    approved canon-author prototype (class-based, cross-template,
+                    var()-consuming per canon-extraction.md § 2). Page-specific
+                    rules (hero starfield, receipt strip, pipeline ledger, proof
+                    grid, fact panel) stay in the prototype. `.wordmark` selector
+                    flattened from `.brand-mark .wordmark` so page-level chrome
+                    variants keep cascade priority at equal specificity.
+  stardustVersion:  0.14.2
+*/
+
+/* ── Skip link — first focusable ─────────────────────────────────── */
+.skip-link {
+  position: absolute; left: 16px; top: -64px;
+  z-index: 100;
+  background: var(--amber); color: var(--ink);
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  padding: 10px 16px; border-radius: var(--radius);
+  transition: top 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skip-link:focus { top: 12px; }
+
+/* ── Type roles ───────────────────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--amber);
+}
+.deck {
+  font-family: var(--heading-font-family);
+  font-size: clamp(18px, 2vw, 25px);
+  font-weight: 500; line-height: 1.3; letter-spacing: -0.022em;
+  color: var(--dust-72);
+  max-width: 34em;
+}
+.ai { color: var(--amber); font-style: italic; }
+.ai--hl { background: linear-gradient(transparent 60%, rgba(232,185,94,0.32) 60%); }
+.section-head { display: grid; gap: var(--spacing-md); margin-bottom: var(--spacing-xl); }
+.section-head h2 {
+  font-size: clamp(39px, 5.3vw, 76px);
+  font-weight: 600; line-height: var(--line-height-heading);
+  letter-spacing: -0.032em;
+}
+.muted { color: var(--dust-72); }
+
+/* ── Buttons ──────────────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  font-family: var(--body-font-family);
+  font-size: var(--body); font-weight: 600; line-height: 1.2;
+  padding: 14px 24px; border-radius: var(--radius);
+  text-decoration: none; border: 1px solid transparent;
+  transition: background-color 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms cubic-bezier(0.4,0,0.2,1), color 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.btn--primary { background: var(--amber); color: var(--ink); }
+.btn--primary:hover { background: var(--amber-light); }
+.btn--ghost { background: transparent; color: var(--dust); border-color: var(--dust-30); }
+.btn--ghost:hover { border-color: var(--dust); background: var(--dust-08); }
+
+/* Copy button — mono chip, text-only confirmation (F-005) */
+.copy-btn {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--dust-72); background: var(--ink-soft);
+  border: 1px solid var(--dust-15); border-radius: var(--radius);
+  padding: 6px 12px; cursor: pointer;
+  transition: color 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.copy-btn:hover { color: var(--dust); border-color: var(--dust-30); }
+.copy-btn.is-copied { color: var(--amber); border-color: var(--amber); }
+
+/* Command chip */
+.cmd-chip {
+  display: inline-flex; align-items: center; gap: var(--spacing-md);
+  background: var(--ink-deep);
+  border: 1px solid var(--dust-15); border-radius: var(--radius);
+  padding: 12px 16px;
+  max-width: 100%;
+}
+.cmd-chip code {
+  font-family: var(--mono); font-size: clamp(14px, 1.6vw, 18px); font-weight: 600;
+  color: var(--amber-light); white-space: pre-wrap; word-break: break-word;
+}
+
+/* ── Header chrome ────────────────────────────────────────────────── */
+header[data-section="header"] {
+  position: sticky; top: 0; z-index: var(--z-sticky);
+  background: var(--ink-deep);
+  box-shadow: var(--shadow-nav);
+}
+.nav-row {
+  height: var(--nav-height);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+.brand-mark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-mark svg { width: 18px; height: 18px; flex: none; }
+.wordmark {
+  font-family: var(--heading-font-family);
+  font-size: 18px; font-weight: 600; letter-spacing: -0.022em; color: var(--dust);
+}
+.nav-links { display: flex; align-items: center; gap: var(--spacing-lg); }
+.nav-pill {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--amber); color: var(--ink);
+  border-radius: var(--radius-pill); padding: 8px 14px; text-decoration: none;
+  transition: background-color 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.nav-pill:hover { background: var(--amber-light); }
+.nav-gh { color: var(--dust-72); text-decoration: none; font-size: 15px; }
+.nav-gh:hover { color: var(--dust); }
+
+/* ── Cards (the ONE card band language) ───────────────────────────── */
+.card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--spacing-lg); }
+.card {
+  background: var(--ink-soft);
+  border: 1px solid var(--dust-08); border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  display: grid; gap: var(--spacing-md); align-content: start;
+}
+.card p { color: var(--dust-72); }
+
+/* ── Cream ground inversion ───────────────────────────────────────── */
+.cream { background: var(--dust); color: var(--deep-ink); }
+.cream .section-head h2 { color: var(--deep-ink); }
+.cream .deck { color: rgba(26,31,56,0.72); }
+.cream .eyebrow { color: var(--amber-deep); }
+.cream .ai { color: var(--amber-deep); }
+.cream p { color: rgba(26,31,56,0.82); }
+.cream h3 { color: var(--deep-ink); }
+.cream a:not(.btn) { color: var(--amber-deep); text-decoration: underline; text-underline-offset: 3px; }
+.cream a:not(.btn):hover { color: var(--deep-ink); }
+
+/* ── Footer chrome ────────────────────────────────────────────────── */
+footer[data-section="footer"] {
+  background: var(--ink-deep);
+  border-top: 1px solid var(--dust-08);
+  padding-block: var(--spacing-2xl) var(--spacing-xl);
+  text-align: center;
+}
+.footer-inner { display: grid; justify-items: center; gap: var(--spacing-md); }
+.footer-tagline { color: var(--dust-72); font-size: 15px; max-width: 52ch; }
+.footer-facts { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dust-55); }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-lg); margin-top: var(--spacing-sm); }
+.footer-nav a { color: var(--dust-72); text-decoration: none; font-size: 15px; }
+.footer-nav a:hover { color: var(--dust); }
+.footer-sigil { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; color: var(--dust-55); margin-top: var(--spacing-lg); }
+
+/* ── Provenance marks (system-component role; hidden <480px, F-010) ─ */
+.seed-mark {
+  position: absolute;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+  color: var(--dust-72);
+  pointer-events: none;
+}
+.seed-mark--tr { top: 28px; right: var(--pad); }
+.seed-mark--bl { bottom: 20px; left: var(--pad); }
+@media (max-width: 479px) {
+  .seed-mark { display: none; }
+}

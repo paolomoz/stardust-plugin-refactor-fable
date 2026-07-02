@@ -29,3 +29,21 @@ content-sourcing hierarchy (refused to invent the commands). Fix direction: capt
 pre/code contents as a typed codeBlocks[] field per page (they are also the fields most
 likely to be copy-needed at migrate time). Workaround this run: re-captured via curl of the
 server-rendered HTML into pages/docs.json#codeBlocks with its own provenance stamp.
+
+## L4 — content-preservation.md broken-link contract conflicts with file-protocol-audit.mjs on partial-inventory runs [contradiction] [pending]
+content-preservation.md § Internal link rewriting says a target NOT in the migrated inventory
+still rewrites to its computed migrated-tree path with data-broken-link="true" ("not an escape
+hatch to the live origin"). But the mandatory portability fixture file-protocol-audit.mjs
+hard-fails any internal href whose target file doesn't exist on disk — so the two contracts are
+co-satisfiable only on full-inventory runs. On a scoped run (2 of 4 pages) the agent had to pick:
+it kept resolvable absolute origin URLs + data-broken-link + sidecar logging. Fix direction:
+either content-preservation should carve out partial-inventory runs (origin-URL fallback until
+the target migrates), or the fixture should accept data-broken-link-flagged hrefs as known-broken.
+
+## L5 — migrate SKILL.md references a cinematic pickup that isn't specced [gap] [pending]
+prototype/SKILL.md § static-only path says migrate "picks up cinematic motion when both files
+exist", but skills/migrate/ contains no cinematic handling at all (grep confirms). The agent
+migrated the static file (correct per artifact-map "static prototype is the load-bearing
+artifact for migration consumption") and copied lenis assets without wiring them. Fix direction:
+either spec the cinematic merge in migrate (motion data-* + runtime + assets carried when the
+cinematic sibling exists) or soften the prototype SKILL.md sentence.

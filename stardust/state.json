@@ -27,8 +27,8 @@
       "slug": "index",
       "url": "https://stardust.style/",
       "title": "Stardust — AI website redesign tool, math not mysticism",
-      "type": null,
-      "status": "approved",
+      "type": "landing",
+      "status": "migrated",
       "history": [
         {
           "status": "extracted",
@@ -44,13 +44,18 @@
           "at": "2026-07-02T13:46:08.527Z",
           "approvedBy": "hands-off",
           "note": "all gates passed; open item A-4 (P2, acknowledged)"
+        },
+        {
+          "status": "migrated",
+          "at": "2026-07-02T14:12:08Z",
+          "note": "Path A (approved prototype), fidelityTier archetype; canon auto-bootstrapped from index this run"
         }
       ],
       "stale": false,
       "staleReason": null,
       "currentStatePath": "stardust/current/pages/index.json",
       "prototypePath": "stardust/prototypes/index-proposed.html",
-      "migratedPath": null,
+      "migratedPath": "stardust/migrated/index.html",
       "cinematicPath": "stardust/prototypes/index-cinematic.html"
     },
     {
@@ -75,8 +80,8 @@
       "slug": "docs",
       "url": "https://stardust.style/docs/",
       "title": "Get started with Stardust — install & first redesign",
-      "type": null,
-      "status": "approved",
+      "type": "static",
+      "status": "migrated",
       "history": [
         {
           "status": "extracted",
@@ -92,13 +97,18 @@
           "at": "2026-07-02T14:05:37.882Z",
           "approvedBy": "hands-off",
           "note": "open items P2/P3 only, recorded in provenance"
+        },
+        {
+          "status": "migrated",
+          "at": "2026-07-02T14:12:08Z",
+          "note": "Path A (approved prototype), fidelityTier archetype; canon auto-bootstrapped from index this run"
         }
       ],
       "stale": false,
       "staleReason": null,
       "currentStatePath": "stardust/current/pages/docs.json",
       "prototypePath": "stardust/prototypes/docs-proposed.html",
-      "migratedPath": null
+      "migratedPath": "stardust/migrated/docs/index.html"
     },
     {
       "slug": "docs-commands",
@@ -118,5 +128,46 @@
       "prototypePath": null,
       "migratedPath": null
     }
-  ]
+  ],
+  "migrate": {
+    "at": "2026-07-02T14:12:08Z",
+    "outputDir": "stardust/migrated/",
+    "selfContained": true,
+    "pageMap": [
+      {
+        "sourceUrl": "/",
+        "outputPath": "index.html",
+        "slug": "index"
+      },
+      {
+        "sourceUrl": "/docs/",
+        "outputPath": "docs/index.html",
+        "slug": "docs"
+      }
+    ],
+    "totalAssetsBundled": 3,
+    "bundledAssets": [
+      "logo.svg",
+      "motion/lenis.min.js",
+      "motion/lenis.min.css"
+    ],
+    "pages": [
+      {
+        "slug": "index",
+        "file": "stardust/migrated/index.html",
+        "assetsBundled": 0
+      },
+      {
+        "slug": "docs",
+        "file": "stardust/migrated/docs/index.html",
+        "assetsBundled": 0
+      }
+    ],
+    "missingAssets": [],
+    "cleanedAssets": [],
+    "warnings": [
+      "favicon absent from capture — no favicon variants bundled (soft contract; browsers fall back to default)",
+      "no fonts bundled — system font stacks are a pinned brand decision (zero webfont bytes)"
+    ]
+  }
 }

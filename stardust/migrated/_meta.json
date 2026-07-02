@@ -1,0 +1,112 @@
+{
+  "slug": "index",
+  "type": "landing",
+  "renderBranch": "A",
+  "template": null,
+  "fidelityTier": "archetype",
+  "archetypeSource": null,
+  "gatesPassed": [
+    "provenance-validation",
+    "placeholder-gate",
+    "mobile-adapt",
+    "critique",
+    "audit",
+    "adapt",
+    "vision",
+    "media-reconcile",
+    "portability-audits"
+  ],
+  "modules": [],
+  "slotsFilled": [],
+  "canonShas": {
+    "header": "3cc4dbd7ada92360b43e6e9fa5bc2646502d0e36",
+    "footer": "5cb271f441783fbdb51ce45d374706e4287b2d52",
+    "css": "f39b8566eb0ccf725f0d8386d4cf7871330e8dfa"
+  },
+  "deviations": [],
+  "migrationDecisions": [
+    {
+      "kind": "media-keep",
+      "mode": "A image-reuse (media-reconciliation.md decision: keep)",
+      "urls": [
+        "https://stardust.style/media_1d66a8cd9c28ee9bbc879c890d38c7add9b163cfc.jpg?width=2000&format=webply&optimize=medium",
+        "https://stardust.style/media_18bac0846ac4b672ac9c20cf356207ea1b353d856.jpg?width=2000&format=webply&optimize=medium",
+        "https://stardust.style/media_1d66a8cd9c28ee9bbc879c890d38c7add9b163cfc.jpg?width=1200&format=pjpg&optimize=medium (og:image)"
+      ],
+      "networkResolve": "all 200 at migrate time (curl, 2026-07-02T14:12Z)",
+      "note": "cross-origin source URLs kept verbatim including query strings; no optimization wrapper (createOptimizedPicture must skip cross-origin); scheme-bearing URLs are skipped by asset bundling by design"
+    },
+    {
+      "kind": "broken-internal-link",
+      "sourceUrl": "/aem",
+      "occurrences": 2,
+      "resolution": "kept absolute origin URL (https://stardust.style/aem) + data-broken-link=\"true\"",
+      "reason": "target page is not in this run's migrated inventory (run scoped to index+docs). content-preservation.md § Internal link rewriting step 3 prescribes rewriting to the computed migrated-tree path; the mandatory Phase-3 portability audits (file-protocol-audit.mjs) hard-fail on internal hrefs whose target file does not exist, so the hands-off resolution keeps the resolvable origin URL and flags the link. Re-run migrate after migrating the target to reconcile."
+    },
+    {
+      "kind": "page-typing",
+      "type": "landing",
+      "reason": "state.json pages[].type was null; the data-template strict contract requires a type. Typed \"landing\" by LLM judgment (marketing landing page; WebSite JSON-LD present)."
+    },
+    {
+      "kind": "metadata-derived",
+      "added": [
+        "og:locale (brand-level, DESIGN.json.extensions.metadata.locale)",
+        "robots index,follow (preserved-category default)"
+      ],
+      "preserved": "title, description, og:*, twitter:card, canonical (deployUrl unset → original canonical preserved), JSON-LD @graph — verbatim from the approved prototype",
+      "omitted": [
+        "manifest link (no manifest generated — prepare-migration Phase 4 did not run)",
+        "favicon links (favicon absent from capture — warning logged, soft contract)"
+      ]
+    },
+    {
+      "kind": "canon-injection",
+      "note": "canon.css injected as second block of the first <style>; rules are byte-derived from this page (canon-author) so the duplicate block is a no-op visually"
+    },
+    {
+      "kind": "cinematic-variant-not-consumed",
+      "staticSource": "stardust/prototypes/index-proposed.html",
+      "cinematicVariant": "stardust/prototypes/index-cinematic.html (motion-validated)",
+      "resolution": "migrated the STATIC prototype; motion layer not merged. lenis.min.js/css re-copied to stardust/migrated/assets/motion/ per artifact-map.md § lenis (cinematic project detected via stardust/prototypes/lenis.min.js); migrated index.html does not load them.",
+      "reason": "artifact-map.md: \"the static prototype remains the load-bearing artifact for … migration consumption\"; migration-procedure.md Path A consumes sourceProposed verbatim; no migrate reference instructs merging the cinematic motion layer into the migrated page."
+    }
+  ],
+  "metadata": {
+    "title": "Stardust — AI website redesign tool, math not mysticism",
+    "description": "Stardust is an open-source, AI-driven website redesign tool — turn any URL into brand-faithful, deployable static HTML. Built by the AEM team at Adobe.",
+    "canonical": "https://stardust.style/",
+    "canonicalStrategy": "deployUrl unset → original canonical preserved (attributes signals to the live origin)",
+    "ogLocale": "en",
+    "robots": "index,follow"
+  },
+  "jsonLd": {
+    "@type": "@graph [Organization, WebSite, SoftwareApplication]",
+    "delivery": "static in served head, preserved from approved prototype"
+  },
+  "audit": {
+    "adapt": {
+      "viewportMeta": true,
+      "mediaRuleLte640px": "@media (max-width: 479px) present (also 767/1023px)",
+      "gate": "PASS (prototype adapt gate previously passed; re-verified at migrate time)"
+    }
+  },
+  "provenance": {
+    "brokenInternalLinks": [
+      {
+        "sourceUrl": "/aem",
+        "occurrences": 2,
+        "keptHref": "https://stardust.style/aem",
+        "flagged": "data-broken-link=\"true\""
+      }
+    ],
+    "contentDeviations": [],
+    "liveRenderEvidence": "playwright"
+  },
+  "assetsBundled": 0,
+  "migratedAt": "2026-07-02T14:12:08Z",
+  "designMdSha": "a2521a77f4bd31fe0093e4dad059b507e057711e",
+  "designJsonSha": "e3a50fff0262b65233332325481a9fbc1638e81f",
+  "sourceCurrentSha": "59f6fd3be1dc57f7677653dcffd656f9e8f900df",
+  "sourceProposedSha": "2e6a13901831ae188b68fedd9e2efa0cbf0bcdc9"
+}
