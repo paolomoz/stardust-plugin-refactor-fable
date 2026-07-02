@@ -1,0 +1,115 @@
+{
+  "ts": "2026-07-02T17:05:00Z",
+  "org": "paolomoz",
+  "repo": "stardust-plugin-refactor-fable",
+  "branch": "test-stardust-style",
+  "tokenPreflight": {
+    "jwtRemainingHours": 18.12,
+    "smokeTest": { "request": "GET https://admin.da.live/list/paolomoz/stardust-plugin-refactor-fable/", "status": 200 }
+  },
+  "media": [
+    {
+      "path": "media/stardust-style/before-coffee.jpg",
+      "contentType": "image/webp",
+      "contentTypeReason": "payload bytes are RIFF/WebP (VP8, 1600x941) under a .jpg name; protocol requires the Content-Type to match the actual bytes",
+      "putStatus": 200, "previewStatus": 200, "liveStatus": 200
+    },
+    {
+      "path": "media/stardust-style/after-coffee.jpg",
+      "contentType": "image/webp",
+      "contentTypeReason": "payload bytes are RIFF/WebP (VP8, 1600x939) under a .jpg name; protocol requires the Content-Type to match the actual bytes",
+      "putStatus": 200, "previewStatus": 200, "liveStatus": 200
+    }
+  ],
+  "pages": {
+    "stardust-style/index": {
+      "putStatus": 200,
+      "previewStatus": 200,
+      "liveStatus": 200,
+      "plainChecks": {
+        "url": "https://test-stardust-style--stardust-plugin-refactor-fable--paolomoz.aem.page/stardust-style/index.plain.html",
+        "status": 200,
+        "note": "/stardust-style/.plain.html 404s (folder form); canonical index.plain.html serves 200",
+        "bodyWrapperIntact": true,
+        "leadingEmptyDiv": "metadata section consumed into head meta — expected",
+        "h1Count": 1,
+        "aboutErrorCount": 0,
+        "imgSlashSrcs": 0,
+        "imgCount": 2,
+        "imgAltCount": 2
+      },
+      "computedLayoutChecks": {
+        "sectionCount": 10,
+        "namedBlocks": ["hero", "proof", "why-variation", "pipeline", "receipt-strip", "ai-facing", "fact-panel", "aem-band", "cta-band"],
+        "allBlocksDecorated": true,
+        "grids": {
+          ".hero .hero-inner": "grid", ".proof-grid": "grid", ".ledger-2up": "grid", ".receipt": "grid",
+          ".card-grid": "grid", ".deploy-grid": "grid", ".fact-row": "grid", ".cta-inner": "grid"
+        },
+        "images": [
+          { "alt": "before", "naturalWidth": 1600 },
+          { "alt": "after", "naturalWidth": 1600 }
+        ],
+        "h1Count": 1,
+        "headerFragmentInjected": true,
+        "footerFactLine": "Open source · Apache 2.0 · built by the AEM team at Adobe",
+        "pageErrors": 0
+      },
+      "metaChecks": {
+        "title": "Stardust — AI website redesign tool, math not mysticism",
+        "metaDescription": true,
+        "ogType": "website",
+        "ldJsonStatic": true
+      },
+      "deployed": true,
+      "urls": {
+        "daEdit": "https://da.live/#/paolomoz/stardust-plugin-refactor-fable/stardust-style/index",
+        "preview": "https://test-stardust-style--stardust-plugin-refactor-fable--paolomoz.aem.page/stardust-style/",
+        "live": "https://test-stardust-style--stardust-plugin-refactor-fable--paolomoz.aem.live/stardust-style/"
+      },
+      "screenshot": "stardust/validation/deployed-index.png"
+    },
+    "stardust-style/docs": {
+      "putStatus": 200,
+      "previewStatus": 200,
+      "liveStatus": 200,
+      "plainChecks": {
+        "url": "https://test-stardust-style--stardust-plugin-refactor-fable--paolomoz.aem.page/stardust-style/docs.plain.html",
+        "status": 200,
+        "bodyWrapperIntact": true,
+        "leadingEmptyDiv": "metadata section consumed into head meta — expected",
+        "h1Count": 1,
+        "aboutErrorCount": 0,
+        "imgSlashSrcs": 0,
+        "imgCount": 0,
+        "imgAltCount": 0
+      },
+      "computedLayoutChecks": {
+        "sectionCount": 10,
+        "namedBlocks": ["docs-nav", "doc-hero", "guide (install)", "guide (shortcut)", "guide (flow)", "guide (step) x4"],
+        "allBlocksDecorated": true,
+        "docsTemplateClass": true,
+        "creamGround": "rgb(245, 240, 230)",
+        "docsNavPosition": "fixed",
+        "codePanelCount": 9,
+        "h1Count": 1,
+        "headerFragmentInjected": true,
+        "footerFactLine": "Open source · Apache 2.0 · built by the AEM team at Adobe",
+        "pageErrors": 0
+      },
+      "metaChecks": {
+        "title": "Get started with Stardust — install & first redesign",
+        "metaDescription": true,
+        "ogType": "website",
+        "ldJsonStatic": true
+      },
+      "deployed": true,
+      "urls": {
+        "daEdit": "https://da.live/#/paolomoz/stardust-plugin-refactor-fable/stardust-style/docs",
+        "preview": "https://test-stardust-style--stardust-plugin-refactor-fable--paolomoz.aem.page/stardust-style/docs",
+        "live": "https://test-stardust-style--stardust-plugin-refactor-fable--paolomoz.aem.live/stardust-style/docs"
+      },
+      "screenshot": "stardust/validation/deployed-docs.png"
+    }
+  }
+}
