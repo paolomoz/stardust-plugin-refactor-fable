@@ -57,3 +57,30 @@ rejected the push at deploy time and the bootstrap agent had to filter-branch th
 history. Nothing leaked (push protection + unpushed-only rewrite), but all local SHAs changed
 mid-run. Fix direction: the master skill's hands-off "commit at the end of each phase" rule
 should carry the .env/.gitignore check itself (phase-0), not leave it to the deploy skill.
+
+## L7 — extract's `npm i -D playwright --no-save` is silently pruned by any later npm install [bug] [pending]
+The extract setup installs playwright with --no-save (correct: don't dirty the target's manifest),
+but deploy's bootstrap later runs a real `npm i -D @babel/core`, and npm prunes non-manifest
+packages — so the diff phase found playwright gone (ERR_MODULE_NOT_FOUND) after it had worked in
+three earlier phases. Fix direction: the playwright-availability probe should re-run (and
+re-install if needed) at the START of every skill that renders (prototype/migrate/deploy/diff),
+not only in extract's setup; or extract should record the --no-save install in state.json so
+later phases know it is ephemeral.
+
+## L8 — content-diff flags node-granularity differences as structural 🔴 [friction] [pending]
+The proto rendered the hero fact chips as three sibling mono spans; the EDS block rendered the
+same text as ONE span. content-diff reported 2× MISSING EYEBROW + 1× ROLE SWAP + 1× EXTRA — all
+one non-defect. Fix direction: before flagging MISSING, try concatenation matching within the
+same role/region (a proto node that is a substring of an EDS node in the same section, or vice
+versa, is a JOIN/SPLIT advisory 🟡, not a 🔴).
+
+## L9 — chrome fragments defeat the crawlable-facts contract; facts must live in server-rendered content [design] [pending]
+The redesign put the trust fact line ("Open source · Apache 2.0 · built by the AEM team at
+Adobe") in the shared footer per F-018 — but in the AuthorKit runtime the footer is a
+client-injected fragment (postlcp.js innerHTML), so the fact line is invisible to non-rendering
+AI crawlers on every page: the exact failure class the redesign was fixing (F-002). Caught
+because the phase-6 verification greps the RAW served HTML. Fix direction: deploy's ENCODE
+contract should state that key-facts content must not live solely in fragments; and/or the
+verification step in the atomic contract should grep raw HTML (not rendered DOM) for the
+key-facts list. Workaround this run: the maker fact was added to the docs page's server-rendered
+install prose (home already carried it in its meta description + fact panel).
