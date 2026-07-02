@@ -1,0 +1,8 @@
+{
+  "runtime": "vanilla-eds",
+  "blockWrapperClass": "block",
+  "buttonClasses": ".button / .button-container (stock EDS decorateButtons)",
+  "fragmentScriptPolicy": "executed",
+  "emptySectionCollapse": false,
+  "evidence": "scripts/aem.js present (not ak.js); header.js/footer.js loadFragment via getMetadata('nav'|'footer'); blocks get .block class via loadBlocks"
+}

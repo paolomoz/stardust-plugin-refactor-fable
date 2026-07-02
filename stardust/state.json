@@ -1,0 +1,156 @@
+{
+  "handsOff": true,
+  "site": {
+    "originUrl": "https://theroadhome.org",
+    "extractedAt": "2026-07-02T06:49:29.396Z",
+    "pageCap": 6,
+    "totalDiscovered": 120,
+    "crawled": 6
+  },
+  "sourceUrl": "https://theroadhome.org/",
+  "startedAt": "2026-07-02T08:34:00+02:00",
+  "pages": [
+    {
+      "slug": "index",
+      "path": "/",
+      "url": "https://theroadhome.org/",
+      "status": "deployed",
+      "type": "landing",
+      "currentStatePath": "stardust/current/pages/index.json",
+      "prototypePath": "stardust/prototypes/home-proposed.html",
+      "migratedPath": "stardust/migrated/index.html",
+      "approvedBy": "hands-off",
+      "gates": {
+        "critique": "pass(0 P0/P1)",
+        "audit": "pass(advisory-only)",
+        "adapt": "pass(6 viewports, nav-audit clean)",
+        "motion": "n/a(static)",
+        "vision": "pass"
+      },
+      "history": [
+        {
+          "status": "prototyped",
+          "at": "2026-07-02T13:03:00+02:00"
+        },
+        {
+          "status": "approved",
+          "at": "2026-07-02T13:03:00+02:00",
+          "by": "hands-off"
+        },
+        {
+          "status": "migrated",
+          "at": "2026-07-02T13:05:25+02:00"
+        },
+        {
+          "status": "deployed",
+          "at": "2026-07-02T13:35:50+02:00"
+        }
+      ],
+      "deployedUrl": "https://test-theroadhome--stardust-plugin-refactor-fable--paolomoz.aem.page/theroadhome/home"
+    },
+    {
+      "slug": "get-help",
+      "path": "/get-help/",
+      "url": "https://theroadhome.org/get-help/",
+      "status": "deployed",
+      "type": "program",
+      "currentStatePath": "stardust/current/pages/get-help.json",
+      "prototypePath": "stardust/prototypes/get-help-proposed.html",
+      "migratedPath": "stardust/migrated/get-help/index.html",
+      "approvedBy": "hands-off",
+      "gates": {
+        "critique": "pass(0 P0/P1)",
+        "audit": "pass(advisory-only)",
+        "adapt": "pass(6 viewports, nav-audit clean)",
+        "motion": "n/a(static)",
+        "vision": "pass"
+      },
+      "history": [
+        {
+          "status": "prototyped",
+          "at": "2026-07-02T13:03:00+02:00"
+        },
+        {
+          "status": "approved",
+          "at": "2026-07-02T13:03:00+02:00",
+          "by": "hands-off"
+        },
+        {
+          "status": "migrated",
+          "at": "2026-07-02T13:05:25+02:00"
+        },
+        {
+          "status": "deployed",
+          "at": "2026-07-02T13:35:50+02:00"
+        }
+      ],
+      "deployedUrl": "https://test-theroadhome--stardust-plugin-refactor-fable--paolomoz.aem.page/theroadhome/get-help"
+    },
+    {
+      "slug": "housing-programs",
+      "path": "/housing-programs/",
+      "url": "https://theroadhome.org/housing-programs/",
+      "status": "directed",
+      "type": null,
+      "currentStatePath": "stardust/current/pages/housing-programs.json",
+      "prototypePath": null,
+      "migratedPath": null
+    },
+    {
+      "slug": "get-involved",
+      "path": "/get-involved/",
+      "url": "https://theroadhome.org/get-involved/",
+      "status": "directed",
+      "type": null,
+      "currentStatePath": "stardust/current/pages/get-involved.json",
+      "prototypePath": null,
+      "migratedPath": null
+    },
+    {
+      "slug": "about-us",
+      "path": "/about-us/",
+      "url": "https://theroadhome.org/about-us/",
+      "status": "directed",
+      "type": null,
+      "currentStatePath": "stardust/current/pages/about-us.json",
+      "prototypePath": null,
+      "migratedPath": null
+    },
+    {
+      "slug": "donate",
+      "path": "/donate/",
+      "url": "https://theroadhome.org/donate/",
+      "status": "directed",
+      "type": null,
+      "currentStatePath": "stardust/current/pages/donate.json",
+      "prototypePath": null,
+      "migratedPath": null
+    }
+  ],
+  "direction": {
+    "resolvedAt": "2026-07-02T06:57:18.480Z",
+    "phrase": "faithful redesign, modernized \u2014 make it dramatically better while unmistakably the same brand",
+    "directionFile": "stardust/direction.md",
+    "mode": "brand-faithful (Mode A)",
+    "iaFidelity": "reimagined (default)",
+    "density": "balanced (default)"
+  },
+  "migrate": {
+    "selfContained": true,
+    "outputDir": "stardust/migrated",
+    "totalAssetsBundled": 17,
+    "pages": 2,
+    "missingAssets": [],
+    "ranAt": "2026-07-02T13:05:25+02:00",
+    "note": "lean archetype migrate (2 approved pages); canon reuse via data-canon markers; portability file:// round-trip clean"
+  },
+  "deploy": {
+    "org": "paolomoz",
+    "repo": "stardust-plugin-refactor-fable",
+    "branch": "test-theroadhome",
+    "contentRoot": "/theroadhome/",
+    "ranAt": "2026-07-02T13:35:50+02:00",
+    "pages": 2,
+    "runtime": "vanilla-eds"
+  }
+}
