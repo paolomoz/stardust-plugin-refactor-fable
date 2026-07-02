@@ -11,3 +11,16 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+.env
+.env.*
+qa/
+stardust/
+/shoot.mjs
+/crawl.mjs
+/brand-extract.mjs
+/migrate.mjs
+/fileaudit.mjs
+/mobile-nav-audit.mjs
+/DESIGN.json
+/DESIGN.md
+/PRODUCT.md
