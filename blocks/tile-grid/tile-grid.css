@@ -9,3 +9,13 @@
 .tile-grid .tile:hover .tile-label::after{opacity:1;transform:none}
 @media(max-width:900px){.tile-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:540px){.tile-grid{grid-template-columns:1fr}}
+.tile-grid.text{grid-template-columns:repeat(7,1fr);background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.tile-grid.text .tile{aspect-ratio:auto;min-height:120px;padding:22px 18px;display:flex;flex-direction:column;justify-content:space-between;background:var(--bg)}
+.tile-grid.text .tile:hover{background:var(--surface)}
+.tile-grid.text .tile-media{display:none}
+.tile-grid.text .tile-label{position:static;background:none;color:var(--text);padding:0;font-size:1.02rem;font-weight:700;flex-direction:column;align-items:flex-start;gap:14px}
+.tile-grid.text .tile-label a{color:var(--text)}
+.tile-grid.text .tile-label::after{opacity:.55;margin-top:6px}
+.tile-grid.text .tile:hover .tile-label::after{opacity:1}
+@media(max-width:900px){.tile-grid.text{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:540px){.tile-grid.text{grid-template-columns:repeat(2,1fr)}}
