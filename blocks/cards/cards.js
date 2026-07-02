@@ -1,17 +1,38 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
-
+/**
+ * cards — generic card grid. One row per card. Cells (any subset, classified by
+ * content): picture, eyebrow(<strong> or short text), title(heading), body(p), cta(link).
+ * Variant via block class: cards.cabins | cards.compact | cards.quick.
+ */
+function cellMedia(c) { return c && (c.matches?.('picture,img') ? c : c.querySelector('picture,img')); }
 export default function decorate(block) {
-  /* change to ul, li */
-  const ul = document.createElement('ul');
-  [...block.children].forEach((row) => {
-    const li = document.createElement('li');
-    while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
+  const rows = [...block.children];
+  const grid = document.createElement('div'); grid.className = 'cards-grid';
+  rows.forEach((row) => {
+    const cells = [...row.children];
+    const card = document.createElement('article'); card.className = 'card';
+    let media; let eyebrow; let title; const bodies = []; let cta;
+    cells.forEach((cell) => {
+      const m = cellMedia(cell);
+      const heading = cell.querySelector('h2,h3,h4');
+      const link = cell.querySelector('a');
+      if (m && !media) { media = m; return; }
+      if (heading && !title) { title = heading; return; }
+      if (link) { cta = link; return; }
+      const strong = cell.querySelector('strong');
+      const txt = cell.textContent.trim();
+      if (!txt) return;
+      if ((strong || cell.classList.contains('eyebrow')) && !eyebrow) eyebrow = cell;
+      else bodies.push(cell);
     });
-    ul.append(li);
+    if (media) { const mw = document.createElement('div'); mw.className = 'card-media'; mw.append(media); card.append(mw); }
+    const body = document.createElement('div'); body.className = 'card-body';
+    if (eyebrow) { const e = document.createElement('span'); e.className = 'card-eyebrow'; e.append(...eyebrow.childNodes); body.append(e); }
+    if (title) { const h = document.createElement('h3'); h.append(...(title.querySelector('h2,h3,h4')?.childNodes || title.childNodes)); body.append(h); }
+    bodies.forEach((b) => { const p = document.createElement('p'); p.append(...b.childNodes); body.append(p); });
+    if (cta) { const a = document.createElement('a'); a.className = 'discover'; a.href = cta.href;
+      a.innerHTML = `${cta.textContent.trim()} <span class="arw" aria-hidden="true">→</span>`; body.append(a); }
+    card.append(body);
+    grid.append(card);
   });
-  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
-  block.replaceChildren(ul);
+  block.replaceChildren(grid);
 }

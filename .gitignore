@@ -2,6 +2,10 @@
 coverage/*
 logs/*
 node_modules/*
+.env
+.env.*
+qa/
+stardust/validation-*.png
 
 helix-importer-ui
 .DS_Store

@@ -1,0 +1,6 @@
+.facts { background: var(--surface); border-bottom: 1px solid var(--border); }
+.facts .facts-inner { max-width: var(--maxw); margin-inline: auto; padding: 0 24px; }
+.facts .facts-strip { display: flex; flex-wrap: wrap; gap: 12px 48px; padding-block: 26px; }
+.facts .fact { display: flex; flex-direction: column; gap: 4px; }
+.facts .fact b { font-size: var(--t-20); font-weight: var(--w-medium); color: var(--text); letter-spacing: -0.01em; }
+.facts .fact span { font-size: var(--t-13); font-weight: var(--w-semibold); letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); }

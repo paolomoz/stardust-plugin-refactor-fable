@@ -1,0 +1,17 @@
+.booking { position: relative; z-index: 20; margin-top: -84px; }
+.booking .booking-wrap { max-width: var(--maxw); margin-inline: auto; padding: 0 24px; }
+.booking .booking-card { background: linear-gradient(135deg, var(--primary-active) 0%, var(--crimson-deep) 100%);
+  border-radius: var(--r-card); box-shadow: var(--shadow-float); color: #fff; padding: 34px 36px 36px; }
+.booking .booking-card h2 { font-size: var(--t-25); color: #fff; margin: 0 0 22px; }
+.booking .booking-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; align-items: end; }
+.booking .field { display: flex; flex-direction: column; gap: 7px; }
+.booking .field label { font-size: var(--t-13); font-weight: var(--w-semibold); letter-spacing: .04em;
+  text-transform: uppercase; color: rgba(255,255,255,.85); }
+.booking .field input, .booking .field select { appearance: none; -webkit-appearance: none; background: #fff;
+  color: var(--text); border: 1px solid #d7d8da; border-radius: var(--r-signature); padding: 13px 14px;
+  font-size: var(--t-16); font-family: inherit; width: 100%; }
+.booking .booking-submit { grid-column: 1 / -1; display: flex; justify-content: flex-end; margin-top: 8px; }
+.booking .booking-submit .btn-primary { background: #fff; color: var(--primary-active); border-color: #fff; }
+.booking .booking-submit .btn-primary:hover { background: #f2f2f4; }
+@media (max-width: 1024px) { .booking .booking-grid { grid-template-columns: repeat(2, 1fr); } .booking .field:nth-child(5) { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .booking { margin-top: -40px; } .booking .booking-grid { grid-template-columns: 1fr; } .booking .booking-card { padding: 26px 22px 28px; } }
