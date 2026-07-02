@@ -1,37 +1,7 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
-
-.hero {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
-}
-
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
-}
-
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
-  }
-}
+.hero.block .hero-row{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:center}
+.hero.block .hero-copy h1{font-size:clamp(2.75rem,6vw,5.5rem);line-height:1.02;margin:0}
+.hero.block .hero-copy p{font-size:1.25rem;color:var(--text-2);margin-top:20px;max-width:36ch}
+.hero.block .hero-copy p.eyebrow{font-size:.8rem;color:var(--red);margin:0 0 16px}
+.hero.block .hero-media{aspect-ratio:16/11;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.hero.block .hero-media img,.hero.block .hero-media picture{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:900px){.hero.block .hero-row{grid-template-columns:1fr;gap:28px}}

@@ -11,3 +11,16 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+
+# stardust e2e — local artifacts (not part of EDS code)
+.env
+.env.*
+stardust/
+crawl.mjs
+shot.mjs
+migrate_run.mjs
+gen_content.mjs
+fetch-assets.mjs
+fetch-assets2.mjs
+content/.deploy-ledger.json
+content/.media-manifest.json

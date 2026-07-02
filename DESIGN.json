@@ -1,0 +1,97 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:direct",
+    "writtenAt": "2026-07-02T07:38:00Z",
+    "mode": "brand-faithful",
+    "readArtifacts": ["stardust/current/_brand-extraction.json"],
+    "stardustVersion": "0.13.1"
+  },
+  "schemaVersion": 2,
+  "name": "3M — Science, Applied (redesign target)",
+  "colors": {
+    "background": "oklch(0.99 0 0)",
+    "surface": "oklch(0.965 0 0)",
+    "text": "oklch(0.17 0 0)",
+    "textSecondary": "oklch(0.42 0 0)",
+    "border": "oklch(0.90 0 0)",
+    "brandRed": "oklch(0.55 0.21 26)",
+    "brandRedDeep": "oklch(0.47 0.20 26)"
+  },
+  "typography": {
+    "headingFamily": "\"3MCircular\", \"Arial\", sans-serif",
+    "bodyFamily": "\"3MCircular\", \"Arial\", sans-serif",
+    "scaleRatio": 1.25,
+    "baseSize": "18px"
+  },
+  "rounded": "2px",
+  "spacing": { "base": "4px", "sectionPadding": { "desktop": "64px", "tablet": "48px", "mobile": "32px" } },
+  "components": ["button-primary", "button-secondary", "card", "link", "badge", "input"],
+  "narrative": {
+    "northStar": "3M's site executed with the engineering precision the brand claims — red as a scalpel, 3MCircular given real scale, science imagery at editorial size, one clear route per audience. Unmistakably 3M, visibly a decade newer.",
+    "overview": "Flat, high-contrast, Swiss-precise system on a white ground; structure from hairline rules and whitespace, never shadow/gradient; single red accent carries identity and action; near-square 2px corners.",
+    "keyCharacteristics": ["type-led hierarchy", "monochrome + one red", "hairline structure", "editorial science imagery", "near-square 2px corners", "engineered 4pt spacing"],
+    "rules": ["Reserve #d10411 for one primary action + active state + connective accent", "Body copy floor 18px/1.6", "Impose modular 1.25 scale — no ad-hoc sizes", "Flat surfaces; borders not shadows"],
+    "dos": ["mixed-case confident headlines", "full-bleed science story imagery", "one primary CTA per view"],
+    "donts": ["rotating hero carousel", "four peer nav-pill CTAs", "12px body", "gradient/glass", "recolor the brand red", "editorial-atelier vocabulary"]
+  },
+  "extensions": {
+    "colorMeta": {
+      "brandRed": { "hex": "#d10411", "role": "signature-accent", "usage": ["primary-cta", "active-state", "connective-accent"], "contrastOnWhite": "5.9:1 AA" }
+    },
+    "typographyMeta": {
+      "scaleAuditFix": "captured scale was ad-hoc (ratios 1.09-1.22, 7 sizes); target imposes major-third 1.25 anchored on 18px body",
+      "displayClamp": "clamp(2.75rem, 6vw, 5.5rem)"
+    },
+    "shadows": { "none": "flat system — structure via 1px borders" },
+    "motion": {
+      "register": "kinetic-grid",
+      "registerRationale": "PRODUCT.md Brand Personality: modular-catalogue + data-led — 3M's product/industry/brand system is the backbone; kinetic-grid suits both the modular catalog and the story tiles.",
+      "easings": { "entrance": "cubic-bezier(0.16, 1, 0.3, 1)", "transition": "cubic-bezier(0.4, 0, 0.2, 1)", "expo": "cubic-bezier(0.87, 0, 0.13, 1)" },
+      "durations": { "enter": 520, "stagger": 70 },
+      "parallax": { "translate": 6, "fade": 0.2, "rangeStart": 10, "range": 40 }
+    },
+    "breakpoints": { "mobile": "480px", "tablet": "768px", "desktop": "1200px" },
+    "divergence": {
+      "mode": "brand-faithful",
+      "signal": "signal-strong",
+      "seed": {
+        "decade": { "value": "2025-now", "picked_by": "reasoned: dotconnect.vc + dayos anchors" },
+        "craft": { "value": "swiss-precision / flat-print", "picked_by": "reasoned: engineering-editorial anchors" },
+        "register": { "value": "confident editorial-technical", "picked_by": "reasoned: 3M science-brand voice" },
+        "ground_family": { "value": "stark-white", "override": "brand-faithful", "picked_by": "Mode C — brand ground #fff wins" }
+      },
+      "font_deck": { "name": "brand-inherited", "picked_by": "user-constraint" },
+      "palette": { "source": "inherited from _brand-extraction.json", "picked_by": "user-constraint" },
+      "references_used": [
+        { "anchor": "dotconnect.vc", "uuid": "efea478c-eda1-4e64-b730-10be61289a27", "implies": "engineering-led editorial precision; hairline structure; type as anchor", "picked_by": "reasoned" },
+        { "anchor": "dayos.com", "uuid": "5b18148a-e8e3-4acb-b24b-8a91407198e7", "implies": "Swiss display typography; light-gray canvas; disciplined grid", "picked_by": "reasoned" },
+        { "anchor": "onepeloton.com", "uuid": "1b7e4f5c-c3c2-48d5-8f34-3ecdd17f422e", "implies": "single vivid red accent as brand signature on flat surfaces", "picked_by": "reasoned" }
+      ],
+      "brand_faithful_inversions": [
+        { "kind": "pure-color-retention", "captured": "#000000 text / #ffffff ground", "applied": "oklch(0.17 0 0) / oklch(0.99 0 0)", "rationale": "impeccable forbids pure black/white; softened imperceptibly while preserving the 3M monochrome read" },
+        { "kind": "hex-format-retention", "captured": "#d10411 red", "applied": "oklch(0.55 0.21 26)", "rationale": "signature red pinned; converted to OKLCH per impeccable, hue/chroma matched to captured hex" }
+      ],
+      "anti_toolbox_audit": [
+        { "hit": "single-accent-minimalism", "justification": "3M's captured brand IS monochrome + one red; not a toolbox default, it's the brand." }
+      ]
+    },
+    "componentStyle": {
+      "buttons": { "primary": { "bg": "brandRed", "color": "white", "radius": "2px" }, "secondary": { "bg": "transparent", "border": "1px brandRed", "radius": "2px" }, "dualCTAPattern": false },
+      "cards": { "bg": "white", "border": "1px", "radius": "2px", "shadow": "none" },
+      "inputs": { "bg": "white", "border": "1px", "radius": "2px", "focus": "brandRed ring" }
+    },
+    "systemComponentRoles": {
+      "header": { "purpose": "audience routing + brand mark", "positionClass": "sticky-top", "constraint": "3M logo verbatim; Products/Industries/Brands primary nav" },
+      "footer": { "purpose": "corporate link columns + legal", "positionClass": "page-end" },
+      "audience-router": { "purpose": "route four audiences from home", "positionClass": "first-viewport-adjacent" }
+    },
+    "voice": {
+      "dos": ["mixed-case confident science claims", "future-tense optimism", "proof-of-science over lifestyle"],
+      "donts": ["shouty all-caps headers", "atelier/journal vocabulary", "vague marketing fluff"]
+    },
+    "iaPriorities": [
+      { "signal": "audience-routing", "evidence": "current/pages/index.json nav + hero CTAs route Products/Industries/Brands/Consumer/Investor audiences", "preserveAs": "first-viewport-adjacent", "scope": "site-wide", "mutability": "movable" },
+      { "signal": "product-catalog-entry", "evidence": "current/pages/3m-en-us-p.json + p-c-abrasives.json — product index and category listings are the core IA", "preserveAs": "primary-nav + home-route", "scope": "site-wide", "mutability": "movable" }
+    ]
+  }
+}

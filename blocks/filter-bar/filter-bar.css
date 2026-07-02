@@ -1,0 +1,7 @@
+.filter-bar.block{position:sticky;top:72px;z-index:40;background:var(--bg);border-block:1px solid var(--border);margin-inline:calc(50% - 50vw);padding-inline:max(32px,calc(50vw - 620px))}
+.filter-bar.block .fb-inner{display:flex;align-items:center;gap:18px;height:60px;flex-wrap:wrap;max-width:1240px;margin-inline:auto}
+.filter-bar.block .fb-count{font-weight:700}
+.filter-bar.block .fb-chips{display:flex;gap:10px;flex-wrap:wrap}
+.filter-bar.block .fb-chip{border:1px solid var(--border);border-radius:var(--radius);padding:7px 14px;font-size:.85rem;color:var(--text-2);cursor:pointer;background:var(--bg);font-family:inherit;transition:.2s}
+.filter-bar.block .fb-chip:hover,.filter-bar.block .fb-chip[aria-pressed="true"]{border-color:var(--red);color:var(--red)}
+@media(max-width:820px){.filter-bar.block{top:60px}}
