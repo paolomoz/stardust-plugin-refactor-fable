@@ -1,0 +1,18 @@
+.capabilities .cap-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-xl); align-items: start; max-width: var(--max-width); margin-inline: auto; padding-inline: var(--spacing-lg); }
+.capabilities .cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); }
+.capabilities .cap-card { background: #fff; border: 1px solid #e5e2dc; border-radius: var(--radius); padding: var(--spacing-lg); }
+.capabilities .cap-card .key { font-family: var(--mono-font-family); font-weight: 700; font-size: 14px; color: var(--color-crimson-deep); letter-spacing: 0.08em; text-transform: uppercase; }
+.capabilities .cap-card h3 { font-size: 20px; margin-top: var(--spacing-sm); color: var(--color-ink); }
+.capabilities .cap-card p { font-size: var(--body-sm); margin-top: var(--spacing-sm); color: #3c3a36; }
+.capabilities .terminal { background: var(--color-terminal); border: 1px solid var(--color-panel); border-radius: var(--radius); overflow: hidden; }
+.capabilities .terminal-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: var(--color-surface); border-bottom: 1px solid var(--color-panel); }
+.capabilities .terminal-bar i { width: 12px; height: 12px; border-radius: 50%; }
+.capabilities .terminal-bar i:nth-child(1) { background: var(--color-accent); }
+.capabilities .terminal-bar i:nth-child(2) { background: var(--color-orange); }
+.capabilities .terminal-bar i:nth-child(3) { background: var(--color-green); }
+.capabilities .terminal-bar .terminal-title { margin-left: 8px; font-family: var(--mono-font-family); font-size: 12px; color: var(--color-dim); }
+.capabilities .terminal-body { padding: var(--spacing-lg); font-family: var(--mono-font-family); font-size: 15px; line-height: 1.9; color: var(--color-green); }
+.capabilities .terminal-body .prompt { color: var(--color-dim); }
+.capabilities .terminal-body .out { color: var(--color-dim); }
+@media (max-width: 1024px) { .capabilities .cap-split { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .capabilities .cap-grid { grid-template-columns: 1fr; } }

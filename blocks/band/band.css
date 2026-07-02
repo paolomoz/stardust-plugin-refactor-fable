@@ -1,0 +1,15 @@
+.band { padding-block: var(--spacing-2xl); }
+.band .band-wrap { max-width: 900px; margin-inline: auto; padding-inline: var(--spacing-lg); }
+.band.green { background: var(--color-green); color: var(--color-terminal); }
+.band.orange { background: var(--color-orange); color: var(--color-terminal); }
+.band.crimson { background: var(--color-accent); color: #fff; }
+.band .kicker { font-family: var(--mono-font-family); font-size: 16px; font-weight: 700; }
+.band .quote { font-family: var(--heading-font-family); font-size: var(--heading-xl); font-weight: 700; letter-spacing: -0.02em; line-height: 1.08; margin-top: var(--spacing-sm); text-wrap: balance; }
+.band .attribution { font-family: var(--mono-font-family); font-size: 15px; margin-top: var(--spacing-lg); }
+.band.crimson .quote em { font-style: normal; text-decoration: line-through; text-decoration-thickness: 0.08em; }
+.band.crimson .quote strong { text-decoration: underline; text-decoration-thickness: 0.08em; text-underline-offset: 6px; }
+.band.stat .stat-figure { font-family: var(--heading-font-family); font-weight: 700; font-size: clamp(96px, 14vw, 180px); line-height: 1; letter-spacing: -0.04em; margin-top: var(--spacing-sm); }
+.band.stat .stat-caption { font-family: var(--mono-font-family); font-size: 18px; font-weight: 700; margin-top: var(--spacing-sm); }
+.band .actions { margin-top: var(--spacing-lg); }
+.band.cta .btn.btn-primary, .band.cta .actions a { background: var(--color-terminal); color: var(--color-orange); }
+.band.cta .actions a:hover { background: #1f1f1f; color: #ffb43d; }

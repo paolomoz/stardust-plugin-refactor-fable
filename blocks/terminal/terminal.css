@@ -1,0 +1,16 @@
+.terminal-block, .terminal { max-width: 820px; }
+.terminal .terminal, .terminal.terminal { }
+.terminal > .terminal { max-width: 820px; margin-inline: auto; }
+.terminal .terminal { background: var(--color-terminal); border: 1px solid var(--color-panel); border-radius: var(--radius); overflow: hidden; max-width: 820px; margin-inline: auto; }
+.terminal .terminal-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: var(--color-surface); border-bottom: 1px solid var(--color-panel); }
+.terminal .terminal-bar i { width: 12px; height: 12px; border-radius: 50%; }
+.terminal .terminal-bar i:nth-child(1) { background: var(--color-accent); }
+.terminal .terminal-bar i:nth-child(2) { background: var(--color-orange); }
+.terminal .terminal-bar i:nth-child(3) { background: var(--color-green); }
+.terminal .terminal-bar .terminal-title { margin-left: 8px; font-family: var(--mono-font-family); font-size: 12px; color: var(--color-dim); }
+.terminal .terminal-body { padding: var(--spacing-lg); font-family: var(--mono-font-family); font-size: 15px; line-height: 1.7; color: var(--color-green); overflow-x: auto; }
+.terminal .terminal-body .prompt { color: var(--color-dim); }
+.terminal .terminal-body .cmd { color: var(--color-green); }
+.terminal .terminal-body .cmt { color: var(--color-dim); margin: 2px 0 var(--spacing-md); }
+.terminal .terminal-body .cmt:last-child { margin-bottom: 0; }
+.terminal .terminal-body .out-green { color: var(--color-green); }

@@ -1,0 +1,182 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:direct",
+    "writtenAt": "2026-07-02T07:05:00Z",
+    "readArtifacts": [
+      "stardust/current/_brand-extraction.json",
+      "stardust/current/DESIGN.md",
+      "stardust/current/brand-review.html",
+      "stardust/direction.md"
+    ],
+    "synthesizedInputs": [],
+    "stardustVersion": "0.13.1"
+  },
+  "schemaVersion": 2,
+  "name": "SLICC (redesign target)",
+  "extensions": {
+    "colorMeta": {
+      "ground": { "value": "#0c0c0c", "family": "near-black obsidian", "note": "brand ground inherited; pure #000 reserved for terminal panels" },
+      "surfaceSteps": ["#0c0c0c", "#161616", "#1f1f1f"],
+      "accentContrastRules": {
+        "on-green": "#000000 (12.4:1)",
+        "on-orange": "#000000 (9.9:1)",
+        "on-crimson": "#faf9f7 (5.0:1, large/bold only)",
+        "mono-output-floor": "#8f8f8f on #0c0c0c (4.9:1)"
+      }
+    },
+    "typographyMeta": {
+      "scale": { "ratio": 1.25, "base": "18px", "steps": [18, 22, 28, 35, 44, 55, 68] },
+      "displayTracking": "-0.03em",
+      "families": {
+        "sans": "Space Grotesk (variable 300-700, self-hosted: fonts/space-grotesk.woff2)",
+        "mono": "Space Mono (400/700, self-hosted: fonts/space-mono-400.woff2, fonts/space-mono-700.woff2)"
+      },
+      "pin": "Mode A — families inherited from _brand-extraction.json#type"
+    },
+    "shadows": { "policy": "none — depth via surface steps + 1px #1f1f1f borders" },
+    "motion": {
+      "register": "live-systems",
+      "registerRationale": "PRODUCT.md Brand Personality: 'terminal-native, operationally transparent, data-led' — the footer is a live terminal session and terminal output is the brand's signature surface.",
+      "easings": { "entrance": "cubic-bezier(0.16, 1, 0.3, 1)", "transition": "cubic-bezier(0.44, 0, 0.56, 1)", "expo": "cubic-bezier(0.16, 1, 0.3, 1)" },
+      "durations": { "enter": 500, "stagger": 60 },
+      "parallax": { "translate": 0, "fade": 0, "rangeStart": 0, "range": 0 },
+      "notes": "Terminal cadence: type-on/prompt-blink micro-motion, staggered row reveals for terminal output; no parallax, no scale transforms on nav (Warp motion discipline)."
+    },
+    "breakpoints": { "mobile": "480px", "tablet": "768px", "desktop": "1200px", "containerMax": "1200px" },
+    "divergence": {
+      "mode": "A (brand-faithful)",
+      "signal": "signal-strong (8 palette roles, named families Space Grotesk/Space Mono)",
+      "seed": {
+        "decade": { "value": "2025-now", "picked_by": "reasoned: anchor-reference Warp + Gumroad (current-generation execution)" },
+        "craft": { "value": "zine color-block / print-ink flat", "picked_by": "reasoned: anchor-reference The Pop Manifesto — matches captured accent-band motif" },
+        "register": { "value": "deadpan product-zine", "picked_by": "reasoned: captured voice (backronyms, man pages) + Gumroad playful-precision" },
+        "ground_family": {
+          "value": "near-black obsidian (#0c0c0c)",
+          "picked_by": "inherited",
+          "override": "brand-faithful"
+        },
+        "font_deck": { "name": "brand-inherited", "picked_by": "user-constraint" },
+        "palette": { "source": "inherited from _brand-extraction.json", "picked_by": "user-constraint" }
+      },
+      "references_used": [
+        {
+          "source": "refero",
+          "title": "Warp",
+          "url": "https://warp.dev/terminal",
+          "styleId": "40a9c295-7a6f-48b3-ae15-2c4d171cf8fb",
+          "grounds": "terminal-native execution discipline: stepped dark surfaces instead of flat black, -0.03em display tracking at 56-64px, no-shadow elevation, motion restricted to color/opacity",
+          "tag": "in-toolbox",
+          "justification": "dark-devtool is the assistant default look, but SLICC's CAPTURED brand is already a dark terminal — Warp grounds execution quality only; its palette/type are not ported (Mode A pins hold)"
+        },
+        {
+          "source": "refero",
+          "title": "The Pop Manifesto",
+          "url": "https://thepopmanifesto.com",
+          "styleId": "137e85e2-b40c-4bca-bde4-8a0afeb15ccd",
+          "grounds": "zine color-block cadence: full-bleed saturated bands with black type as section-rhythm system — elevates SLICC's captured one-off accent strips into the page's structural rhythm",
+          "tag": "off-toolbox"
+        },
+        {
+          "source": "refero",
+          "title": "Gumroad",
+          "url": "https://gumroad.com",
+          "styleId": "ac783c6e-6c2b-4663-87b3-bcd12d463b0a",
+          "grounds": "playful-precision register: jokes carried by disciplined black-anchored UI; accent used as signature, not as UI state",
+          "tag": "off-toolbox"
+        }
+      ],
+      "researchTier": "1 (refero MCP reachable; 2 searches + 3 full-style retrievals)",
+      "brand_faithful_inversions": [
+        { "kept": "#0c0c0c ground verbatim", "reason": "brand token --background-color; not tinted" },
+        { "kept": "hex token formats from source site", "reason": "site publishes its own hex tokens; OKLCH equivalents documented in DESIGN.md prose" },
+        { "kept": "accent trio at full saturation", "reason": "loudness is identity; softening would be a rebrand move" },
+        { "inverted": "white-on-accent quote text → black-on-accent", "reason": "AA contrast (improvements item 3/5); black-on-green 12.4:1 vs white-on-green 1.7:1" },
+        { "inverted": "flat #1a1a1a panels → stepped #161616/#1f1f1f", "reason": "execution modernization; hue/character preserved" }
+      ],
+      "anti_toolbox_audit": [
+        { "hit": "dark devtool landing (Warp anchor)", "justification": "captured brand IS a dark terminal site; anchor grounds execution, not identity" },
+        { "hit": "mono eyebrow labels", "justification": "captured motif (red mono eyebrows on source site), not an assistant default import" },
+        { "hit": "none-removed", "note": "no gradient-text, glassmorphism, side-stripes, or fabricated content present in direction" }
+      ]
+    },
+    "componentStyle": {
+      "buttons": { "primary": "crimson #E0244F fill, paper mono label, 6px radius, 14x28 padding", "secondary": "transparent, 1px #1f1f1f border, bright text" },
+      "cards": "surface-raised #161616, 1px #1f1f1f border, 8px radius, 24px padding, mono green key line",
+      "inputs": "terminal-form: #000 field, green caret, mono placeholder",
+      "dualCTAPattern": "primary crimson button + mono text-link secondary ('See it work' canonical demo verb)"
+    },
+    "systemComponentRoles": {
+      "header": { "purpose": "wordmark + rotating backronym + nav + primary CTA", "positionClass": "sticky-top 64px", "constraint": "backronym gag preserved verbatim" },
+      "footer": { "purpose": "live terminal session: whoami + sitemap ls listing + license gags", "positionClass": "full-bleed bottom", "constraint": "output text ≥ #8f8f8f; gag lines as # comments" },
+      "quote-band": { "purpose": "full-bleed accent section-rhythm system (quote/stat/CTA)", "positionClass": "full-bleed between content sections", "constraint": "black text on green/orange, paper on crimson" },
+      "terminal-panel": { "purpose": "code/demo framing with traffic-light chrome", "positionClass": "in-section media frame", "constraint": "traffic lights use the brand accent trio" }
+    },
+    "voice": {
+      "examples": {
+        "do": [
+          "An <del>ice cream</del> AI agent that lives in your browser.",
+          "chmod +x everything.",
+          "— an actual human, probably",
+          "$ whoami → slicc — a browser-native AI agent for getting real work done"
+        ],
+        "dont": [
+          "Unlock the power of AI automation",
+          "Enterprise-grade browser agents for modern teams",
+          "Learn more (as sole CTA verb)"
+        ]
+      },
+      "canonicalCTAs": { "primary": "Get SLICC", "demo": "See it work" }
+    },
+    "iaPriorities": [
+      {
+        "signal": "commercial-conversion (install funnel)",
+        "evidence": "pages/index.json#ctas — 'Get SLICC' ×7 (nav + hero + install section); distribution triplet npm/macOS/Chrome in #install",
+        "preserveAs": "first-viewport primary CTA + install section with all three distribution channels",
+        "scope": "site-wide",
+        "mutability": "movable"
+      },
+      {
+        "signal": "signature-media",
+        "evidence": "_brand-extraction.json#voice.heroMediumNote — /media/slicc-demo.mp4 (index), /media/ema-demo.mp4 (automate-website-migration)",
+        "preserveAs": "real demo videos reproduced in terminal chrome within first two viewports (improvements item 2)",
+        "scope": "index, automate-website-migration",
+        "mutability": "movable"
+      },
+      {
+        "signal": "docs-system (man template)",
+        "evidence": "141-page sitemap: 135 /man/* pages share one template",
+        "preserveAs": "canonical man-block with fixed h2 sequence; See Also as chip navigation",
+        "scope": "/man/*",
+        "mutability": "movable"
+      }
+    ]
+  },
+  "narrative": {
+    "northStar": "A beautifully engineered CLI that happens to be a website — every joke kept, every pixel disciplined.",
+    "overview": "Mode A refresh: identity pinned (palette, type, voice, motifs), execution modernized (poster display type, stepped surfaces, modular scale, zine band cadence, AA-everywhere).",
+    "keyCharacteristics": [
+      "terminal-native chrome as the primary component language",
+      "accent trio deployed like syntax highlighting",
+      "color-blocked full-bleed bands as section rhythm",
+      "modular 1.25 type scale with precision display tracking",
+      "man-page system treated as a first-class design surface"
+    ],
+    "rules": [
+      "Every section must survive: 'would this render in a terminal?'",
+      "One primary CTA verb: Get SLICC; one demo verb: See it work",
+      "No gradients, shadows, photography, or off-palette color",
+      "Black type on green/orange bands; paper type on crimson",
+      "Mono output floor #8f8f8f; dimmer only for # comments"
+    ],
+    "dos": [
+      "Frame videos in traffic-light terminal chrome",
+      "Use $-prompt eyebrows where the section is an action",
+      "Keep captured gag copy verbatim"
+    ],
+    "donts": [
+      "Center-stacked generic dark-SaaS silhouette",
+      "Softened/pastel accent tints",
+      "Fabricated testimonials or stats"
+    ]
+  }
+}

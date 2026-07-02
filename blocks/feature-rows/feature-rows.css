@@ -1,0 +1,6 @@
+.feature-rows .fr-wrap { display: grid; gap: var(--spacing-xl); max-width: 900px; margin-inline: auto; padding-inline: var(--spacing-lg); }
+.feature-rows .fr-row { display: grid; grid-template-columns: 44px 1fr; gap: var(--spacing-lg); align-items: baseline; border-top: 1px solid var(--color-panel); padding-top: var(--spacing-xl); }
+.feature-rows .marker { font-family: var(--mono-font-family); font-weight: 700; color: var(--color-green); font-size: 20px; }
+.feature-rows h3 { font-size: var(--heading-md); letter-spacing: -0.01em; max-width: 26ch; }
+.feature-rows p { margin-top: var(--spacing-md); color: var(--color-fg); opacity: 0.85; max-width: 62ch; }
+@media (max-width: 640px) { .feature-rows .fr-row { grid-template-columns: 1fr; } .feature-rows .marker { display: none; } }

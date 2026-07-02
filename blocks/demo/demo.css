@@ -1,0 +1,10 @@
+.demo .demo-wrap { max-width: 1080px; margin-inline: auto; padding-inline: var(--spacing-lg); scroll-margin-top: 80px; }
+.demo .terminal { background: var(--color-terminal); border: 1px solid var(--color-panel); border-radius: var(--radius-lg); overflow: hidden; }
+.demo .terminal-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: var(--color-surface); border-bottom: 1px solid var(--color-panel); }
+.demo .terminal-bar i { width: 12px; height: 12px; border-radius: 50%; }
+.demo .terminal-bar i:nth-child(1) { background: var(--color-accent); }
+.demo .terminal-bar i:nth-child(2) { background: var(--color-orange); }
+.demo .terminal-bar i:nth-child(3) { background: var(--color-green); }
+.demo .terminal-bar .terminal-title { margin-left: 8px; font-family: var(--mono-font-family); font-size: 12px; color: var(--color-dim); }
+.demo video { display: block; width: 100%; height: auto; background: var(--color-terminal); }
+.demo .video-caption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--spacing-md); margin-top: var(--spacing-md); font-family: var(--mono-font-family); font-size: 14px; color: var(--color-dim); }

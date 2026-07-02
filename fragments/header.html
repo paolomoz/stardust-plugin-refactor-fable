@@ -1,0 +1,43 @@
+<style>
+  header.header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(12, 12, 12, 0.94);
+    border-bottom: 1px solid var(--color-panel);
+    backdrop-filter: saturate(140%) blur(6px);
+  }
+  header.header .hdr { max-width: var(--max-width); margin-inline: auto; padding-inline: var(--spacing-lg); display: flex; align-items: center; gap: var(--spacing-lg); height: 64px; }
+  header.header .wordmark { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+  header.header .wordmark strong { color: var(--color-fg); font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+  header.header .wordmark .backronym { font-family: var(--mono-font-family); font-size: 11px; color: var(--color-dim); letter-spacing: 0.04em; }
+  header.header nav { margin-left: auto; display: flex; align-items: center; gap: var(--spacing-lg); }
+  header.header nav a { color: var(--color-fg); text-decoration: none; font-size: 15px; opacity: 0.85; }
+  header.header nav a:hover { opacity: 1; color: var(--color-green); }
+  header.header nav a.cta { font-family: var(--mono-font-family); font-weight: 700; background: var(--color-accent); color: #fff; border-radius: var(--radius-sm); padding: 9px 18px; opacity: 1; }
+  header.header nav a.cta:hover { background: var(--color-crimson-deep); color: #fff; }
+  header.header .mnav-toggle, header.header .mnav-btn { display: none; }
+  @media (max-width: 640px) {
+    header.header .mnav-btn { display: inline-flex; margin-left: auto; align-items: center; background: none; border: 1px solid var(--color-panel); border-radius: var(--radius-sm); color: var(--color-fg); font-family: var(--mono-font-family); font-size: 14px; padding: 8px 12px; }
+    header.header nav {
+      position: absolute; top: 64px; left: 0; right: 0; margin: 0;
+      background: var(--color-bg); border-bottom: 1px solid var(--color-panel);
+      flex-direction: column; align-items: flex-start; padding: var(--spacing-lg); gap: var(--spacing-md);
+      display: none;
+    }
+    header.header .mnav-toggle:checked ~ nav { display: flex; }
+    header.header .wordmark .backronym { display: none; }
+  }
+</style>
+<input type="checkbox" id="mnav-toggle" class="mnav-toggle" hidden aria-hidden="true">
+<div class="hdr">
+  <a class="wordmark" href="/">
+    <strong>SLICC</strong>
+    <span class="backronym">SLICC — Self-Licking Ice Cream Cone</span>
+  </a>
+  <label class="mnav-btn" for="mnav-toggle" aria-label="Toggle menu">menu</label>
+  <nav aria-label="Site">
+    <a href="/sliccy/#video">Demo</a>
+    <a href="/sliccy/#use-cases">Use Cases</a>
+    <a href="/sliccy/#weird">How It Works</a>
+    <a class="cta" href="/sliccy/#install">Get SLICC</a>
+  </nav>
+</div>
