@@ -1,0 +1,73 @@
+<!-- stardust:deploy — static footer fragment from stardust/canon/footer.html
+     (injected by postlcp.js into <footer class="footer">; CSS-only, no JS)
+     Carries the sitewide fact line (F-018) and /aem link (F-021). -->
+<div class="container footer-inner">
+  <a class="brand-mark" href="/stardust-style/" aria-label="Stardust home">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 0l2.7 9.3L24 12l-9.3 2.7L12 24l-2.7-9.3L0 12l9.3-2.7z" fill="#e8b95e"/>
+    </svg>
+    <span class="wordmark">Stardust</span>
+  </a>
+  <p class="footer-tagline">A design-phase toolkit by the AEM team at Adobe. Math, not mysticism.</p>
+  <p class="footer-facts">Open source · Apache 2.0 · built by the AEM team at Adobe</p>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="/stardust-style/docs">Docs</a>
+    <a href="https://github.com/adobe/skills/tree/main/plugins/stardust">GitHub</a>
+    <a href="https://stardust.style/aem">AEM</a>
+    <a href="https://github.com/adobe/skills/blob/main/LICENSE">Apache 2.0 License</a>
+  </nav>
+  <p class="footer-sigil">brief + seed = star · 2026</p>
+</div>
+<style>
+  footer.footer {
+    display: block;
+    background: var(--ink-deep);
+    border-top: 1px solid var(--dust-08);
+    padding-block: var(--spacing-2xl) var(--spacing-xl);
+    text-align: center;
+  }
+  footer.footer .container {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--pad);
+  }
+  footer.footer .footer-inner { display: grid; justify-items: center; gap: var(--spacing-md); }
+  footer.footer .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  footer.footer .brand-mark svg { width: 18px; height: 18px; flex: none; }
+  footer.footer .wordmark {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--dust);
+  }
+  footer.footer .footer-tagline { color: var(--dust-72); font-size: 15px; max-width: 52ch; }
+  footer.footer .footer-facts {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dust-55);
+  }
+  footer.footer .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+  }
+  footer.footer .footer-nav a { color: var(--dust-72); text-decoration: none; font-size: 15px; }
+  footer.footer .footer-nav a:hover { color: var(--dust); }
+  footer.footer .footer-sigil {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--dust-55);
+    margin-top: var(--spacing-lg);
+  }
+</style>

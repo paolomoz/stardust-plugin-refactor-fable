@@ -1,0 +1,4 @@
+# vendored AuthorKit runtime (stardust:deploy lint-mismatch rule)
+deps/
+blocks/fragment/
+blocks/section-metadata/

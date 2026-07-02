@@ -1,0 +1,15 @@
+{
+  "runtime": "authorkit",
+  "blockWrapperClass": "none",
+  "buttonClasses": ".btn / .btn-primary / .btn-group",
+  "fragmentScriptPolicy": "inert-innerHTML",
+  "emptySectionCollapse": true,
+  "probedAt": "2026-07-02",
+  "evidence": {
+    "runtime": "scripts/ak.js present (ported via bootstrap-authorkit.mjs --from-sibling 3m); scripts/aem.js removed",
+    "blockWrapperClass": "ak.js selects blocks as '.block-content > div[class]' and never adds a .block class - CSS must scope '.<name> ...' never '.<name>.block'",
+    "buttonClasses": "ak.js decorateButtons: link.classList.add('btn') + 'btn-primary'/'btn-secondary'/'btn-accent'/'btn-outline'/'btn-negative', parent gets 'btn-group'",
+    "fragmentScriptPolicy": "postlcp.js injects fragments via el.innerHTML = html (scripts inert); el.className = name set before innerHTML",
+    "emptySectionCollapse": "page-metadata consumption leaves an empty section; foundation carries 'main .section:empty { display: none }'"
+  }
+}

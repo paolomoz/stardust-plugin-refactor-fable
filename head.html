@@ -1,9 +1,41 @@
-<meta
-  http-equiv="Content-Security-Policy"
-  content="script-src 'nonce-aem' 'strict-dynamic' 'unsafe-inline' http: https:; base-uri 'self'; object-src 'none';"
-  move-to-http-header="true"
->
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<script nonce="aem" src="/scripts/aem.js" type="module"></script>
-<script nonce="aem" src="/scripts/scripts.js" type="module"></script>
 <link rel="stylesheet" href="/styles/styles.css"/>
+<script src="/scripts/scripts.js" type="module"></script>
+<script src="/scripts/ak.js" type="module"></script>
+<link rel="icon" href="data:,">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a1024">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.adobe.com/#organization",
+      "name": "Adobe",
+      "url": "https://www.adobe.com"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://stardust.style/#website",
+      "name": "Stardust",
+      "url": "https://stardust.style/",
+      "publisher": { "@id": "https://www.adobe.com/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://stardust.style/#software",
+      "name": "Stardust",
+      "url": "https://stardust.style/",
+      "description": "Stardust is an open-source, AI-driven website redesign tool — turn any URL into brand-faithful, deployable static HTML. Built by the AEM team at Adobe.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Claude Code",
+      "softwareRequirements": "Claude Code",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0",
+      "codeRepository": "https://github.com/adobe/skills",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://www.adobe.com/#organization" }
+    }
+  ]
+}
+</script>
