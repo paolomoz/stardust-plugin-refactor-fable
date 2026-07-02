@@ -28,18 +28,30 @@
       "url": "https://stardust.style/",
       "title": "Stardust — AI website redesign tool, math not mysticism",
       "type": null,
-      "status": "directed",
+      "status": "approved",
       "history": [
         {
           "status": "extracted",
           "at": "2026-07-02T12:03:19.840Z"
+        },
+        {
+          "status": "prototyped",
+          "at": "2026-07-02T13:46:08.527Z",
+          "gates": "critique 35/40 PASS, audit PASS (4 contrast fixes), adapt PASS (360px clean), motion PASS (live-systems), vision PASS"
+        },
+        {
+          "status": "approved",
+          "at": "2026-07-02T13:46:08.527Z",
+          "approvedBy": "hands-off",
+          "note": "all gates passed; open item A-4 (P2, acknowledged)"
         }
       ],
       "stale": false,
       "staleReason": null,
       "currentStatePath": "stardust/current/pages/index.json",
-      "prototypePath": null,
-      "migratedPath": null
+      "prototypePath": "stardust/prototypes/index-proposed.html",
+      "migratedPath": null,
+      "cinematicPath": "stardust/prototypes/index-cinematic.html"
     },
     {
       "slug": "aem",

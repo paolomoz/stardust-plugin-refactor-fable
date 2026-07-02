@@ -20,3 +20,12 @@ Fix applied to the project copy (works): `browser.newContext({ reducedMotion: 'r
 context-creation sites + an 800 ms settle after return-to-top before `page.evaluate(capture)`.
 Also note: the crawler's own multitest hardening (#7) made this failure silent — the filter is right
 to drop invisible nodes; the miss was not neutralizing animations first.
+
+## L3 — crawl.mjs body capture drops <pre>/<code> contents [gap] [pending]
+The in-page capture() collects headings/body/ctas but the structured body[] paragraphs skip
+code blocks, so on a developer-tool site the single most load-bearing content — the install
+commands — never lands in pages/<slug>.json. The prototype render agent caught it via the
+content-sourcing hierarchy (refused to invent the commands). Fix direction: capture
+pre/code contents as a typed codeBlocks[] field per page (they are also the fields most
+likely to be copy-needed at migrate time). Workaround this run: re-captured via curl of the
+server-rendered HTML into pages/docs.json#codeBlocks with its own provenance stamp.

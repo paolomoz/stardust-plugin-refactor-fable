@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- stardust:provenance
+  writtenBy:        stardust:prototype (via impeccable:craft)
+  writtenAt:        2026-07-02T15:35:00Z
+  page:             index
+  pageUrl:          https://stardust.style/
+  againstDirection: stardust/direction.md (Active 2026-07-02, hands-off)
+  fidelity:         quick
+  readArtifacts:
+    - stardust/prototypes/index-shape.md
+    - stardust/current/pages/index.json
+    - stardust/current/pages/docs.json
+    - stardust/current/_brand-extraction.json
+    - DESIGN.md
+    - DESIGN.json
+    - stardust/direction.md
+    - stardust/prototypes/index-improvements.md
+  stardustVersion:  0.14.2
+  capturedSourceLineage:
+    - "header — site-wide system-component (carried from _brand-extraction.json#systemComponents[kind=header])"
+    - "hero — derived from captured hero (pages/index.json#headings h1 'Redesign the Web.' + og description lede + dual CTA + one-shot command chip)"
+    - "proof-before-after — derived from captured before/after image pair (pages/index.json#media.imgs, the site's only imagery)"
+    - "variant-receipt-strip — direction-authorized new (improvements #2+#3: replaces the second captured card trio; copy for A/B/C theses is captured-verbatim from pages/docs.json uplift description; seed-hash stub from captured 'md5(brand · date)' claim)"
+    - "why-structured-variation — derived from captured section 'Every design tool promises uniqueness.' (pages/index.json#body[0..3] + 2 cards divergence-toolkit/provenance)"
+    - "how-it-works-pipeline — derived from captured section 'Take any website. Bring back the redesign.' + pipeline step row EXTRACT→DIRECT→PROTOTYPE→MIGRATE (pages/index.json)"
+    - "ai-facing — derived from captured section 'The canonical brand, for the AI-facing web.' (3 cards, kept as the page's ONE card band)"
+    - "static-html-fact-panel — derived from captured section 'Stardust ships static HTML.' (deploy/contribute cards) + direction-authorized fact panel (improvements #4, audit F-006)"
+    - "aem-band — derived from captured section 'Deploy anywhere. Scale with AEM.' (pages/index.json last content section)"
+    - "cta-band — direction-authorized new (improvements #1, DESIGN.json systemComponentRoles.cta-band; movement: conversion-focus)"
+    - "footer — site-wide system-component (carried from _brand-extraction.json#systemComponents[kind=footer]) + direction-authorized fact line (F-018)"
+  voiceClassification:
+    - { section: "header", classification: "captured-verbatim", source: "systemComponents[kind=header]" }
+    - { section: "hero", classification: "captured-verbatim", copy: "h1 'Redesign the Web.' + deck 'Math, not mysticism.' + lede + CTAs 'Install in two minutes'/'View on GitHub' + '/stardust:uplift <url>' chip", source: "pages/index.json" }
+    - { section: "proof-before-after", classification: "captured-verbatim", source: "pages/index.json#media.imgs alts + BEFORE/AFTER captions" }
+    - { section: "variant-receipt-strip", classification: "captured-verbatim (theses) + direction-authorized rewrite (strip frame labels)", source: "pages/docs.json uplift variant descriptions; improvements #3" }
+    - { section: "why-structured-variation", classification: "captured-verbatim body + direction-authorized rewrite (h2 topic; captured slogan demoted to eyebrow-deck)", source: "pages/index.json#body[0..5]; improvements #4" }
+    - { section: "how-it-works-pipeline", classification: "captured-verbatim step copy + direction-authorized rewrite (h2 topic)", source: "pages/index.json pipeline cards" }
+    - { section: "ai-facing", classification: "captured-verbatim cards + direction-authorized rewrite (h2 topic)", source: "pages/index.json" }
+    - { section: "static-html-fact-panel", classification: "captured-verbatim (deploy/contribute) + direction-authorized rewrite (fact panel rows: price $0/no paid tier stated per audit F-006; license/maker/requirement captured facts)", source: "pages/index.json + footer fact line + docs install requirement" }
+    - { section: "aem-band", classification: "captured-verbatim", source: "pages/index.json" }
+    - { section: "cta-band", classification: "captured-verbatim CTAs restated (direction-authorized placement)", source: "improvements #1" }
+    - { section: "footer", classification: "captured-verbatim + direction-authorized chrome (fact line on every page)", source: "systemComponents[kind=footer]" }
+  signatureElements:
+    - { kind: "motif", capturedSource: "type-only hero over radial ink glow + CSS starfield dots (motifs.patterns)", mechanism: "reproduce: radial-gradient hero ground + generated starfield dots, h1 with amber-italic phrase", fallback: "static (it is CSS-only)" }
+    - { kind: "motion", capturedSource: "hero entrance reveal (crawl-log visionCheck: animated h1)", mechanism: "space-safe staggered reveal (word-level spans, spaces preserved), live-systems register — applied only in index-cinematic.html", fallback: "prefers-reduced-motion: static final state; no-JS: <noscript> visible" }
+    - { kind: "motif", capturedSource: "amber-italic emphasis phrase inside display headings + 60% highlighter underline", mechanism: "reproduce on h1 and section h2 decks", fallback: "static" }
+    - { kind: "motif", capturedSource: "hex-seed corner marks (provenance-as-ornament; audit strengths-to-preserve)", mechanism: "provenance-marks role, hidden <480px per F-010", fallback: "static" }
+  unsourcedContent: []
+  critique:
+    - at: 2026-07-02T15:52:00Z
+      by: "impeccable:critique (stardust:prototype Phase 2.5; dual-agent: A design review + B deterministic detector)"
+      score: "35/40 (Good)"
+      aiSlopVerdict: PASS
+      findings:
+        - { id: A-1, priority: P1, category: copy-hierarchy, desc: "deck to h2 verbatim duplication in 3 sections (ai-facing, static-html-fact-panel, aem-band)", status: fixed, fix: "direction-authored h2s reworded (how-stardust-works, ai-facing-web, deploy-anywhere anchors kept); captured decks untouched" }
+        - { id: A-2, priority: P1, category: copy-trust, desc: "literal <captured trait> in Variant B stub reads as unrendered template variable", status: fixed, fix: "restyled as deliberate variable token ⟨captured trait⟩ using the existing .ai amber-italic role" }
+        - { id: A-3, priority: P1, category: typography-hierarchy, desc: "pipeline h2 spent 76px display on a keyword string + arrow glyphs, duplicated by the ledger labels below", status: fixed, fix: "h2 shortened to 'How Stardust works: a four-step pipeline'; step keywords remain in the ledger h3s" }
+        - { id: A-4, priority: P2, category: trust-provenance, desc: "seed corner mark shows the OG-image filename hash and the receipt seed stub shows the formula, not a real digest (provenance theater)", status: open, note: "3-iteration budget not spent: rendering a real md5 example digest is a content-authoring decision (inventing provenance data) outside gate scope; recommend dogfooding a real seed line in a future content pass" }
+        - { id: A-5, priority: P2, category: mobile-craft, desc: "hero facts orphaned '2.0' at 390px; Before proof frame linked to the same URL as After", status: fixed, fix: ".nowrap spans on fact fragments; Before frame demoted to non-interactive <div>" }
+        - { id: B-1, priority: P2, category: detector/em-dash-overuse, desc: "16 em-dashes in body text", status: dismissed-brand-faithful, note: "captured-verbatim site copy; copyCadenceBypass per DESIGN.md Discipline 9 (prose-cadence rules do not apply to captured voice)" }
+        - { id: B-2, priority: P3, category: detector/numbered-section-markers, desc: "sequence 01 02 03 04", status: dismissed-brand-faithful, note: "a real ordered sequence (the four-step pipeline), one section only, aria-hidden spans over <ol> semantics; not section-label scaffolding" }
+  audit:
+    - at: 2026-07-02T15:53:00Z
+      by: "impeccable:audit (stardust:prototype Phase 2.6; playwright recompute on rendered DOM)"
+      wcagContrast: "115 text/substrate pairs recomputed at 1440x900 incl. gradient substrates (opaque stops, worst case). 4 failures found: dust-55 over #1a2450 gradient stop at 4.39:1 (.seed-mark x2, .hero-facts, .cta-beat) → fixed to dust-72 (7.4:1 worst case). Re-run: 0 failures; worst remaining pair 5.57:1 is .pipeline .num at 25px/600 weight, large-text exemption verified at rendered size (threshold 3:1)."
+      lcp: "LCP element is the .hero-lede text block (~80ms, type-only hero). Both content images are below-fold at 1440x900 (top 1152px), loading=lazy + decoding=async + width/height attributes: correct; no LCP image on this page."
+      jsHiddenStateDetector: "regex scan (clip-path inset 0 100% | opacity:0 | translateX/Y(±100%)): index-proposed 0 hits; index-cinematic 2 hits, both inside html.js-anim-gated hero rules. Verified: no-JS render 0 hidden states, reducedMotion render 0 hidden states, on both files."
+      overflow: "no horizontal overflow at 360/375/390/414/768/800/1280/1440/1920"
+      detectorFindings: "same 2 as critique (B-1, B-2), dismissed-brand-faithful as above"
+  adapt:
+    - at: 2026-07-02T15:54:00Z
+      by: "impeccable:adapt (stardust:prototype Phase 2.7)"
+      breakpoints: "1440/768/390 per DESIGN.json extensions.breakpoints; validated at 1920/1440/1280/800/414/390/375 + hard audit at 360x800"
+      mobileAudit360: "PASS: viewport meta present; @media ≤640px present (479px block); no horizontal overflow (html/body scrollWidth == clientWidth); header nav font 12px ≥ 11px; nav flex gap 24px ≥ 10px"
+      navCollapse: "not required (2-item nav: Docs pill + GitHub link that hides <768px); stock hamburger not injected"
+      rulesAdded: ".nowrap utility (1 rule)"
+  motionValidation:
+    passedAt: 2026-07-02T15:56:00Z
+    appliesTo: "index-cinematic.html (this static file has no scroll choreography; shared copy/CSS fixes mirrored)"
+    summary: "see index-cinematic.html _provenance.motionValidation for the full record: 10 probes across 1440x900 + 390x844, 1 stagger-tail finding fixed (cards.stagger 0.10 to 0.07), all six cinematic gates pass"
+  visionCheck: { verdict: pass, observations: ['brand-fit: unmistakably stardust.style — ink/cream/amber, type-only starfield hero, mono eyebrows, amber-italic signature all present', 'signature preservation: hero glow+starfield, amber-italic phrase, hex-seed marks carried; space-safe h1 verified', 'hierarchy: eye lands hero h1 → proof pair → topic h2s; receipt strip reads as the amber proof moment per brief'], comparedAgainst: stardust/current/assets/screenshots/index.png }
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stardust — AI website redesign tool, math not mysticism</title>
+<meta name="description" content="Stardust is an open-source, AI-driven website redesign tool — turn any URL into brand-faithful, deployable static HTML. Built by the AEM team at Adobe.">
+<link rel="canonical" href="https://stardust.style/">
+<meta name="theme-color" content="#0a1024">
+<meta property="og:title" content="Stardust — AI website redesign tool, math not mysticism">
+<meta property="og:description" content="Stardust is an open-source, AI-driven website redesign tool — turn any URL into brand-faithful, deployable static HTML. Built by the AEM team at Adobe.">
+<meta property="og:image" content="https://stardust.style/media_1d66a8cd9c28ee9bbc879c890d38c7add9b163cfc.jpg?width=1200&amp;format=pjpg&amp;optimize=medium">
+<meta property="og:url" content="https://stardust.style/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stardust">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.adobe.com/#organization",
+      "name": "Adobe",
+      "url": "https://www.adobe.com"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://stardust.style/#website",
+      "name": "Stardust",
+      "url": "https://stardust.style/",
+      "publisher": { "@id": "https://www.adobe.com/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://stardust.style/#software",
+      "name": "Stardust",
+      "url": "https://stardust.style/",
+      "description": "Stardust is an open-source, AI-driven website redesign tool — turn any URL into brand-faithful, deployable static HTML. Built by the AEM team at Adobe.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Claude Code",
+      "softwareRequirements": "Claude Code",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0",
+      "codeRepository": "https://github.com/adobe/skills",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://www.adobe.com/#organization" }
+    }
+  ]
+}
+</script>
+<style>
+/* ── :root token contract (skills/stardust/reference/token-contract.md) ──
+   Values sourced from DESIGN.md frontmatter (hex format follows DESIGN.md). */
+:root {
+  --heading-font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --body-font-family:    "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  --heading-xxl: 119px;  /* typography.display  */
+  --heading-xl:  76px;   /* typography.headline */
+  --heading-lg:  49px;   /* major-third step    */
+  --heading-md:  31px;   /* typography.subhead  */
+  --body:        16px;   /* typography.body     */
+  --body-sm:     12.8px; /* major-third step below body */
+
+  --line-height-heading: 0.98;
+  --line-height-body:    1.6;
+
+  /* colors.ink */
+  --color-bg:     #0a1024;
+  /* colors.dust */
+  --color-fg:     #f5f0e6;
+  /* colors.amber */
+  --color-accent: #e8b95e;
+
+  --spacing-xs:  4px;
+  --spacing-sm:  8px;
+  --spacing-md:  16px;
+  --spacing-lg:  24px;
+  --spacing-xl:  48px;
+  --spacing-2xl: 96px;
+
+  --section-padding: 64px;  /* spacing.section-pad */
+  --max-width:       1320px;
+  --radius:          4px;   /* rounded.sm */
+
+  /* Brand tokens (DESIGN.md colors / motifs) */
+  --ink:        #0a1024;
+  --ink-deep:   #060a14;
+  --ink-soft:   #141b3a;
+  --deep-ink:   #1a1f38;
+  --dust:       #f5f0e6;
+  --amber:      #e8b95e;
+  --amber-light:#ffd98a;
+  --amber-deep: #854f17;
+  --dust-72: rgba(245,240,230,0.72);
+  --dust-55: rgba(245,240,230,0.55);
+  --dust-30: rgba(245,240,230,0.30);
+  --dust-15: rgba(245,240,230,0.15);
+  --dust-08: rgba(245,240,230,0.08);
+  --mono: "SF Mono", "JetBrains Mono", ui-monospace, monospace;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  --shadow-frame: rgba(0,0,0,0.45) 0 24px 60px 0;
+  --shadow-nav: rgba(6,10,20,0.25) 0 6px 20px 0;
+  --pad: clamp(20px, 4vw, 64px);
+  --nav-height: 60px;
+  --z-sticky: 10;
+}
+
+/* ── Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--body-font-family);
+  font-size: var(--body);
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--heading-font-family); margin: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 2px; }
+
+.container { max-width: var(--max-width); margin-inline: auto; padding-inline: var(--pad); }
+section { padding-block: var(--section-padding); }
+
+/* Skip link — first focusable */
+.skip-link {
+  position: absolute; left: 16px; top: -64px;
+  z-index: 100;
+  background: var(--amber); color: var(--ink);
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  padding: 10px 16px; border-radius: var(--radius);
+  transition: top 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skip-link:focus { top: 12px; }
+
+/* ── Type roles ───────────────────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--amber);
+}
+.deck {
+  font-family: var(--heading-font-family);
+  font-size: clamp(18px, 2vw, 25px);
+  font-weight: 500; line-height: 1.3; letter-spacing: -0.022em;
+  color: var(--dust-72);
+  max-width: 34em;
+}
+.ai { color: var(--amber); font-style: italic; }
+.ai--hl { background: linear-gradient(transparent 60%, rgba(232,185,94,0.32) 60%); }
+.section-head { display: grid; gap: var(--spacing-md); margin-bottom: var(--spacing-xl); }
+.section-head h2 {
+  font-size: clamp(39px, 5.3vw, 76px);
+  font-weight: 600; line-height: var(--line-height-heading);
+  letter-spacing: -0.032em;
+}
+h3 {
+  font-size: clamp(20px, 2.4vw, 31px);
+  font-weight: 600; line-height: 1.15; letter-spacing: -0.024em;
+}
+.muted { color: var(--dust-72); }
+
+/* ── Buttons ──────────────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  font-family: var(--body-font-family);
+  font-size: var(--body); font-weight: 600; line-height: 1.2;
+  padding: 14px 24px; border-radius: var(--radius);
+  text-decoration: none; border: 1px solid transparent;
+  transition: background-color 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms cubic-bezier(0.4,0,0.2,1), color 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.btn--primary { background: var(--amber); color: var(--ink); }
+.btn--primary:hover { background: var(--amber-light); }
+.btn--ghost { background: transparent; color: var(--dust); border-color: var(--dust-30); }
+.btn--ghost:hover { border-color: var(--dust); background: var(--dust-08); }
+
+/* Copy button — mono chip, text-only confirmation (F-005) */
+.copy-btn {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--dust-72); background: var(--ink-soft);
+  border: 1px solid var(--dust-15); border-radius: var(--radius);
+  padding: 6px 12px; cursor: pointer;
+  transition: color 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.copy-btn:hover { color: var(--dust); border-color: var(--dust-30); }
+.copy-btn.is-copied { color: var(--amber); border-color: var(--amber); }
+
+/* Command chip */
+.cmd-chip {
+  display: inline-flex; align-items: center; gap: var(--spacing-md);
+  background: var(--ink-deep);
+  border: 1px solid var(--dust-15); border-radius: var(--radius);
+  padding: 12px 16px;
+  max-width: 100%;
+}
+.cmd-chip code {
+  font-family: var(--mono); font-size: clamp(14px, 1.6vw, 18px); font-weight: 600;
+  color: var(--amber-light); white-space: pre-wrap; word-break: break-word;
+}
+
+/* ── Header ───────────────────────────────────────────────────────── */
+header[data-section="header"] {
+  position: sticky; top: 0; z-index: var(--z-sticky);
+  background: var(--ink-deep);
+  box-shadow: var(--shadow-nav);
+}
+.nav-row {
+  height: var(--nav-height);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+.brand-mark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-mark svg { width: 18px; height: 18px; flex: none; }
+.brand-mark .wordmark {
+  font-family: var(--heading-font-family);
+  font-size: 18px; font-weight: 600; letter-spacing: -0.022em; color: var(--dust);
+}
+.nav-links { display: flex; align-items: center; gap: var(--spacing-lg); }
+.nav-pill {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--amber); color: var(--ink);
+  border-radius: var(--radius-pill); padding: 8px 14px; text-decoration: none;
+  transition: background-color 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.nav-pill:hover { background: var(--amber-light); }
+.nav-gh { color: var(--dust-72); text-decoration: none; font-size: 15px; }
+.nav-gh:hover { color: var(--dust); }
+
+/* ── Hero ─────────────────────────────────────────────────────────── */
+section[data-section="hero"] {
+  position: relative;
+  padding-block: clamp(72px, 12vh, 140px) clamp(64px, 10vh, 120px);
+  background:
+    radial-gradient(1.5px 1.5px at 12% 18%, rgba(245,240,230,0.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 64%, rgba(245,240,230,0.38) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 44% 30%, rgba(245,240,230,0.30) 50%, transparent 51%),
+    radial-gradient(1px 1px at 58% 76%, rgba(245,240,230,0.34) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 70% 14%, rgba(245,240,230,0.44) 50%, transparent 51%),
+    radial-gradient(1px 1px at 82% 52%, rgba(245,240,230,0.30) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 91% 28%, rgba(245,240,230,0.40) 50%, transparent 51%),
+    radial-gradient(1px 1px at 8% 84%, rgba(245,240,230,0.28) 50%, transparent 51%),
+    radial-gradient(90% 70% at 80% 35%, #1a2450 0%, #070c1e 55%, #060a14 100%);
+}
+.hero-inner { max-width: 920px; display: grid; gap: var(--spacing-lg); }
+.hero-inner h1 {
+  font-size: clamp(56px, 8vw, 119px);
+  font-weight: 600; line-height: 0.96; letter-spacing: -0.04em;
+  margin-left: -0.04em; /* optical alignment of the R */
+}
+.hero-inner h1 em { display: block; font-style: normal; }
+.hero-inner h1 em .ai { font-style: italic; }
+.hero-deck {
+  font-family: var(--heading-font-family);
+  font-size: clamp(22px, 2.6vw, 31px);
+  font-weight: 600; line-height: 1.15; letter-spacing: -0.024em;
+  color: var(--dust);
+}
+.hero-lede { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: var(--dust-72); max-width: 62ch; }
+.hero-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-md); margin-top: var(--spacing-sm); }
+.hero-facts {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--dust-72); /* audit 2.6: was dust-55, 4.39:1 vs #1a2450 gradient stop */
+}
+.hero-chip-row { margin-top: var(--spacing-sm); }
+.nowrap { white-space: nowrap; } /* critique A-5: keep fact fragments unbroken on narrow viewports */
+
+/* Hex-seed corner marks (provenance-marks role; hidden <480px, F-010) */
+.seed-mark {
+  position: absolute;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+  color: var(--dust-72); /* audit 2.6: AA for decorative sigils (PRODUCT.md), was dust-55 at 4.39:1 */
+  pointer-events: none;
+}
+.seed-mark--tr { top: 28px; right: var(--pad); }
+.seed-mark--bl { bottom: 20px; left: var(--pad); }
+
+/* ── Proof: before / after ────────────────────────────────────────── */
+.proof-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-lg); }
+.proof-frame { display: block; text-decoration: none; }
+.proof-frame figure { margin: 0; display: grid; gap: 12px; }
+.proof-frame .frame {
+  border: 1px solid var(--dust-15); border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-frame);
+  transition: border-color 250ms cubic-bezier(0.4,0,0.2,1);
+}
+.proof-frame:hover .frame { border-color: var(--dust-30); }
+.proof-frame figcaption {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--dust-72);
+}
+.proof-frame:hover figcaption { color: var(--dust); }
+.proof-frame--after figcaption { color: var(--amber); }
+
+/* ── Why: ledger 2-up ─────────────────────────────────────────────── */
+.why-body { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: var(--dust-72); max-width: 62ch; margin-bottom: var(--spacing-xl); }
+.ledger-2up { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ledger-2up > div {
+  border-top: 1px dotted var(--dust-15);
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) 0;
+  display: grid; gap: var(--spacing-md); align-content: start;
+}
+.ledger-2up > div + div { border-left: 1px dotted var(--dust-15); padding-left: var(--spacing-lg); padding-right: 0; }
+.ledger-2up p { color: var(--dust-72); max-width: 52ch; }
+
+/* ── Pipeline: numbered ledger ────────────────────────────────────── */
+.pipeline { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.pipeline li {
+  display: grid; grid-template-columns: 72px 200px minmax(0, 1fr);
+  gap: var(--spacing-lg); align-items: baseline;
+  border-top: 1px solid var(--dust-08);
+  padding-block: var(--spacing-lg);
+}
+.pipeline li:last-child { border-bottom: 1px solid var(--dust-08); }
+.pipeline .num {
+  font-family: var(--mono); font-size: 25px; font-weight: 600;
+  color: var(--dust-55); letter-spacing: 0.04em;
+}
+.pipeline h3 {
+  font-family: var(--mono); font-size: 15px; font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--dust);
+}
+.pipeline p { color: var(--dust-72); max-width: 62ch; }
+
+/* ── Variant receipt strip — the amber-spent proof moment ─────────── */
+section[data-section="variant-receipt-strip"] { background: var(--ink-deep); }
+.receipt {
+  border-block: 1px dotted var(--dust-15);
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) 220px;
+}
+.receipt-stub {
+  padding: var(--spacing-lg);
+  display: grid; gap: var(--spacing-md); align-content: start;
+}
+.receipt-stub + .receipt-stub { border-left: 1px dotted var(--dust-15); }
+.receipt-stub .stub-letter {
+  font-family: var(--mono); font-size: clamp(39px, 4vw, 49px);
+  font-weight: 600; color: var(--amber); line-height: 1;
+}
+.receipt-stub .stub-label {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--dust-55);
+}
+.receipt-stub .stub-thesis {
+  font-family: var(--heading-font-family);
+  font-size: clamp(18px, 1.8vw, 22px); font-weight: 500;
+  line-height: 1.3; letter-spacing: -0.022em; color: var(--dust);
+}
+.receipt-seed {
+  display: grid; gap: var(--spacing-sm); align-content: center; justify-items: start;
+  padding: var(--spacing-lg);
+}
+.receipt-seed .stub-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--dust-55); }
+.receipt-seed code { font-family: var(--mono); font-size: 15px; color: var(--amber); white-space: nowrap; }
+
+/* ── AI-facing card trio (the page's ONE card band) ───────────────── */
+.card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--spacing-lg); }
+.card {
+  background: var(--ink-soft);
+  border: 1px solid var(--dust-08); border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  display: grid; gap: var(--spacing-md); align-content: start;
+}
+.card p { color: var(--dust-72); }
+.ai-facing-lede { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: var(--dust-72); max-width: 62ch; margin-bottom: var(--spacing-xl); }
+
+/* ── Cream sections ───────────────────────────────────────────────── */
+.cream { background: var(--dust); color: var(--deep-ink); }
+.cream .section-head h2 { color: var(--deep-ink); }
+.cream .deck { color: rgba(26,31,56,0.72); }
+.cream .eyebrow { color: var(--amber-deep); }
+.cream .ai { color: var(--amber-deep); }
+.cream p { color: rgba(26,31,56,0.82); }
+.cream h3 { color: var(--deep-ink); }
+.cream a:not(.btn) { color: var(--amber-deep); text-decoration: underline; text-underline-offset: 3px; }
+.cream a:not(.btn):hover { color: var(--deep-ink); }
+
+.deploy-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.deploy-col { display: grid; gap: var(--spacing-xl); }
+.deploy-block { display: grid; gap: var(--spacing-md); }
+.deploy-block .link-row { display: flex; flex-wrap: wrap; gap: var(--spacing-lg); font-size: 15px; }
+.deploy-cmd { display: grid; gap: var(--spacing-sm); }
+.deploy-cmd .stub-label {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--amber-deep);
+}
+.deploy-cmd .cmd-chip { background: var(--ink-deep); border-color: transparent; }
+
+/* Fact panel — pharmacy-insert register */
+.fact-panel {
+  background: #fdfaf1;
+  border: 1px solid rgba(26,31,56,0.18);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+}
+.fact-panel .fact-title {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--amber-deep);
+  padding-bottom: var(--spacing-md);
+}
+.fact-panel dl { margin: 0; }
+.fact-panel .fact-row {
+  display: grid; grid-template-columns: 110px minmax(0, 1fr);
+  gap: var(--spacing-md);
+  padding-block: 12px;
+  border-top: 1px solid rgba(26,31,56,0.18);
+}
+.fact-panel dt {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber-deep);
+  padding-top: 2px;
+}
+.fact-panel dd { margin: 0; font-size: 15px; color: var(--deep-ink); }
+
+/* ── AEM band ─────────────────────────────────────────────────────── */
+section[data-section="aem-band"] { border-top: 1px solid rgba(26,31,56,0.18); }
+.aem-copy { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; max-width: 68ch; }
+.aem-link { display: inline-block; margin-top: var(--spacing-lg); font-weight: 600; }
+
+/* ── CTA band ─────────────────────────────────────────────────────── */
+section[data-section="cta-band"] {
+  background:
+    radial-gradient(80% 90% at 50% 110%, #1a2450 0%, #0a1024 70%);
+  text-align: center;
+  padding-block: var(--spacing-2xl);
+}
+.cta-inner { display: grid; justify-items: center; gap: var(--spacing-lg); }
+.cta-inner h2 {
+  font-size: clamp(39px, 5.3vw, 76px);
+  font-weight: 600; line-height: var(--line-height-heading); letter-spacing: -0.032em;
+  max-width: 16ch;
+}
+.cta-inner .hero-ctas { justify-content: center; }
+.cta-beat { font-family: var(--mono); font-size: 13px; color: var(--dust-72); letter-spacing: 0.06em; /* audit 2.6: was dust-55, 4.39:1 vs #1a2450 */ }
+
+/* ── Footer ───────────────────────────────────────────────────────── */
+footer[data-section="footer"] {
+  background: var(--ink-deep);
+  border-top: 1px solid var(--dust-08);
+  padding-block: var(--spacing-2xl) var(--spacing-xl);
+  text-align: center;
+}
+.footer-inner { display: grid; justify-items: center; gap: var(--spacing-md); }
+.footer-tagline { color: var(--dust-72); font-size: 15px; max-width: 52ch; }
+.footer-facts { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dust-55); }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-lg); margin-top: var(--spacing-sm); }
+.footer-nav a { color: var(--dust-72); text-decoration: none; font-size: 15px; }
+.footer-nav a:hover { color: var(--dust); }
+.footer-sigil { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; color: var(--dust-55); margin-top: var(--spacing-lg); }
+
+/* ── Responsive ───────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  section { padding-block: 48px; } /* spacing.section-pad-tablet */
+  .receipt { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .receipt-seed { grid-column: 1 / -1; border-top: 1px dotted var(--dust-15); }
+  .deploy-grid { grid-template-columns: 1fr; }
+  .pipeline li { grid-template-columns: 56px 150px minmax(0, 1fr); }
+}
+@media (max-width: 767px) {
+  section { padding-block: 32px; } /* spacing.section-pad-mobile */
+  .proof-grid, .card-grid { grid-template-columns: 1fr; }
+  .ledger-2up { grid-template-columns: 1fr; }
+  .ledger-2up > div { padding-right: 0; }
+  .ledger-2up > div + div { border-left: 0; padding-left: 0; }
+  .receipt { grid-template-columns: 1fr; }
+  .receipt-stub + .receipt-stub { border-left: 0; border-top: 1px dotted var(--dust-15); }
+  .pipeline li { grid-template-columns: 48px minmax(0, 1fr); }
+  .pipeline p { grid-column: 2; }
+  .nav-gh { display: none; }
+}
+@media (max-width: 479px) {
+  .seed-mark { display: none; } /* provenance-marks hidden <480px (F-010) */
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header data-section="header" data-intent="navigate" data-layout="sticky-bar">
+  <div class="container nav-row">
+    <a class="brand-mark" href="/" aria-label="Stardust home">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 0l2.7 9.3L24 12l-9.3 2.7L12 24l-2.7-9.3L0 12l9.3-2.7z" fill="#e8b95e"/>
+      </svg>
+      <span class="wordmark">Stardust</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-pill" href="/docs/">Docs</a>
+      <a class="nav-gh" href="https://github.com/adobe/skills/tree/main/plugins/stardust">GitHub ›</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section data-section="hero" data-intent="primary-action" data-layout="left-anchored-type" data-items="2">
+    <span class="seed-mark seed-mark--tr" aria-hidden="true">seed · 1d66a8cd</span>
+    <span class="seed-mark seed-mark--bl" aria-hidden="true">md5(brand · date)</span>
+    <div class="container hero-inner">
+      <h1 id="redesign-the-web">Redesign <em><span class="ai ai--hl">the Web.</span></em></h1>
+      <p class="hero-deck">Math, not <span class="ai">mysticism</span>.</p>
+      <p class="hero-lede">Stardust is an open-source, AI-driven website redesign tool. It generates a brand expression for today only — one that this brand and this date alone can produce. Deterministic, reproducible, structured. Point it at your URL; get a redesigned, deployable copy of your site.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--primary" href="/docs/">Install in two minutes</a>
+        <a class="btn btn--ghost" href="https://github.com/adobe/skills/tree/main/plugins/stardust">View on GitHub</a>
+        <span class="hero-facts"><span class="nowrap">Requires Claude Code</span> · free · <span class="nowrap">Apache 2.0</span></span>
+      </div>
+      <div class="hero-chip-row">
+        <span class="cmd-chip">
+          <code>/stardust:uplift &lt;url&gt;</code>
+          <button type="button" class="copy-btn" data-copy="/stardust:uplift <url>">copy</button>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="proof-before-after" data-intent="proof" data-layout="framed-2up" data-items="2" data-media="image">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">The receipt</p>
+        <h2 id="before-and-after">Before and after: a real Stardust redesign</h2>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-frame">
+          <figure>
+            <span class="frame">
+              <img src="https://stardust.style/media_1d66a8cd9c28ee9bbc879c890d38c7add9b163cfc.jpg?width=2000&amp;format=webply&amp;optimize=medium"
+                   alt="A coffee site's existing landing page — warm amber illustration, friendly but unmemorable."
+                   width="1600" height="941" loading="lazy" decoding="async">
+            </span>
+            <figcaption>Before</figcaption>
+          </figure>
+        </div>
+        <a class="proof-frame proof-frame--after" href="https://github.com/adobe/skills/tree/main/plugins/stardust">
+          <figure>
+            <span class="frame">
+              <img src="https://stardust.style/media_18bac0846ac4b672ac9c20cf356207ea1b353d856.jpg?width=2000&amp;format=webply&amp;optimize=medium"
+                   alt="The same site, redesigned by Stardust — ink-deep ground, editorial photography, confident type."
+                   width="1600" height="939" loading="lazy" decoding="async">
+            </span>
+            <figcaption>After · Stardust</figcaption>
+          </figure>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="why-structured-variation" data-intent="differentiate" data-layout="ledger-2up" data-items="2">
+    <div class="container">
+      <div class="section-head">
+        <p class="deck">Every design tool promises uniqueness. Most deliver the average. <span class="ai">Stardust delivers a seed.</span></p>
+        <h2 id="why-stardust">Why Stardust: structured variation, not the average</h2>
+      </div>
+      <p class="why-body">Stardust doesn't introduce chaos. It introduces structured variation within a defined design space — three variant theses per page, each prototyped at desktop, tablet, and mobile, each accompanied by design rationale. The brand manager isn't ceding control. They're expanding the vocabulary of control.</p>
+      <div class="ledger-2up">
+        <div>
+          <h3>The divergence toolkit.</h3>
+          <p>Lists the moves an LLM reaches for first — gradient blob hero, glassmorphism, generic icon trios. Stardust subverts them deliberately.</p>
+        </div>
+        <div>
+          <h3>Provenance is a feature.</h3>
+          <p>Every choice has a source. The chosen decade × craft × register has a hash. Math, not mysticism.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="how-it-works-pipeline" data-intent="explain" data-layout="numbered-ledger" data-items="4">
+    <div class="container">
+      <div class="section-head">
+        <p class="deck">Take any website. <span class="ai">Bring back the redesign.</span></p>
+        <h2 id="how-stardust-works">How Stardust works: a four-step pipeline</h2>
+        <p class="muted" style="max-width: 62ch;">Four sub-commands. Run them in order, or jump in at any point. Each step writes its own artifacts; the next step reads them.</p>
+      </div>
+      <ol class="pipeline">
+        <li>
+          <span class="num" aria-hidden="true">01</span>
+          <h3>Extract</h3>
+          <p>Crawl any URL. Capture the brand surface — palette, type, voice, motifs. The current state is described, not authored.</p>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">02</span>
+          <h3>Direct</h3>
+          <p>Roll a seed. Resolve a direction.</p>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">03</span>
+          <h3>Prototype</h3>
+          <p>Generate three variants for every page. Iterate in the browser.</p>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">04</span>
+          <h3>Migrate</h3>
+          <p>Output every page as deployable static HTML. No build step, no framework lock-in. Drop it on any host that serves files.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section data-section="variant-receipt-strip" data-intent="proof" data-layout="receipt-strip" data-items="3">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Provenance</p>
+        <h2 id="three-variants-one-seed">Three variants per page, one seed</h2>
+      </div>
+      <div class="receipt">
+        <div class="receipt-stub">
+          <span class="stub-letter" aria-hidden="true">A</span>
+          <span class="stub-label">Variant A</span>
+          <p class="stub-thesis">“tomorrow's version of the site you have today”</p>
+        </div>
+        <div class="receipt-stub">
+          <span class="stub-letter" aria-hidden="true">B</span>
+          <span class="stub-label">Variant B</span>
+          <p class="stub-thesis">“what if we amplified <span class="ai">⟨captured trait⟩</span>?”</p>
+        </div>
+        <div class="receipt-stub">
+          <span class="stub-letter" aria-hidden="true">C</span>
+          <span class="stub-label">Variant C</span>
+          <p class="stub-thesis">“what if motion was part of the identity?”</p>
+        </div>
+        <div class="receipt-seed">
+          <span class="stub-label">Seed</span>
+          <code>md5(brand · date)</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="ai-facing" data-intent="differentiate" data-layout="grid-3" data-items="3">
+    <div class="container">
+      <div class="section-head">
+        <p class="deck">The canonical brand, <span class="ai">for the AI-facing web.</span></p>
+        <h2 id="ai-facing-web">What AI reads when it reads your brand</h2>
+      </div>
+      <p class="ai-facing-lede">Stardust answers a question your team will be asked more often: what is the canonical, AI-facing expression of this brand today? It produces the default experience — the reference point from which all variations are measured — in a form your marketing team can update and curate without developer intervention at every touchpoint.</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Richer signals for AI to read.</h3>
+          <p>When AI synthesizes your brand — Google AI Mode, Claude, search synth — it draws on available signals. Stardust output provides richer, more intentional signals than a static page designed for a pre-AI web.</p>
+        </article>
+        <article class="card">
+          <h3>Same seed, same brand.</h3>
+          <p>Today's expression is locked. Tomorrow's seed yields a related-but-distinct variation. The default is always reproducible — yours alone, today only.</p>
+        </article>
+        <article class="card">
+          <h3>Marketing keeps the keys.</h3>
+          <p>Three variant theses per page, each rendered, each rationalized. The brand team picks. Updates land without developer intervention at every touchpoint.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cream" data-section="static-html-fact-panel" data-intent="convert" data-layout="split-deploy-facts" data-items="2">
+    <div class="container">
+      <div class="section-head">
+        <p class="deck">Stardust ships static HTML. <span class="ai">Take it anywhere.</span></p>
+        <h2 id="deploy-anywhere">Deploy the redesign on any host, with no build step</h2>
+      </div>
+      <div class="deploy-grid">
+        <div class="deploy-col">
+          <div class="deploy-block">
+            <h3>Anywhere static HTML runs.</h3>
+            <p>GitHub Pages, Cloudflare, your CDN, your CMS — Stardust outputs files, not lock-in. Drop the migration into any host that serves HTML and the redesigned site is live.</p>
+            <p class="link-row"><a href="/docs/">Read the deployment notes ›</a></p>
+          </div>
+          <div class="deploy-block">
+            <h3>Open to all.</h3>
+            <p>Stardust is open source under Apache 2.0. Anyone can contribute — file an issue, send a PR, write a sample. The skill ships as a Claude Code plugin.</p>
+            <p>Built on <a href="https://impeccable.style/">impeccable</a>. Which is, frankly, brilliant.</p>
+            <p class="link-row"><a href="https://github.com/adobe/skills/tree/main/plugins/stardust">github.com/adobe/skills ›</a></p>
+          </div>
+          <div class="deploy-cmd">
+            <span class="stub-label">One-shot command</span>
+            <span class="cmd-chip">
+              <code>/stardust:uplift &lt;url&gt;</code>
+              <button type="button" class="copy-btn" data-copy="/stardust:uplift <url>">copy</button>
+            </span>
+          </div>
+        </div>
+        <aside class="fact-panel" aria-label="Stardust key facts">
+          <p class="fact-title">Stardust — key facts</p>
+          <dl>
+            <div class="fact-row"><dt>What</dt><dd>Stardust, AI website redesign tool</dd></div>
+            <div class="fact-row"><dt>Price</dt><dd>$0 — free, no paid tier</dd></div>
+            <div class="fact-row"><dt>License</dt><dd>Apache 2.0</dd></div>
+            <div class="fact-row"><dt>Maker</dt><dd>the AEM team at Adobe</dd></div>
+            <div class="fact-row"><dt>Requires</dt><dd>Claude Code</dd></div>
+            <div class="fact-row"><dt>Output</dt><dd>static HTML, host-agnostic</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="cream" data-section="aem-band" data-intent="cross-promo" data-layout="editorial-band">
+    <div class="container">
+      <div class="section-head">
+        <p class="deck">Deploy anywhere. <span class="ai">Scale with AEM.</span></p>
+        <h2 id="scale-with-aem">Scale with AEM Edge Delivery</h2>
+      </div>
+      <p class="aem-copy">Stardust is a generic redesign tool — drop the output on GitHub Pages, your CDN, or any host that serves files. When you need to manage experiences at scale (multiple markets, in-place authoring, drafts, translations, scheduled releases), AEM Edge Delivery is a frictionless route to production. The bridge is <a href="https://github.com/adobe/skills/tree/main/plugins/stardust/skills/deploy">stardust:deploy</a>, which converts the Stardust output into authorable EDS blocks without losing the design.</p>
+      <a class="aem-link" href="/aem">See how Stardust ships to AEM Edge Delivery ›</a>
+    </div>
+  </section>
+
+  <section data-section="cta-band" data-intent="convert" data-layout="centered-band" data-items="2">
+    <div class="container cta-inner">
+      <h2 id="install-stardust">Install Stardust in <span class="ai">two minutes</span></h2>
+      <div class="hero-ctas">
+        <a class="btn btn--primary" href="/docs/">Install in two minutes</a>
+        <a class="btn btn--ghost" href="https://github.com/adobe/skills/tree/main/plugins/stardust">View on GitHub</a>
+      </div>
+      <span class="cmd-chip">
+        <code>/stardust:uplift &lt;url&gt;</code>
+        <button type="button" class="copy-btn" data-copy="/stardust:uplift <url>">copy</button>
+      </span>
+      <p class="cta-beat">that's it — run /stardust:uplift on any URL.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer data-section="footer" data-intent="navigate" data-layout="centered">
+  <div class="container footer-inner">
+    <a class="brand-mark" href="/" aria-label="Stardust home">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 0l2.7 9.3L24 12l-9.3 2.7L12 24l-2.7-9.3L0 12l9.3-2.7z" fill="#e8b95e"/>
+      </svg>
+      <span class="wordmark">Stardust</span>
+    </a>
+    <p class="footer-tagline">A design-phase toolkit by the AEM team at Adobe. Math, not mysticism.</p>
+    <p class="footer-facts">Open source · Apache 2.0 · built by the AEM team at Adobe</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/docs/">Docs</a>
+      <a href="https://github.com/adobe/skills/tree/main/plugins/stardust">GitHub</a>
+      <a href="/aem">AEM</a>
+      <a href="https://github.com/adobe/skills/blob/main/LICENSE">Apache 2.0 License</a>
+    </nav>
+    <p class="footer-sigil">brief + seed = star · 2026</p>
+  </div>
+</footer>
+
+<script>
+/* Copy buttons — clipboard.writeText with execCommand fallback; text-only confirmation (F-005). */
+(function () {
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      function fallbackCopy() {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+      function confirmState() {
+        var original = btn.textContent;
+        btn.textContent = 'copied';
+        btn.classList.add('is-copied');
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.classList.remove('is-copied');
+        }, 1500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(confirmState, function () { fallbackCopy(); confirmState(); });
+      } else {
+        fallbackCopy();
+        confirmState();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

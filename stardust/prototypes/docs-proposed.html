@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- stardust:provenance
+  writtenBy:        stardust:prototype (via impeccable:craft)
+  writtenAt:        2026-07-02T16:20:00Z
+  page:             docs
+  pageUrl:          https://stardust.style/docs/
+  againstDirection: stardust/direction.md (Active 2026-07-02, hands-off)
+  fidelity:         quick
+  readArtifacts:
+    - stardust/prototypes/docs-shape.md
+    - stardust/current/pages/docs.json (incl. codeBlocks addendum)
+    - stardust/current/_brand-extraction.json
+    - DESIGN.md
+    - DESIGN.json
+    - stardust/direction.md
+  stardustVersion:  0.14.2
+  capturedSourceLineage:
+    - "header — site-wide system-component; DOCS pill in distinct active state (F-021)"
+    - "docs-sidebar — captured fixed ink sidebar (Get started 01 / Commands 02); space-safe static text (F-004); top bar + CSS-only details/summary jump menu <1024px (F-010)"
+    - "doc-hero — captured h1 'Your first redesign, end to end.' (amber-italic on 'end to end.') + captured lede"
+    - "install — captured body + codeBlocks[0] verbatim; fact chip row + free/open-source sentence are direction-authorized (F-012/F-006); confirmation beat per improvements #2"
+    - "shortcut — captured body + codeBlocks[1] verbatim"
+    - "main-flow — captured body + codeBlocks[2] + captured note card 'New site, not a redesign?'"
+    - "step-1..4 — captured bodies + codeBlocks[3..8] verbatim incl. FULL Step-2 direct example rendered pre-wrap (F-003)"
+    - "footer — site-wide system-component + direction-authorized fact line (F-018); /aem in link row (F-021)"
+  voiceClassification: all sections captured-verbatim per docs-shape.md; direction-authorized additions limited to the fact chip row, the Apache-2.0/no-paid-tier sentence, the install confirmation beat, and the footer fact line
+  tokenNotes: >
+    Per-page token override — docs invert to the cream prose ground with the
+    ink sidebar (captured docs template): --color-bg = dust, --color-fg =
+    deep-ink card-text. Pairing rule holds: amber only on ink surfaces
+    (sidebar/header/code/footer), amber-deep only on cream. Heading tokens
+    snap to the docs steps of the major-third scale (61/39/31/25).
+  unsourcedContent: []
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get started with Stardust — install &amp; first redesign</title>
+<meta name="description" content="Install Stardust and run your first redesign — from any URL to a complete, deployable static site in under 30 minutes. No build step, no lock-in.">
+<link rel="canonical" href="https://stardust.style/docs/">
+<meta name="theme-color" content="#0a1024">
+<meta property="og:title" content="Get started with Stardust — install &amp; first redesign">
+<meta property="og:description" content="Install Stardust and run your first redesign — from any URL to a complete, deployable static site in under 30 minutes. No build step, no lock-in.">
+<meta property="og:image" content="https://stardust.style/default-meta-image.png?width=1200&amp;format=pjpg&amp;optimize=medium">
+<meta property="og:url" content="https://stardust.style/docs/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stardust">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.adobe.com/#organization",
+      "name": "Adobe",
+      "url": "https://www.adobe.com"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://stardust.style/#website",
+      "name": "Stardust",
+      "url": "https://stardust.style/",
+      "publisher": { "@id": "https://www.adobe.com/#organization" }
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://stardust.style/docs/#article",
+      "headline": "Your first redesign, end to end.",
+      "url": "https://stardust.style/docs/",
+      "description": "Install Stardust and run your first redesign — from any URL to a complete, deployable static site in under 30 minutes. No build step, no lock-in.",
+      "dateModified": "2026-06-23",
+      "author": { "@id": "https://www.adobe.com/#organization" },
+      "isPartOf": { "@id": "https://stardust.style/#website" }
+    }
+  ]
+}
+</script>
+<style>
+/* ── :root token contract (skills/stardust/reference/token-contract.md) ──
+   Values sourced from DESIGN.md frontmatter (hex format follows DESIGN.md).
+   Docs page override: cream prose ground + ink sidebar (captured docs
+   template inversion) — reasoned in the provenance comment above. */
+:root {
+  --heading-font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --body-font-family:    "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  --heading-xxl: 61px;   /* docs display step (major-third)  */
+  --heading-xl:  39px;   /* docs headline step               */
+  --heading-lg:  31px;   /* typography.subhead               */
+  --heading-md:  25px;   /* major-third step                 */
+  --body:        16px;   /* typography.body                  */
+  --body-sm:     12.8px; /* major-third step below body      */
+
+  --line-height-heading: 1.02;
+  --line-height-body:    1.6;
+
+  /* colors.dust — docs prose ground (captured inversion) */
+  --color-bg:     #f5f0e6;
+  /* colors.deep-ink — headings/body on cream */
+  --color-fg:     #1a1f38;
+  /* colors.amber-deep — amber's on-cream form (pairing rule) */
+  --color-accent: #854f17;
+
+  --spacing-xs:  4px;
+  --spacing-sm:  8px;
+  --spacing-md:  16px;
+  --spacing-lg:  24px;
+  --spacing-xl:  48px;
+  --spacing-2xl: 96px;
+
+  --section-padding: 64px;  /* spacing.section-pad */
+  --max-width:       1320px;
+  --radius:          4px;   /* rounded.sm */
+
+  /* Brand tokens (DESIGN.md colors / motifs) */
+  --ink:        #0a1024;
+  --ink-deep:   #060a14;
+  --ink-soft:   #141b3a;
+  --deep-ink:   #1a1f38;
+  --dust:       #f5f0e6;
+  --amber:      #e8b95e;
+  --amber-light:#ffd98a;
+  --amber-deep: #854f17;
+  --dust-72: rgba(245,240,230,0.72);
+  --dust-55: rgba(245,240,230,0.55);
+  --dust-30: rgba(245,240,230,0.30);
+  --dust-15: rgba(245,240,230,0.15);
+  --dust-08: rgba(245,240,230,0.08);
+  --ink-muted: rgba(26,31,56,0.78);   /* muted prose on cream — 7.4:1 */
+  --ink-hairline: rgba(26,31,56,0.14);
+  --mono: "SF Mono", "JetBrains Mono", ui-monospace, monospace;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  --shadow-nav: rgba(6,10,20,0.25) 0 6px 20px 0;
+  --pad: clamp(20px, 4vw, 64px);
+  --nav-height: 60px;
+  --sidebar-w: 240px;
+  --z-sticky: 10;
+  --z-skip: 100;
+}
+
+/* ── Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--body-font-family);
+  font-size: var(--body);
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+h1, h2 { font-family: var(--heading-font-family); margin: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+:focus-visible { outline: 2px solid var(--amber-deep); outline-offset: 3px; border-radius: 2px; }
+.on-ink :focus-visible { outline-color: var(--amber); }
+
+/* Skip link — first focusable */
+.skip-link {
+  position: fixed; left: 16px; top: -64px;
+  z-index: var(--z-skip);
+  background: var(--amber); color: var(--ink);
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  padding: 10px 16px; border-radius: var(--radius);
+  transition: top 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skip-link:focus { top: 12px; }
+
+/* ── Header (site-wide system component, captured) ────────────────── */
+header[data-section="header"] {
+  position: sticky; top: 0; z-index: var(--z-sticky);
+  background: var(--ink-deep);
+  box-shadow: var(--shadow-nav);
+}
+.nav-row {
+  max-width: var(--max-width); margin-inline: auto;
+  padding-inline: var(--pad);
+  height: var(--nav-height);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand-mark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-mark svg { width: 18px; height: 18px; }
+.wordmark {
+  font-family: var(--heading-font-family);
+  font-size: 17px; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--dust);
+}
+.nav-links { display: flex; align-items: center; gap: 20px; }
+.nav-pill {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--amber); color: var(--ink);
+  padding: 8px 14px; border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: background-color 200ms cubic-bezier(0.4,0,0.2,1), color 200ms cubic-bezier(0.4,0,0.2,1), box-shadow 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.nav-pill:hover { background: var(--amber-light); }
+/* F-021 — distinct active state on docs pages: outlined-active */
+.nav-pill[aria-current="page"] {
+  background: transparent; color: var(--amber);
+  box-shadow: inset 0 0 0 1.5px var(--amber);
+}
+.nav-pill[aria-current="page"]:hover { background: rgba(232,185,94,0.12); }
+.nav-gh {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--dust-72); text-decoration: none;
+  transition: color 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.nav-gh:hover { color: var(--dust); }
+
+/* ── Docs sidebar (captured template signature) ───────────────────── */
+nav[data-section="docs-sidebar"] {
+  position: fixed; top: var(--nav-height); left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--ink);
+  border-right: 1px solid var(--dust-08);
+  display: flex; flex-direction: column;
+  padding: 28px 16px 20px;
+  overflow-y: auto;
+}
+.side-mark {
+  display: flex; align-items: center; gap: 8px;
+  padding-inline: 8px; margin-bottom: 28px;
+}
+.side-mark svg { width: 12px; height: 12px; flex: none; }
+.side-mark span {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--dust-55);
+}
+.side-items { display: flex; flex-direction: column; gap: 10px; }
+.side-item {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding: 11px 12px; border-radius: var(--radius);
+  text-decoration: none;
+  font-family: var(--body-font-family); font-size: 14px; font-weight: 500;
+  color: var(--dust-72);
+  transition: color 200ms cubic-bezier(0.4,0,0.2,1), background-color 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.side-item .side-num {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; color: var(--dust-55);
+}
+.side-item:hover { color: var(--dust); background: var(--dust-08); }
+.side-item[aria-current="page"] {
+  background: rgba(232,185,94,0.12);
+  color: var(--amber-light);
+}
+.side-item[aria-current="page"] .side-num { color: var(--amber); }
+.side-sigil {
+  margin-top: auto; padding: 20px 8px 0;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--dust-55);
+}
+.side-jump { display: none; }
+
+/* ── Page shell (content right of the fixed rail) ─────────────────── */
+.page-shell { margin-left: var(--sidebar-w); }
+.prose-col {
+  max-width: 760px;
+  padding-inline: clamp(24px, 5vw, 72px);
+}
+main section {
+  padding-block: var(--section-padding);
+  scroll-margin-top: calc(var(--nav-height) + 16px);
+}
+main section + section { border-top: 1px solid var(--ink-hairline); }
+
+/* ── Type roles on cream ──────────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--amber-deep);
+  display: block; margin-bottom: var(--spacing-md);
+}
+h1 {
+  font-size: clamp(39px, 5.6vw, 61px);
+  font-weight: 600; line-height: var(--line-height-heading);
+  letter-spacing: -0.032em;
+}
+h2 {
+  font-size: clamp(29px, 3.4vw, 39px);
+  font-weight: 600; line-height: 1.08; letter-spacing: -0.028em;
+  margin-bottom: var(--spacing-lg);
+}
+.ai { color: var(--amber-deep); font-style: italic; }
+.lede {
+  font-size: 20px; line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 32em;
+  margin-top: var(--spacing-lg);
+}
+.prose-col p { margin-block: var(--spacing-md); max-width: 68ch; }
+.prose-col p a { color: var(--amber-deep); text-decoration: underline; text-underline-offset: 2px; }
+.prose-col p a:hover { color: var(--deep-ink); }
+.fine { font-size: 14px; color: var(--ink-muted); }
+
+/* ── Code blocks (deep-ink panels on cream, captured) ─────────────── */
+.code-block {
+  position: relative;
+  background: var(--ink-deep);
+  border-radius: var(--radius);
+  margin-block: var(--spacing-lg);
+}
+.code-block pre {
+  margin: 0;
+  padding: 20px 96px 20px 22px;
+  font-family: var(--mono);
+  font-size: 14.5px; line-height: 1.75;
+  color: var(--dust);
+}
+/* Single-line commands: no-wrap, may overflow with fade cue + visible scrollbar (F-010) */
+.code-block--scroll pre {
+  white-space: pre;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dust-30) transparent;
+}
+.code-block--scroll pre::-webkit-scrollbar { height: 8px; }
+.code-block--scroll pre::-webkit-scrollbar-track { background: transparent; }
+.code-block--scroll pre::-webkit-scrollbar-thumb { background: var(--dust-30); border-radius: var(--radius-pill); }
+.code-block--scroll::after {
+  content: "";
+  position: absolute; top: 0; right: 0; bottom: 10px;
+  width: 40px;
+  background: linear-gradient(90deg, rgba(6,10,20,0), var(--ink-deep));
+  border-radius: 0 var(--radius) var(--radius) 0;
+  pointer-events: none;
+}
+/* Prose-length examples: pre-wrap, can never truncate (F-003) */
+.code-block--wrap pre {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+.copy-btn {
+  position: absolute; top: 10px; right: 10px; z-index: 1;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--dust-72); background: var(--ink-soft);
+  border: 1px solid var(--dust-15); border-radius: var(--radius);
+  padding: 6px 12px; cursor: pointer;
+  transition: color 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.copy-btn:hover { color: var(--dust); border-color: var(--dust-30); }
+.copy-btn.is-copied { color: var(--amber); border-color: rgba(232,185,94,0.4); }
+
+/* ── Install extras: fact chips + confirmation beat ───────────────── */
+.chip-row {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-block: var(--spacing-lg);
+}
+.chip {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--amber-deep);
+  border: 1px solid rgba(133,79,23,0.4);
+  border-radius: var(--radius);
+  padding: 7px 12px;
+}
+.confirm-beat {
+  font-family: var(--mono); font-size: 13px; letter-spacing: 0.02em;
+  color: var(--amber-deep);
+  margin-top: var(--spacing-md);
+}
+
+/* ── Callout (captured amber-tinted note card) ────────────────────── */
+.callout {
+  background: rgba(232,185,94,0.16);
+  border: 1px solid rgba(133,79,23,0.25);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  margin-block: var(--spacing-lg);
+  max-width: 68ch;
+}
+.callout p { margin: 0; }
+.callout strong { color: var(--deep-ink); }
+
+/* ── Footer (site-wide system component, ink band) ────────────────── */
+footer[data-section="footer"] {
+  background: var(--ink-deep);
+  color: var(--dust);
+  margin-top: var(--spacing-xl);
+  padding-block: var(--spacing-2xl) var(--spacing-xl);
+}
+.footer-inner {
+  max-width: var(--max-width); margin-inline: auto;
+  padding-inline: var(--pad);
+  display: grid; justify-items: center; gap: var(--spacing-md);
+  text-align: center;
+}
+.footer-tagline { color: var(--dust-72); }
+.footer-facts { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--dust-72); }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; }
+.footer-nav a {
+  font-size: 14px; color: var(--dust-72); text-decoration: none;
+  transition: color 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.footer-nav a:hover { color: var(--dust); }
+.footer-sigil { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--dust-55); }
+
+/* ── Responsive: sidebar → top bar + CSS-only jump menu (<1024px) ─── */
+@media (max-width: 1023px) {
+  nav[data-section="docs-sidebar"] {
+    position: static;
+    width: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--dust-08);
+    padding: 14px var(--pad);
+    flex-direction: column; gap: 12px;
+    overflow: visible;
+  }
+  .side-mark { margin-bottom: 0; padding-inline: 0; }
+  .side-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .side-items { flex-direction: row; gap: 10px; }
+  .side-item { padding: 8px 12px; font-size: 13px; gap: 8px; }
+  .side-sigil { display: none; }
+  .page-shell { margin-left: 0; }
+  main section { padding-block: 48px; }
+
+  /* CSS-only jump-to-section menu (F-010) */
+  .side-jump { display: block; }
+  .side-jump summary {
+    list-style: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--dust-72);
+    border: 1px solid var(--dust-15); border-radius: var(--radius);
+    padding: 8px 12px;
+  }
+  .side-jump summary::-webkit-details-marker { display: none; }
+  .side-jump summary::after { content: "+"; font-family: var(--mono); color: var(--dust-55); }
+  .side-jump[open] summary::after { content: "–"; }
+  .side-jump summary:hover { color: var(--dust); border-color: var(--dust-30); }
+  .jump-list { display: flex; flex-direction: column; gap: 2px; padding: 10px 2px 2px; }
+  .jump-list a {
+    font-size: 14px; color: var(--dust-72); text-decoration: none;
+    padding: 8px 10px; border-radius: var(--radius);
+  }
+  .jump-list a:hover { color: var(--dust); background: var(--dust-08); }
+}
+@media (min-width: 1024px) {
+  .side-top { display: contents; }
+}
+
+@media (max-width: 640px) {
+  main section { padding-block: 32px; }
+  .code-block pre { padding: 16px 16px 14px; font-size: 13.5px; }
+  .copy-btn { position: static; display: inline-flex; margin: 12px 16px 0; }
+  .code-block { display: flex; flex-direction: column-reverse; padding-bottom: 12px; }
+  .code-block--scroll::after { bottom: 46px; }
+  .lede { font-size: 18px; }
+  .nav-row { gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header data-section="header" data-intent="navigate" data-layout="sticky-bar" class="on-ink">
+  <div class="nav-row">
+    <a class="brand-mark" href="/" aria-label="Stardust home">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 0l2.7 9.3L24 12l-9.3 2.7L12 24l-2.7-9.3L0 12l9.3-2.7z" fill="#e8b95e"/>
+      </svg>
+      <span class="wordmark">Stardust</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-pill" href="/docs/" aria-current="page">Docs</a>
+      <a class="nav-gh" href="https://github.com/adobe/skills/tree/main/plugins/stardust">GitHub ›</a>
+    </nav>
+  </div>
+</header>
+
+<nav data-section="docs-sidebar" data-intent="navigate" data-layout="fixed-rail" data-items="2" class="on-ink" aria-label="Docs">
+  <div class="side-top">
+    <p class="side-mark">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 0l2.7 9.3L24 12l-9.3 2.7L12 24l-2.7-9.3L0 12l9.3-2.7z" fill="#e8b95e"/>
+      </svg>
+      <span>Stardust · Docs</span>
+    </p>
+    <div class="side-items">
+      <a class="side-item" href="/docs/" aria-current="page">Get started <span class="side-num">01</span></a>
+      <a class="side-item" href="/docs/commands/">Commands <span class="side-num">02</span></a>
+    </div>
+  </div>
+  <details class="side-jump">
+    <summary>On this page</summary>
+    <div class="jump-list">
+      <a href="#install">Install.</a>
+      <a href="#shortcut">One URL, three variants.</a>
+      <a href="#main-flow">Four sub-commands. One pipeline.</a>
+      <a href="#step-1">Capture the current state.</a>
+      <a href="#step-2">Direct the redesign.</a>
+      <a href="#step-3">Prototype the home page.</a>
+      <a href="#step-4">Approve and migrate.</a>
+    </div>
+  </details>
+  <p class="side-sigil">brief + seed = star · 2026</p>
+</nav>
+
+<div class="page-shell">
+<main id="main">
+
+  <section data-section="doc-hero" data-intent="orient" data-layout="prose-lead" id="doc-hero">
+    <div class="prose-col">
+      <span class="eyebrow">Set up</span>
+      <h1>Your first redesign, <em class="ai">end to end.</em></h1>
+      <p class="lede">Install Stardust and run your first redesign. From any URL to a complete redesigned static site — every page, not just the home.</p>
+    </div>
+  </section>
+
+  <section data-section="install" data-intent="convert" data-layout="prose-code" data-items="1" id="install">
+    <div class="prose-col">
+      <h2>Install.</h2>
+      <p>From inside Claude Code, add the two marketplaces and install both plugins:</p>
+      <div class="code-block code-block--scroll">
+        <button class="copy-btn" type="button" aria-label="Copy install commands">copy</button>
+        <pre><code>$ claude plugin marketplace add adobe/skills
+$ claude plugin install stardust@adobe-skills
+
+$ claude plugin marketplace add pbakaus/impeccable
+$ claude plugin install impeccable@impeccable</code></pre>
+      </div>
+      <p class="confirm-beat">that's it — run /stardust:uplift on any URL.</p>
+      <div class="chip-row" aria-label="Key facts">
+        <span class="chip">Requires Claude Code</span>
+        <span class="chip">Free</span>
+        <span class="chip">Apache 2.0</span>
+      </div>
+      <p>Stardust is free and open source under the Apache 2.0 license — there is no paid tier.</p>
+      <p class="fine">Built on <a href="https://impeccable.style/">impeccable</a>.</p>
+      <p>Both plugins need to be installed for Stardust to run. Once installed, the /stardust:* slash commands are available in any Claude Code session. The <a href="/docs/commands/">commands reference</a> lists every sub-command and flag.</p>
+    </div>
+  </section>
+
+  <section data-section="shortcut" data-intent="explain" data-layout="prose-code" id="shortcut">
+    <div class="prose-col">
+      <span class="eyebrow">Shortcut</span>
+      <h2>One URL, three variants.</h2>
+      <p>The fastest way to get started. Skip the four-step pipeline and run a single command:</p>
+      <div class="code-block code-block--scroll">
+        <button class="copy-btn" type="button" aria-label="Copy uplift command">copy</button>
+        <pre><code>› /stardust:uplift https://example.com</code></pre>
+      </div>
+      <p>uplift collapses extract → direct → prototype × 3 into a single opinionated command. It picks every variability axis from the captured brand surface — palette and typography are pinned, the cinematic register is read from the brand personality, and the "what if…" candidates for variants B and C are walked from a closed catalog so nothing improvises. Output: variant A ("tomorrow's version of the site you have today"), B ("what if we amplified &lt;captured trait&gt;?"), and C ("what if motion was part of the identity?").</p>
+      <p>Or follow the long form below when you want a full multi-page migration with explicit direction.</p>
+    </div>
+  </section>
+
+  <section data-section="main-flow" data-intent="explain" data-layout="prose-code" id="main-flow">
+    <div class="prose-col">
+      <span class="eyebrow">Main flow</span>
+      <h2>Four sub-commands. One pipeline.</h2>
+      <p>Stardust is opinionated about which redesign to make and runs it as a chain of commands. Each command writes its own artifacts; the next reads them. Reading the artifacts back, you'll see the whole reasoning trace — palette picks, divergence inputs, the seed for today.</p>
+      <div class="code-block code-block--scroll">
+        <button class="copy-btn" type="button" aria-label="Copy the four pipeline commands">copy</button>
+        <pre><code># the four commands you'll meet today
+› /stardust:extract — capture the current site
+› /stardust:direct — resolve a redesign direction
+› /stardust:prototype — generate three variants per page
+› /stardust:migrate — ship deployable static HTML</code></pre>
+      </div>
+      <p>Math, not mysticism. Every choice has a provenance. The walkthrough below focuses on the home page; running each command without a slug fans out to the rest. You can stop after any step and pick up later — Stardust does not lock you into a pipeline.</p>
+      <div class="callout">
+        <p><strong>New site, not a redesign?</strong> Stardust also designs new sites from a brief. Redesigning an existing source is the main use case today; new-site design works but is less battle-tested.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="step-1" data-intent="instruct" data-layout="prose-code" id="step-1">
+    <div class="prose-col">
+      <span class="eyebrow">Step 1</span>
+      <h2>Capture the current state.</h2>
+      <p>Point Stardust at a URL:</p>
+      <div class="code-block code-block--scroll">
+        <button class="copy-btn" type="button" aria-label="Copy extract command">copy</button>
+        <pre><code>› /stardust:extract https://example.com</code></pre>
+      </div>
+      <p>If the project hasn't been set up yet, extract starts with a short interview that writes PRODUCT.md at the project root. You answer in your own words; the file captures what you're building and who it's for. Then the crawl begins.</p>
+      <p>It crawls five pages by default — the home plus four pillar pages — captures the brand surface (palette, typography, voice, motifs), and writes everything under stardust/current/. The crawl runs in a real browser, so JavaScript-rendered sites work the same as server-rendered ones.</p>
+      <p>When it finishes, open the eyeball-check artifact:</p>
+      <div class="code-block code-block--scroll">
+        <button class="copy-btn" type="button" aria-label="Copy brand-review command">copy</button>
+        <pre><code>› open stardust/current/brand-review.html</code></pre>
+      </div>
+      <p>You'll see a self-contained visual review of what was captured — colors, type, logo, motifs, voice samples, and any tensions the detector surfaced. Spend a minute here. If something looks wrong, re-run extract with --refresh &lt;slug&gt; on the misread page before moving on. Misreads are cheap to fix here and expensive later.</p>
+    </div>
+  </section>
+
+  <section data-section="step-2" data-intent="instruct" data-layout="prose-code" id="step-2">
+    <div class="prose-col">
+      <span class="eyebrow">Step 2</span>
+      <h2>Direct the redesign.</h2>
+      <p>This is the only step where you say what you want. A short phrase is enough.</p>
+      <div class="code-block code-block--wrap">
+        <button class="copy-btn" type="button" aria-label="Copy direct example">copy</button>
+        <pre><code>› /stardust:direct "more editorial. lean into typography. keep the existing palette."</code></pre>
+      </div>
+      <p>Stardust restates your phrase in dimensional vocabulary, asks at most two clarifying questions if anything is underspecified, and resolves a target direction. It writes the target PRODUCT.md, DESIGN.md, and DESIGN.json at the project root, plus a full reasoning trace at stardust/direction.md.</p>
+      <p>The trace is worth reading. It tells you which axes the phrase moved, what the seed picked from md5(brand · date), which font deck and palette were chosen, and why. If you disagree, rerun with --re-direct.</p>
+      <div class="callout">
+        <p><strong>Pin what matters to you.</strong> You can lock the type stack and palette by saying so in the phrase: "keep typography and palette." Stardust enters brand-faithful mode and only rolls the dimensions you didn't lock.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="step-3" data-intent="instruct" data-layout="prose-code" id="step-3">
+    <div class="prose-col">
+      <span class="eyebrow">Step 3</span>
+      <h2>Prototype the home page.</h2>
+      <div class="code-block code-block--scroll">
+        <button class="copy-btn" type="button" aria-label="Copy prototype command">copy</button>
+        <pre><code>› /stardust:prototype home</code></pre>
+      </div>
+      <p>Two things happen. First, Stardust writes a per-page composition brief at stardust/prototypes/home-shape.md — the section list, layout strategy, content sources, anything the brief reviewer would want to challenge before the render. You'll be asked to confirm.</p>
+      <p>Once you confirm, the proposed redesign renders into stardust/prototypes/home-proposed.html, and a viewer opens automatically — your current home on the left, the proposed redesign on the right. Review it. If something needs adjusting, edit home-shape.md and re-run prototype to refresh.</p>
+      <div class="callout">
+        <p><strong>For the rest of the site, drop the slug.</strong> Run /stardust:prototype without a slug and Stardust prototypes every directed page in turn — same direction, same brand surface, page-aware composition for each.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="step-4" data-intent="instruct" data-layout="prose-code" id="step-4">
+    <div class="prose-col">
+      <span class="eyebrow">Step 4</span>
+      <h2>Approve and migrate.</h2>
+      <p>When the home prototype reads the way you want, signal approval — click the Approve button in the viewer, or just say "approve home" in the chat.</p>
+      <p>Then ship the home page:</p>
+      <div class="code-block code-block--scroll">
+        <button class="copy-btn" type="button" aria-label="Copy migrate home command">copy</button>
+        <pre><code>› /stardust:migrate home</code></pre>
+      </div>
+      <p>The output is a deployable static HTML file. Drop it on GitHub Pages, your CDN, or any host that serves files. No build step. No framework lock-in.</p>
+      <p>For the whole site, drop the slug:</p>
+      <div class="code-block code-block--scroll">
+        <button class="copy-btn" type="button" aria-label="Copy migrate command">copy</button>
+        <pre><code>› /stardust:migrate</code></pre>
+      </div>
+      <p>Migrate runs over every approved page in stardust/state.json and emits a complete static site, ready to publish.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer data-section="footer" data-intent="navigate" data-layout="centered" class="on-ink">
+  <div class="footer-inner">
+    <a class="brand-mark" href="/" aria-label="Stardust home">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 0l2.7 9.3L24 12l-9.3 2.7L12 24l-2.7-9.3L0 12l9.3-2.7z" fill="#e8b95e"/>
+      </svg>
+      <span class="wordmark">Stardust</span>
+    </a>
+    <p class="footer-tagline">A design-phase toolkit by the AEM team at Adobe. Math, not mysticism.</p>
+    <p class="footer-facts">Open source · Apache 2.0 · built by the AEM team at Adobe</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/docs/">Docs</a>
+      <a href="https://github.com/adobe/skills/tree/main/plugins/stardust">GitHub</a>
+      <a href="/aem">AEM</a>
+      <a href="https://github.com/adobe/skills/blob/main/LICENSE">Apache 2.0 License</a>
+    </nav>
+    <p class="footer-sigil">brief + seed = star · 2026</p>
+  </div>
+</footer>
+</div>
+
+<script>
+/* Copy buttons — the file's only JS (per docs-shape.md § Interaction model).
+   clipboard.writeText with execCommand fallback; text-only confirmation,
+   1.5s revert (F-005). Copies the verbatim textContent of the sibling pre. */
+(function () {
+  document.querySelectorAll('.code-block .copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = btn.closest('.code-block').querySelector('pre');
+      var text = pre ? pre.textContent : '';
+      function fallbackCopy() {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+      function confirmState() {
+        var original = btn.textContent;
+        btn.textContent = 'copied';
+        btn.classList.add('is-copied');
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.classList.remove('is-copied');
+        }, 1500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(confirmState, function () { fallbackCopy(); confirmState(); });
+      } else {
+        fallbackCopy();
+        confirmState();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

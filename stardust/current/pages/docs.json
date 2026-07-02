@@ -170,5 +170,23 @@
     "spaShellSuspect": false,
     "screenshotMode": "fullPage"
   },
-  "screenshot": "assets/screenshots/docs.png"
+  "screenshot": "assets/screenshots/docs.png",
+  "codeBlocks": {
+    "_provenance": {
+      "capturedBy": "curl of server-rendered HTML",
+      "fetchedAt": "2026-07-02T13:30:57.909Z",
+      "note": "crawler innerText capture missed pre contents; re-captured verbatim from static HTML (EDS server-rendered). Includes the FULL text of the Step 2 example that truncates visually on the live site (audit F-003)."
+    },
+    "blocks": [
+      "$ claude plugin marketplace add adobe/skills\n$ claude plugin install stardust@adobe-skills\n\n$ claude plugin marketplace add pbakaus/impeccable\n$ claude plugin install impeccable@impeccable",
+      "› /stardust:uplift https://example.com",
+      "# the four commands you'll meet today\n› /stardust:extract — capture the current site\n› /stardust:direct — resolve a redesign direction\n› /stardust:prototype — generate three variants per page\n› /stardust:migrate — ship deployable static HTML",
+      "› /stardust:extract https://example.com",
+      "› open stardust/current/brand-review.html",
+      "› /stardust:direct \"more editorial. lean into typography. keep the existing palette.\"",
+      "› /stardust:prototype home",
+      "› /stardust:migrate home",
+      "› /stardust:migrate"
+    ]
+  }
 }
